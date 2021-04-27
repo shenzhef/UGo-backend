@@ -61,6 +61,19 @@
     },
     "paseador": {
       "type": "boolean"
+    },
+    "phone": {
+      "type": "integer"
+    },
+    "dog": {
+      "type": "json"
+    },
+    "age": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string",
+      "required": true
     }
   }
 }
