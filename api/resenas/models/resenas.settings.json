@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "resenas",
+  "info": {
+    "name": "reseñas"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "stars": {
+      "type": "integer"
+    },
+    "comment": {
+      "type": "string"
+    },
+    "paseador": {
+      "plugin": "admin",
+      "model": "user"
+    },
+    "usuario": {
+      "plugin": "admin",
+      "model": "user"
+    }
+  }
+}

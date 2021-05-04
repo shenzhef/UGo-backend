@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/paseadors",
+      "handler": "paseador.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/paseadors/count",
+      "handler": "paseador.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/paseadors/:id",
+      "handler": "paseador.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/paseadors",
+      "handler": "paseador.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/paseadors/:id",
+      "handler": "paseador.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/paseadors/:id",
+      "handler": "paseador.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

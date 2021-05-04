@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "paseadors",
+  "info": {
+    "name": "Paseador",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "password": {
+      "type": "password"
+    },
+    "documento": {
+      "type": "string"
+    },
+    "users_permissions_role": {
+      "plugin": "users-permissions",
+      "model": "role"
+    },
+    "email": {
+      "type": "email"
+    },
+    "last_name": {
+      "type": "string"
+    }
+  }
+}

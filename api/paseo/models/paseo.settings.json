@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "paseos",
+  "info": {
+    "name": "Paseo",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fecha": {
+      "type": "date"
+    },
+    "paseador": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "direccion": {
+      "type": "string"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "start": {
+      "type": "time"
+    },
+    "end": {
+      "type": "time"
+    }
+  }
+}
