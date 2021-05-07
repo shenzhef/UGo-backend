@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "feeds",
   "info": {
-    "name": "feed"
+    "name": "feed",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -16,7 +17,8 @@
       "model": "user"
     },
     "paseador": {
-      "model": "paseador"
+      "plugin": "users-permissions",
+      "model": "user"
     },
     "date": {
       "type": "datetime"
@@ -31,6 +33,15 @@
     },
     "status": {
       "type": "integer"
+    },
+    "direccion": {
+      "type": "string"
+    },
+    "start": {
+      "type": "time"
+    },
+    "end": {
+      "type": "time"
     }
   }
 }

@@ -74,6 +74,18 @@
     "name": {
       "type": "string",
       "required": true
+    },
+    "thumb": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }
