@@ -31,6 +31,9 @@
     },
     "end": {
       "type": "time"
+    },
+    "status": {
+      "type": "json"
     }
   }
 }

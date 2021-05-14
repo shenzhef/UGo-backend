@@ -89,6 +89,9 @@
     },
     "notification_token": {
       "type": "string"
+    },
+    "zone_paseo": {
+      "type": "string"
     }
   }
 }
