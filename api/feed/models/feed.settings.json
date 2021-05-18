@@ -42,6 +42,9 @@
     },
     "end": {
       "type": "time"
+    },
+    "dog": {
+      "type": "json"
     }
   }
 }
