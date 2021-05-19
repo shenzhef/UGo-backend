@@ -34,9 +34,6 @@
     "status": {
       "type": "integer"
     },
-    "direccion": {
-      "type": "string"
-    },
     "start": {
       "type": "time"
     },
@@ -44,6 +41,9 @@
       "type": "time"
     },
     "dog": {
+      "type": "json"
+    },
+    "direccion": {
       "type": "json"
     }
   }

@@ -19,9 +19,6 @@
       "plugin": "users-permissions",
       "model": "user"
     },
-    "direccion": {
-      "type": "string"
-    },
     "user": {
       "plugin": "users-permissions",
       "model": "user"
@@ -36,6 +33,9 @@
       "type": "json"
     },
     "dog": {
+      "type": "json"
+    },
+    "direccion": {
       "type": "json"
     }
   }
