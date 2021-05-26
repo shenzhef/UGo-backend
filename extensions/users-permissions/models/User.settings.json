@@ -95,6 +95,9 @@
     },
     "description": {
       "type": "string"
+    },
+    "bornDate": {
+      "type": "date"
     }
   }
 }

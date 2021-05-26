@@ -37,6 +37,9 @@
     },
     "direccion": {
       "type": "json"
+    },
+    "bundleID": {
+      "type": "integer"
     }
   }
 }

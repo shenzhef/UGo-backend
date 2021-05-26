@@ -9177,6 +9177,14 @@ strapi-provider-email-sendmail@3.6.0:
     sendmail "^1.6.1"
     strapi-utils "3.6.0"
 
+strapi-provider-email-sendmail@^3.6.2:
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/strapi-provider-email-sendmail/-/strapi-provider-email-sendmail-3.6.2.tgz#66bebfae125b43b7c8d20954f0c1c10b4222aaf2"
+  integrity sha512-OPOsND7ErREBZ94I//BBES6RuxKdFJDSvuUhOPW9kHAI5YKs1guKA9vzciQgs52vxKPOVpaKeNL+r0EP47sT1g==
+  dependencies:
+    sendmail "^1.6.1"
+    strapi-utils "3.6.2"
+
 strapi-provider-upload-cloudinary@^3.6.2:
   version "3.6.2"
   resolved "https://registry.yarnpkg.com/strapi-provider-upload-cloudinary/-/strapi-provider-upload-cloudinary-3.6.2.tgz#8547e28b942bc4835ab390b0548883cdd053ade6"
@@ -9194,6 +9202,18 @@ strapi-utils@3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/strapi-utils/-/strapi-utils-3.6.0.tgz#0b608c95170dd2687d6ab93845cfa007d27d08d2"
   integrity sha512-UgXejSAgOGKsN99c7B/dslV5UJTFIxHXYOKlKEomQWLvK3cUxqN4T9maUxbncyyMvZ/QIvUkyjRuRv71DndNbg==
+  dependencies:
+    "@sindresorhus/slugify" "1.1.0"
+    date-fns "^2.19.0"
+    lodash "4.17.21"
+    pino "^4.7.1"
+    pluralize "^8.0.0"
+    yup "0.29.3"
+
+strapi-utils@3.6.2:
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/strapi-utils/-/strapi-utils-3.6.2.tgz#2530295fe452db8a715df1f892f3dbed2db46338"
+  integrity sha512-i7HAysUTXKyfNhXBMNUx2T+ADtUWDJSA/35ndO3e8t8hwfuiHZBm43hOMLZunPY376W+WWO9CTgHdtZb2qZ+vA==
   dependencies:
     "@sindresorhus/slugify" "1.1.0"
     date-fns "^2.19.0"

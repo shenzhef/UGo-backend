@@ -11,4 +11,11 @@ module.exports = ({ env }) => ({
       delete: {},
     },
   },
+  email: {
+    provider: "sendmail",
+    settings: {
+      defaultFrom: "martin.miauro@gmail.com",
+      defaultReplyTo: "martin.miauro@gmail.com",
+    },
+  },
 });

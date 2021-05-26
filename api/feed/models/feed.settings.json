@@ -45,6 +45,12 @@
     },
     "direccion": {
       "type": "json"
+    },
+    "startdate": {
+      "type": "date"
+    },
+    "bundleID": {
+      "type": "integer"
     }
   }
 }
