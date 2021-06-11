@@ -15,26 +15,26 @@ module.exports = async () => {
       }
       // if()
       socket.on("join", (data) => {
-        if (!users.find((user) => user.user_id == data.user_id)) {
-          //en vez de este if neceisto renovar el socket id en la reconexion
-          const user = {
-            socketId: socket.id,
-            ...data,
-          };
+        // if (!users.find((user) => user.user_id == data.user_id)) {
+        //en vez de este if neceisto renovar el socket id en la reconexion
+        const user = {
+          socketId: socket.id,
+          ...data,
+        };
 
-          users.push(user);
-          socket.emit("new-user", user);
-          console.log("USUARIOS", users);
+        users.push(user);
+        socket.emit("new-user", user);
+        console.log("USUARIOS", users);
 
-          if (data.room) {
-            socket.join(data.room);
-            rooms.push({ room: data.room, user_id: data.user_id });
-            io.to(data.room).emit("join-room", {
-              room: data.room,
-              user: user,
-            });
-          }
+        if (data.room) {
+          socket.join(data.room);
+          rooms.push({ room: data.room, user_id: data.user_id });
+          io.to(data.room).emit("join-room", {
+            room: data.room,
+            user: user,
+          });
         }
+        // }
       });
 
       socket.on("position-change", (data) => {
