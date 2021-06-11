@@ -45,11 +45,8 @@ module.exports = async () => {
         //   data
         //   })  //sennd multiple rooms
 
-        data.paseos_id.forEach((room_id) => {
-          // Podria checkear q ese room_id este en rooms
-          socket.to(room_id).emit("paseador-position", {
-            data,
-          });
+        socket.to(data.paseos_id).emit("paseador-position", {
+          data,
         });
       });
       socket.on("status-paseo", (data) => {
