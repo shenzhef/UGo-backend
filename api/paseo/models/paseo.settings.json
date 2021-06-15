@@ -40,6 +40,9 @@
     },
     "bundleID": {
       "type": "integer"
+    },
+    "review": {
+      "model": "resenas"
     }
   }
 }

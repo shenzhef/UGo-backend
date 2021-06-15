@@ -24,7 +24,6 @@ module.exports = async () => {
 
         users.push(user);
         socket.emit("new-user", user);
-        console.log("USUARIOS", users);
 
         if (data.room) {
           socket.join(data.room);

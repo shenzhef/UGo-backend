@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "resenas",
   "info": {
-    "name": "reseñas"
+    "name": "reviews",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -18,12 +19,18 @@
       "type": "string"
     },
     "paseador": {
-      "plugin": "admin",
+      "plugin": "users-permissions",
       "model": "user"
     },
-    "usuario": {
-      "plugin": "admin",
+    "user": {
+      "plugin": "users-permissions",
       "model": "user"
+    },
+    "paseo": {
+      "model": "paseo"
+    },
+    "nps": {
+      "type": "string"
     }
   }
 }
