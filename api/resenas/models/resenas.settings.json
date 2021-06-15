@@ -26,11 +26,12 @@
       "plugin": "users-permissions",
       "model": "user"
     },
-    "paseo": {
-      "model": "paseo"
-    },
     "nps": {
       "type": "string"
+    },
+    "paseo": {
+      "model": "paseo",
+      "via": "review"
     }
   }
 }
