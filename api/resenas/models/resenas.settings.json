@@ -30,8 +30,7 @@
       "type": "string"
     },
     "paseo": {
-      "model": "paseo",
-      "via": "review"
+      "model": "paseo"
     }
   }
 }
