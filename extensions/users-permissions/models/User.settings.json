@@ -90,14 +90,17 @@
     "notification_token": {
       "type": "string"
     },
-    "zone_paseo": {
-      "type": "string"
-    },
     "description": {
       "type": "string"
     },
     "bornDate": {
       "type": "date"
+    },
+    "paseador_zone": {
+      "type": "json"
+    },
+    "availability": {
+      "type": "json"
     }
   }
 }

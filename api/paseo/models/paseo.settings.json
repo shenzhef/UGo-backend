@@ -40,6 +40,10 @@
     },
     "bundleID": {
       "type": "integer"
+    },
+    "review": {
+      "via": "paseo",
+      "model": "resenas"
     }
   }
 }
