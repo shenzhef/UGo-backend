@@ -11,6 +11,7 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "mercadopago": "^1.5.8",
     "socket.io": "^4.1.2",
     "strapi": "3.6.0",
     "strapi-admin": "3.6.0",

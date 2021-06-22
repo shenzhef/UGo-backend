@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transactions",
+  "info": {
+    "name": "transaction",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "payment_id": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    },
+    "status": {
+      "type": "string"
+    },
+    "total_amount": {
+      "type": "integer"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "paseador": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "paseos": {
+      "collection": "paseo",
+      "via": "transaction"
+    },
+    "feeds": {
+      "collection": "feed",
+      "via": "transaction"
+    }
+  }
+}

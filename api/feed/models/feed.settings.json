@@ -51,6 +51,10 @@
     },
     "bundleID": {
       "type": "integer"
+    },
+    "transaction": {
+      "via": "feeds",
+      "model": "transaction"
     }
   }
 }
