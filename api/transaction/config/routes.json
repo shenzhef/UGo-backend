@@ -9,6 +9,14 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/transactions/notification",
+      "handler": "Notifications.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "GET",
       "path": "/transactions/count",
       "handler": "transaction.count",
