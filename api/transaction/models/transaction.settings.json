@@ -38,6 +38,9 @@
     "feeds": {
       "collection": "feed",
       "via": "transaction"
+    },
+    "bundleID": {
+      "type": "integer"
     }
   }
 }
