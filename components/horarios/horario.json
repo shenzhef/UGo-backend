@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_horarios_horarios",
+  "info": {
+    "name": "horario",
+    "icon": "align-center",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "start": {
+      "type": "time"
+    },
+    "end": {
+      "type": "time"
+    }
+  }
+}

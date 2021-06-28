@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "turnos_paseadores",
+  "info": {
+    "name": "turnos_paseadores"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "turnos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "horarios.horario"
+    }
+  }
+}

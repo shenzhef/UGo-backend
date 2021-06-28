@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/turnos-paseadores",
+      "handler": "turnos-paseadores.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/turnos-paseadores",
+      "handler": "turnos-paseadores.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/turnos-paseadores",
+      "handler": "turnos-paseadores.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

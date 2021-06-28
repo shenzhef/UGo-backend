@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "reviews",
+  "info": {
+    "name": "reviews_nps",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nps": {
+      "type": "component",
+      "repeatable": true,
+      "component": "review.nps"
+    }
+  }
+}

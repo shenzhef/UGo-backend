@@ -2,12 +2,16 @@
   "collectionName": "components_review_nps",
   "info": {
     "name": "nps",
-    "icon": "asterisk"
+    "icon": "asterisk",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
       "type": "string"
+    },
+    "value": {
+      "type": "integer"
     }
   }
 }
