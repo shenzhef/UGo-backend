@@ -99,8 +99,10 @@
     "paseador_zone": {
       "type": "json"
     },
-    "availability": {
-      "type": "json"
+    "turnos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "horarios.horario"
     }
   }
 }
