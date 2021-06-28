@@ -26,9 +26,6 @@
       "plugin": "users-permissions",
       "model": "user"
     },
-    "nps": {
-      "type": "string"
-    },
     "paseo": {
       "model": "paseo",
       "via": "review"

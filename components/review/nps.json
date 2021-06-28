@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_review_nps",
+  "info": {
+    "name": "nps",
+    "icon": "asterisk"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}

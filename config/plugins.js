@@ -12,7 +12,10 @@ module.exports = ({ env }) => ({
     },
   },
   email: {
-    provider: "sendmail",
+    provider: "sendgrid",
+    providerOptions: {
+      apiKey: env("SENDGRID_API"),
+    },
     settings: {
       defaultFrom: "martin.miauro@gmail.com",
       defaultReplyTo: "martin.miauro@gmail.com",

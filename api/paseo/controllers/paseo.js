@@ -1,8 +1,20 @@
-'use strict';
+const { sanitizeEntity } = require("strapi-utils");
 
-/**
- * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
- * to customize this controller
- */
+module.exports = {
+  async find(ctx) {
+    let entities;
+    if (ctx.query["status.started"])
+      ctx.query["status.started"] = parseInt(ctx.query["status.started"]);
 
-module.exports = {};
+    if (ctx.query._q) {
+      entities = await strapi.services.paseo.search(ctx.query);
+    } else {
+      //   entities = await strapi.services.paseo.find(ctx.query);
+      entities = await strapi.query("paseo").model.find(ctx.query);
+    }
+
+    return entities.map((entity) =>
+      sanitizeEntity(entity, { model: strapi.models.paseo })
+    );
+  },
+};
