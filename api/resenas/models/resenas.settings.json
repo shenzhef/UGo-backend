@@ -29,6 +29,11 @@
     "paseo": {
       "model": "paseo",
       "via": "review"
+    },
+    "nps": {
+      "type": "component",
+      "repeatable": true,
+      "component": "review.nps"
     }
   }
 }
