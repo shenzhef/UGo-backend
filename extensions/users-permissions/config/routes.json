@@ -349,6 +349,21 @@
       "config": {
         "policies": [],
         "prefix": "",
+        "description": "Retrieve all user documents",
+        "tag": {
+          "plugin": "users-permissions",
+          "name": "User",
+          "actionType": "find"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/paseadores",
+      "handler": "User.find_paseadores",
+      "config": {
+        "policies": [],
+        "prefix": "",
         "description": "Retrieve all paseadores",
         "tag": {
           "plugin": "users-permissions",

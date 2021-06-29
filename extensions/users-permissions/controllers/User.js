@@ -23,9 +23,10 @@ module.exports = {
         ctx.query,
         populate
       );
-      // users.forEach((user) => {
+      // users = await await strapi
+      //   .query("user", "users-permissions")
+      //   .find({ turnos: { $elemMatch: { start: "07:00:00.000" } } }, populate);
 
-      // })
       // users.map(async (user) => {
       //   const count_review = await strapi
       //     .query("resenas")
