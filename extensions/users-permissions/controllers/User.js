@@ -10,7 +10,7 @@ module.exports = {
     let users;
     let reviews;
     if (_.has(ctx.query, "_q")) {
-      // use core strapi query to search for users
+      // use core strapi query to search f
       users = await strapi
         .query("user", "users-permissions")
         .search(ctx.query, populate);
