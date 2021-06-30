@@ -38,16 +38,17 @@
     "direccion": {
       "type": "json"
     },
-    "bundleID": {
-      "type": "integer"
-    },
     "review": {
-      "via": "paseo",
-      "model": "resenas"
+      "model": "resenas",
+      "via": "paseo"
     },
     "transaction": {
-      "via": "paseos",
-      "model": "transaction"
+      "model": "transaction",
+      "via": "paseos"
+    },
+    "bundleID": {
+      "type": "string",
+      "unique": true
     }
   }
 }

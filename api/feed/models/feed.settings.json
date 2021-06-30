@@ -49,12 +49,13 @@
     "startdate": {
       "type": "date"
     },
-    "bundleID": {
-      "type": "integer"
-    },
     "transaction": {
-      "via": "feeds",
-      "model": "transaction"
+      "model": "transaction",
+      "via": "feeds"
+    },
+    "bundleID": {
+      "type": "string",
+      "unique": true
     }
   }
 }

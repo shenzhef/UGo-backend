@@ -27,8 +27,8 @@
       "model": "user"
     },
     "paseo": {
-      "model": "paseo",
-      "via": "review"
+      "via": "review",
+      "model": "paseo"
     },
     "nps": {
       "type": "component",

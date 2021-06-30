@@ -32,12 +32,12 @@
       "model": "user"
     },
     "paseos": {
-      "collection": "paseo",
-      "via": "transaction"
+      "via": "transaction",
+      "collection": "paseo"
     },
     "feeds": {
-      "collection": "feed",
-      "via": "transaction"
+      "via": "transaction",
+      "collection": "feed"
     },
     "bundleID": {
       "type": "integer"
