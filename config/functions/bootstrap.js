@@ -1,4 +1,7 @@
+"use strict";
 module.exports = async () => {
+  // console.log(strapi.services);
+
   process.nextTick(() => {
     var io = require("socket.io")(strapi.server);
     let users = [];
@@ -8,6 +11,11 @@ module.exports = async () => {
       access_token:
         "TEST-2825597988473691-120214-d4d82f5bbc8b8f574265339f6d4cf0ae-102188289",
     });
+
+    // var json_file = require("fs").readFileSync("./razas.json", "utf-8");
+
+    // const data = json.parrse(json_file);
+    // console.log(file);
 
     // var preference = {
     //   items: [

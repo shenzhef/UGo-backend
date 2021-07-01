@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/razas",
+      "handler": "razas.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/razas",
+      "handler": "razas.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/razas",
+      "handler": "razas.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

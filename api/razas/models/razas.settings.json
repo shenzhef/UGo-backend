@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "razas",
+  "info": {
+    "name": "razas",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "razas": {
+      "type": "component",
+      "repeatable": true,
+      "component": "razas.raza"
+    }
+  }
+}

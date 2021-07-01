@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_razas_razas",
+  "info": {
+    "name": "raza",
+    "icon": "align-left",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}
