@@ -17,6 +17,22 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/transactions/createpreference",
+      "handler": "transaction.createpreference",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/transactions/feedback",
+      "handler": "transaction.feedback",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "GET",
       "path": "/transactions/count",
       "handler": "transaction.count",

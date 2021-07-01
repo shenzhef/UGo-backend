@@ -12,22 +12,6 @@ module.exports = async () => {
         "TEST-2825597988473691-120214-d4d82f5bbc8b8f574265339f6d4cf0ae-102188289",
     });
 
-    // var json_file = require("fs").readFileSync("./razas.json", "utf-8");
-
-    // const data = json.parrse(json_file);
-    // console.log(file);
-
-    // var preference = {
-    //   items: [
-    //     {
-    //       title: "Paseo de poncho",
-    //       quantity: 1,
-    //       currency_id: "ARS",
-    //       unit_price: 250,
-    //     },
-    //   ],
-    // };
-
     // mercadopago.preferences
     //   .create(preference)
     //   .then(function (response) {
