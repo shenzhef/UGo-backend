@@ -59,6 +59,9 @@
       "type": "component",
       "repeatable": false,
       "component": "in-trip.trip"
+    },
+    "comments": {
+      "type": "string"
     }
   }
 }

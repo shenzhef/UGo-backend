@@ -58,6 +58,9 @@
       "type": "component",
       "repeatable": false,
       "component": "cancelation.cancelled"
+    },
+    "comments": {
+      "type": "string"
     }
   }
 }
