@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/config-dogs",
+      "handler": "config-dogs.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/config-dogs",
+      "handler": "config-dogs.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/config-dogs",
+      "handler": "config-dogs.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "config_dogs",
+  "info": {
+    "name": "config_dogs"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "razas": {
+      "type": "component",
+      "repeatable": true,
+      "component": "config-dogs.raza"
+    },
+    "sizes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "config-dogs.sizes"
+    }
+  }
+}

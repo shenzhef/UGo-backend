@@ -57,7 +57,7 @@
     "raza": {
       "type": "component",
       "repeatable": false,
-      "component": "razas.raza"
+      "component": "config-dogs.raza"
     },
     "sex": {
       "type": "enumeration",

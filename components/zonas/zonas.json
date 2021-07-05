@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_zonas_zonas",
+  "info": {
+    "name": "zonas",
+    "icon": "anchor",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "barrio": {
+      "type": "string"
+    },
+    "comuna": {
+      "type": "integer"
+    },
+    "polygon": {
+      "type": "json"
+    },
+    "active": {
+      "type": "boolean"
+    }
+  }
+}

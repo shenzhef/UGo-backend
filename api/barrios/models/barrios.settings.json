@@ -1,9 +1,8 @@
 {
   "kind": "singleType",
-  "collectionName": "razas",
+  "collectionName": "barrios",
   "info": {
-    "name": "razas",
-    "description": ""
+    "name": "barrios"
   },
   "options": {
     "increments": true,
@@ -12,10 +11,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "razas": {
+    "zonas": {
       "type": "component",
       "repeatable": true,
-      "component": "razas.raza"
+      "component": "zonas.zonas"
     }
   }
 }

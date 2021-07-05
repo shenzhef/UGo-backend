@@ -2,24 +2,24 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/razas",
-      "handler": "razas.find",
+      "path": "/barrios",
+      "handler": "barrios.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/razas",
-      "handler": "razas.update",
+      "path": "/barrios",
+      "handler": "barrios.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/razas",
-      "handler": "razas.delete",
+      "path": "/barrios",
+      "handler": "barrios.delete",
       "config": {
         "policies": []
       }

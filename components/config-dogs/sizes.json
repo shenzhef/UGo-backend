@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_config_dogs_sizes",
+  "info": {
+    "name": "sizes",
+    "icon": "adjust"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "height": {
+      "type": "string"
+    }
+  }
+}
