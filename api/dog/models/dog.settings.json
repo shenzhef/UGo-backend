@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dogs",
+  "info": {
+    "name": "dog",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "age": {
+      "type": "integer"
+    },
+    "avatar": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "carousel": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "description": {
+      "type": "string"
+    },
+    "owner": {
+      "via": "dogs",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "size": {
+      "type": "string"
+    },
+    "raza": {
+      "type": "component",
+      "repeatable": false,
+      "component": "razas.raza"
+    },
+    "sex": {
+      "type": "enumeration",
+      "enum": [
+        "Hembra",
+        "Macho"
+      ]
+    }
+  }
+}

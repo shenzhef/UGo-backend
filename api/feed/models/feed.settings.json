@@ -31,23 +31,14 @@
         "alerta"
       ]
     },
-    "status": {
-      "type": "integer"
-    },
     "start": {
       "type": "time"
     },
     "end": {
       "type": "time"
     },
-    "dog": {
-      "type": "json"
-    },
     "direccion": {
       "type": "json"
-    },
-    "startdate": {
-      "type": "date"
     },
     "transaction": {
       "model": "transaction",
@@ -56,6 +47,17 @@
     "bundleID": {
       "type": "string",
       "unique": false
+    },
+    "dog": {
+      "model": "dog"
+    },
+    "isAccepted": {
+      "type": "boolean"
+    },
+    "cancelled": {
+      "type": "component",
+      "repeatable": false,
+      "component": "cancelation.cancelled"
     }
   }
 }

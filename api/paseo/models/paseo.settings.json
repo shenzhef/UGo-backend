@@ -32,9 +32,6 @@
     "status": {
       "type": "json"
     },
-    "dog": {
-      "type": "json"
-    },
     "direccion": {
       "type": "json"
     },
@@ -49,6 +46,19 @@
     "bundleID": {
       "type": "string",
       "unique": false
+    },
+    "dog": {
+      "model": "dog"
+    },
+    "cancelled": {
+      "type": "component",
+      "repeatable": false,
+      "component": "cancelation.cancelled"
+    },
+    "data_trip": {
+      "type": "component",
+      "repeatable": false,
+      "component": "in-trip.trip"
     }
   }
 }

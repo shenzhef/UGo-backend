@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_cancelation_cancelleds",
+  "info": {
+    "name": "cancelled",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "date": {
+      "type": "date"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}
