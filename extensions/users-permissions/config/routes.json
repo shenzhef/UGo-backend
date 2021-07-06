@@ -1,0 +1,13 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/users/paseadores",
+      "handler": "User.find_paseadores",
+      "config": {
+        "prefix": "",
+        "policies": []
+      }
+    }
+  ]
+}

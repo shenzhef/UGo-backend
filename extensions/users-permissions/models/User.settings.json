@@ -107,6 +107,11 @@
     },
     "verified": {
       "type": "boolean"
+    },
+    "valoration": {
+      "type": "component",
+      "repeatable": false,
+      "component": "review.nps"
     }
   }
 }

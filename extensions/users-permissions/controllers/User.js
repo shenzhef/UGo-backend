@@ -8,6 +8,7 @@ const sanitizeUser = (user) =>
 module.exports = {
   async find_paseadores(ctx, next, { populate } = {}) {
     let users;
+    let users_reviews;
     let reviews;
     if (_.has(ctx.query, "_q")) {
       // use core strapi query to search f
@@ -15,27 +16,29 @@ module.exports = {
         .query("user", "users-permissions")
         .search(ctx.query, populate);
     } else {
-      reviews = await strapi
-        .query("resenas")
-        .count({ "paseador._id": "60a3ad4ba03ae80015602b1f" });
+      // const paseador_id = ctx.state.user._id;
 
-      users = await strapi.plugins["users-permissions"].services.user.fetchAll(
-        ctx.query,
-        populate
+      // users = await strapi.plugins["users-permissions"].services.user.fetchAll(
+      //   ctx.query,
+      //   populate
+      // );
+
+      users = await await strapi
+        .query("user", "users-permissions")
+        .find({ paseador: true }, populate);
+
+      users_reviews = await Promise.all(
+        users.map(async (user) => {
+          const count_review = await strapi
+            .query("resenas")
+            .count({ "paseador._id": user._id });
+
+          return { ...user, reviews: count_review };
+        })
       );
-      // users = await await strapi
-      //   .query("user", "users-permissions")
-      //   .find({ turnos: { $elemMatch: { start: "07:00:00.000" } } }, populate);
-
-      // users.map(async (user) => {
-      //   const count_review = await strapi
-      //     .query("resenas")
-      //     .count({ "paseador._id": user._id });
-      //   console.log(count_review);
-      // });
       // console.log(users);
     }
 
-    ctx.body = users.map(sanitizeUser);
+    ctx.body = users_reviews.map(sanitizeUser);
   },
 };
