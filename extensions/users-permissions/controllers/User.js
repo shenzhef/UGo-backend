@@ -25,20 +25,28 @@ module.exports = {
 
       users = await await strapi
         .query("user", "users-permissions")
-        .find({ paseador: true }, populate);
+        .find({ paseador: true, ...ctx.query }, populate);
 
-      users_reviews = await Promise.all(
-        users.map(async (user) => {
-          const count_review = await strapi
-            .query("resenas")
-            .count({ "paseador._id": user._id });
+      // users_reviews = await Promise.all(
+      //   users.map(async (user) => {
+      //     const count_review = await strapi
+      //       .query("resenas")
+      //       .count({ "paseador._id": user._id });
 
-          return { ...user, reviews: count_review };
-        })
-      );
-      // console.log(users);
+      //     return { ...user, reviews: count_review };
+      //   })
+      // );
     }
 
-    ctx.body = users_reviews.map(sanitizeUser);
+    ctx.body = users.map(sanitizeUser);
+  },
+  async activity(ctx) {
+    const id = ctx.state.user._id;
+    const entity = await strapi.services.paseo.count({
+      "user._id": id,
+      ...ctx.query,
+    });
+
+    return { total_paseos: entity, user: id };
   },
 };

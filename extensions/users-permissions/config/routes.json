@@ -2,8 +2,17 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/users/paseadores",
+      "path": "/paseadores",
       "handler": "User.find_paseadores",
+      "config": {
+        "prefix": "",
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/users/activity",
+      "handler": "User.activity",
       "config": {
         "prefix": "",
         "policies": []
