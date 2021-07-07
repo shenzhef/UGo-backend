@@ -41,6 +41,13 @@
     },
     "bundleID": {
       "type": "integer"
+    },
+    "payment_type": {
+      "type": "enumeration",
+      "enum": [
+        "cash",
+        "mp"
+      ]
     }
   }
 }

@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_payments_payment_statuses",
+  "info": {
+    "name": "payment_status",
+    "icon": "angle-double-right"
+  },
+  "options": {},
+  "attributes": {
+    "total_amount": {
+      "type": "integer"
+    },
+    "status": {
+      "type": "string"
+    },
+    "payment_type": {
+      "type": "enumeration",
+      "enum": [
+        "cash",
+        "mp"
+      ]
+    },
+    "transaction": {
+      "model": "transaction"
+    }
+  }
+}

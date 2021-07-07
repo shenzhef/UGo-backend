@@ -61,6 +61,11 @@
     },
     "comments": {
       "type": "string"
+    },
+    "payment_info": {
+      "type": "component",
+      "repeatable": false,
+      "component": "payments.payment-status"
     }
   }
 }

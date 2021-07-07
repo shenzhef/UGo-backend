@@ -19,7 +19,7 @@ module.exports = {
         { _id: ctx.request.body.paseador },
         {
           valoration: {
-            stars: 1,
+            stars: 4,
             reviews_total:
               (await strapi.services.resenas.count({
                 "paseador._id": ctx.request.body.paseador,
@@ -27,7 +27,6 @@ module.exports = {
           },
         }
       );
-      console.log("r", r);
       if (entity._id) {
       }
     }

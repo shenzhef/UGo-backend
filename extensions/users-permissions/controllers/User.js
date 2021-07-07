@@ -8,7 +8,7 @@ const sanitizeUser = (user) =>
 module.exports = {
   async find_paseadores(ctx, next, { populate } = {}) {
     let users;
-    let users_reviews;
+    let user_paseos;
     let reviews;
     if (_.has(ctx.query, "_q")) {
       // use core strapi query to search f
@@ -27,18 +27,18 @@ module.exports = {
         .query("user", "users-permissions")
         .find({ paseador: true, ...ctx.query }, populate);
 
-      // users_reviews = await Promise.all(
-      //   users.map(async (user) => {
-      //     const count_review = await strapi
-      //       .query("resenas")
-      //       .count({ "paseador._id": user._id });
+      user_paseos = await Promise.all(
+        users.map(async (user) => {
+          const count_paseos = await strapi
+            .query("paseo")
+            .count({ "paseador._id": user._id });
 
-      //     return { ...user, reviews: count_review };
-      //   })
-      // );
+          return { ...user, total_paseos: count_paseos };
+        })
+      );
     }
 
-    ctx.body = users.map(sanitizeUser);
+    ctx.body = user_paseos.map(sanitizeUser);
   },
   async activity(ctx) {
     const id = ctx.state.user._id;
