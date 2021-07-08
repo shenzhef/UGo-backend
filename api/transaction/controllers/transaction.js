@@ -56,7 +56,8 @@ module.exports = {
       payer: body.payer,
       external_reference: body.external_reference,
       back_urls: {
-        success: "/feedback?linking_url=" + body.linking_url,
+        success:
+          "http://localhost:8080/feedback?linking_url=" + body.linking_url,
         failure: "http://localhost:8080/feedback",
         pending: "http://localhost:8080/feedback",
       },
@@ -86,17 +87,19 @@ module.exports = {
     //     });
     // } else {
     // console.log('customer', customer.response);
-
-    mercadopago.preferences.create(preference).then(function (response) {
-      console.log(response);
-      return {
-        id: response.body.id,
-        init_point: response.body.init_point,
-        sandbox_init_point: response.body.sandbox_init_point,
-        // customer: customer,
-      };
-    });
-
+    // let responseObj = {};
+    const result = mercadopago.preferences
+      .create(preference)
+      .then(function (response) {
+        console.log(response);
+        return {
+          id: response.body.id,
+          init_point: response.body.init_point,
+          sandbox_init_point: response.body.sandbox_init_point,
+          // customer: customer,
+        };
+      });
+    return result;
     // }
     // })
 
