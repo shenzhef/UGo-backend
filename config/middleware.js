@@ -1,7 +1,7 @@
 module.exports = ({ env }) => ({
   settings: {
     cache: {
-      enabled: true,
+      enabled: env.NODE_ENV == "production" ? true : false,
       models: [
         {
           model: "turnos-paseadores",

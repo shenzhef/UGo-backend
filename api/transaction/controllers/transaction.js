@@ -37,7 +37,6 @@ module.exports = {
   async createpreference(ctx) {
     const { body } = ctx.request;
     //process.env
-    console.log(body);
     let preference = {
       items: [
         {
@@ -57,9 +56,11 @@ module.exports = {
       external_reference: body.external_reference,
       back_urls: {
         success:
-          "http://localhost:8080/feedback?linking_url=" + body.linking_url,
-        failure: "http://localhost:8080/feedback",
-        pending: "http://localhost:8080/feedback",
+          strapi.config.server.url +
+          "/transactions/feedback?linking_url=" +
+          body.linking_url,
+        failure: "http://localhost:8080/transactions/feedback",
+        pending: "http://localhost:8080/transactions/feedback",
       },
       payment_methods: {
         installments: 1,
@@ -111,5 +112,9 @@ module.exports = {
     //   console.log(error);
     // });
   },
-  async feedback(ctx) {},
+  async feedback(ctx) {
+    console.log("ACA");
+    console.log(ctx.query);
+    ctx.send("hola");
+  },
 };
