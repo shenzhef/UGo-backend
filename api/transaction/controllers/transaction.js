@@ -37,6 +37,7 @@ module.exports = {
   async createpreference(ctx) {
     const { body } = ctx.request;
     //process.env
+    console.log(body);
     let preference = {
       items: [
         {

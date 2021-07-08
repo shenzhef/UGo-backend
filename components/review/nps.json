@@ -11,7 +11,8 @@
       "type": "integer"
     },
     "stars": {
-      "type": "integer"
+      "type": "integer",
+      "max": 5
     }
   }
 }
