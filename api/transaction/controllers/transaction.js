@@ -115,7 +115,7 @@ module.exports = {
     console.log("ACA");
     console.log(ctx.query);
     ctx.send(
-      `<a style="color:red;" href=${ctx.query.linking_url}/>Volver a ugo </a>`
+      `<p>< style="color:red;" href=${ctx.query.linking_url}>Volver a ugo</p>`
     );
   },
 };

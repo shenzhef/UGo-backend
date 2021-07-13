@@ -1,5 +1,6 @@
 "use strict";
 const mercadopago = require("mercadopago");
+const { sanitizeEntity } = require("strapi-utils");
 
 //REPLACE WITH YOUR ACCESS TOKEN AVAILABLE IN: https://developers.mercadopago.com/panel/credentials
 mercadopago.configurations.setAccessToken(
