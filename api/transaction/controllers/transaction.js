@@ -65,8 +65,7 @@ module.exports = {
       payment_methods: {
         installments: 1,
       },
-      notification_url:
-        "https://u-go-backend-2teup.ondigitalocean.app/transactions/notification",
+      notification_url: strapi.config.server.url + "/transactions/notification",
 
       auto_return: "approved",
     };
