@@ -114,6 +114,8 @@ module.exports = {
   async feedback(ctx) {
     console.log("ACA");
     console.log(ctx.query);
-    ctx.send(`<h1 style="color:red;">Feedback</h1>`);
+    ctx.send(
+      `<a style="color:red;" href=${ctx.query.linking_url}/>Volver a ugo </a>`
+    );
   },
 };

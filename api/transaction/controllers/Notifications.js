@@ -15,25 +15,25 @@ module.exports = {
         .then((pago) => {
           console.log(pago.body);
 
-          // entity = await strapi.services.transaction.create({
-          //   payment_id: ctx.query.id,
-          //   status: request.query.status,
-          //   total_amount: pago.body.transaction_amount,
-          //   paseador: pago.body.metadata.paseador_id,
-          //   user: pago.body.metadata.user_id,
-          //   bundleID: pago.body.metadata.bundle_id,
-          // });
+          entity = await strapi.services.transaction.create({
+            payment_id: pago.body.id,
+            status: pago.body.status,
+            total_amount: pago.body.transaction_amount,
+            paseador: pago.body.metadata.paseador_id,
+            user: pago.body.metadata.user_id,
+            bundleID: pago.body.metadata.bundle_id,
+          });
 
           // return sanitizeEntity(entity, { model: strapi.models.restaurant });
           // },
         })
         .catch((e) => {
           console.log("error", e);
-          response.redirect(request.query.linking_url);
+          // response.redirect(request.query.linking_url);
         });
     } else {
-      response.redirect(request.query.linking_url);
+      // response.redirect(request.query.linking_url);
     }
-    return ctx.send(ctx.query);
+    return sanitizeEntity(entity, { model: strapi.models.transaction });
   },
 };
