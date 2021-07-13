@@ -9,7 +9,7 @@ mercadopago.configurations.setAccessToken(
 module.exports = {
   async webhook(ctx) {
     console.log("aca", ctx.query);
-
+    let entity;
     if (ctx.query["data.id"] !== "null" && ctx.query.type == "payment") {
       mercadopago.payment
         .get(ctx.query["data.id"])
