@@ -13,7 +13,7 @@ module.exports = {
     if (ctx.query["data.id"] !== "null" && ctx.query.type == "payment") {
       mercadopago.payment
         .get(ctx.query["data.id"])
-        .then((pago) => {
+        .then(async (pago) => {
           console.log(pago.body);
 
           entity = await strapi.services.transaction.create({
