@@ -1,9 +1,9 @@
 "use strict";
 
 module.exports = {
-  async find(ctx) {
+  async webhook(ctx) {
     console.log("aca", ctx.request.body);
 
-    return ctx.send("Email enviado!");
+    return ctx.send(ctx.request.body);
   },
 };

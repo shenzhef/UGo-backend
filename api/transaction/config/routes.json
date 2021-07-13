@@ -11,7 +11,7 @@
     {
       "method": "POST",
       "path": "/transactions/notification",
-      "handler": "Notifications.find",
+      "handler": "Notifications.webhook",
       "config": {
         "policies": []
       }
