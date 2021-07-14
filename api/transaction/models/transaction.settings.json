@@ -36,8 +36,8 @@
       "collection": "paseo"
     },
     "feeds": {
-      "via": "transaction",
-      "collection": "feed"
+      "collection": "feed",
+      "via": "transaction"
     },
     "bundleID": {
       "type": "integer"
@@ -48,6 +48,9 @@
         "cash",
         "mp"
       ]
+    },
+    "date": {
+      "type": "date"
     }
   }
 }

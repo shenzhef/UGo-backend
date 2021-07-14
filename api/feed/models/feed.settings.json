@@ -41,8 +41,8 @@
       "type": "json"
     },
     "transaction": {
-      "model": "transaction",
-      "via": "feeds"
+      "via": "feeds",
+      "model": "transaction"
     },
     "bundleID": {
       "type": "string",

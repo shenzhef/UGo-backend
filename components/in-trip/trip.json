@@ -2,7 +2,8 @@
   "collectionName": "components_in_trip_trips",
   "info": {
     "name": "Trip",
-    "icon": "calendar"
+    "icon": "calendar",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -15,17 +16,11 @@
     "ended": {
       "type": "datetime"
     },
-    "waypoints_history": {
-      "type": "json"
-    },
     "last_position": {
       "type": "json"
     },
     "final_distance": {
       "type": "integer"
-    },
-    "logs": {
-      "type": "json"
     },
     "status": {
       "type": "integer"

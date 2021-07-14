@@ -67,6 +67,12 @@
       "type": "component",
       "repeatable": false,
       "component": "payments.payment-status"
+    },
+    "waypoints_history": {
+      "type": "json"
+    },
+    "logs": {
+      "type": "json"
     }
   }
 }

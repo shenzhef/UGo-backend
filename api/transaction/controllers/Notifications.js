@@ -23,6 +23,7 @@ module.exports = {
             paseador: pago.body.metadata.paseador_id,
             user: pago.body.metadata.user_id,
             bundleID: pago.body.metadata.bundle_id,
+            date: pago.body.date_created,
           });
 
           // return sanitizeEntity(entity, { model: strapi.models.restaurant });

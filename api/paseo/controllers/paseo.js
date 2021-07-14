@@ -17,4 +17,34 @@ module.exports = {
       sanitizeEntity(entity, { model: strapi.models.paseo })
     );
   },
+  async updateTrip(ctx) {
+    const { id } = ctx.params;
+
+    let entity;
+    if (ctx.is("multipart")) {
+      const { data, files } = parseMultipartData(ctx);
+      entity = await strapi.services.paseo.update({ id }, data, {
+        files,
+      });
+    } else {
+      entity = strapi.query("paseo").model.updateOne(
+        {
+          _id: id,
+        },
+        {
+          $push: { ...ctx.request.body },
+        },
+        {
+          upsert: true,
+          projection: {
+            bundleID: true,
+          },
+        }
+      );
+    }
+
+    // return sanitizeEntity(entity, { model: strapi.models.paseo });
+    // console.log(entity.schema);
+    return entity;
+  },
 };

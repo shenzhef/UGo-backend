@@ -41,6 +41,14 @@
       }
     },
     {
+      "method": "PUT",
+      "path": "/paseos/trip/:id",
+      "handler": "paseo.updateTrip",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "DELETE",
       "path": "/paseos/:id",
       "handler": "paseo.delete",
