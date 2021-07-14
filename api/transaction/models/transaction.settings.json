@@ -32,15 +32,12 @@
       "model": "user"
     },
     "paseos": {
-      "via": "transaction",
-      "collection": "paseo"
+      "collection": "paseo",
+      "via": "transaction"
     },
     "feeds": {
       "collection": "feed",
       "via": "transaction"
-    },
-    "bundleID": {
-      "type": "integer"
     },
     "payment_type": {
       "type": "enumeration",
@@ -51,6 +48,9 @@
     },
     "date": {
       "type": "date"
+    },
+    "bundleID": {
+      "type": "string"
     }
   }
 }

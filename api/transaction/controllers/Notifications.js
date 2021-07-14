@@ -24,6 +24,7 @@ module.exports = {
             user: pago.body.metadata.user_id,
             bundleID: pago.body.metadata.bundle_id,
             date: pago.body.date_created,
+            payment_type: "mp",
           });
 
           // return sanitizeEntity(entity, { model: strapi.models.restaurant });

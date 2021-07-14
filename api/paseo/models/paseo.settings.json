@@ -40,8 +40,8 @@
       "via": "paseo"
     },
     "transaction": {
-      "model": "transaction",
-      "via": "paseos"
+      "via": "paseos",
+      "model": "transaction"
     },
     "bundleID": {
       "type": "string",
