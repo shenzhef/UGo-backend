@@ -39,10 +39,6 @@
       "model": "resenas",
       "via": "paseo"
     },
-    "transaction": {
-      "via": "paseos",
-      "model": "transaction"
-    },
     "bundleID": {
       "type": "string",
       "unique": false
@@ -63,16 +59,14 @@
     "comments": {
       "type": "string"
     },
-    "paymenyt_info": {
-      "type": "component",
-      "repeatable": false,
-      "component": "payments.payment-status"
-    },
     "waypoints_history": {
       "type": "json"
     },
     "logs": {
       "type": "json"
+    },
+    "transaction": {
+      "model": "transaction"
     }
   }
 }

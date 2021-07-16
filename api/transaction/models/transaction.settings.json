@@ -31,14 +31,6 @@
       "plugin": "users-permissions",
       "model": "user"
     },
-    "paseos": {
-      "collection": "paseo",
-      "via": "transaction"
-    },
-    "feeds": {
-      "collection": "feed",
-      "via": "transaction"
-    },
     "payment_type": {
       "type": "enumeration",
       "enum": [

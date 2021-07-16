@@ -40,10 +40,6 @@
     "direccion": {
       "type": "json"
     },
-    "transaction": {
-      "via": "feeds",
-      "model": "transaction"
-    },
     "bundleID": {
       "type": "string",
       "unique": false
@@ -62,10 +58,8 @@
     "comments": {
       "type": "string"
     },
-    "payment_info": {
-      "type": "component",
-      "repeatable": false,
-      "component": "payments.payment-status"
+    "transaction": {
+      "model": "transaction"
     }
   }
 }
