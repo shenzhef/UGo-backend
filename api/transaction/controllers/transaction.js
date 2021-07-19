@@ -114,13 +114,23 @@ module.exports = {
   async feedback(ctx) {
     console.log("ACA");
     console.log(ctx.query);
+    let mercadoPagoresponse;
+    if (ctx.query.payment_id !== "null") {
+      mercadoPagoresponse = mercadopago.payment
+        .get(ctx.query.payment_id)
+        .then((pago) => {
+          return pago;
+        });
+    }
     ctx.send(
       `<p><a style="color:red;" href=${
         ctx.query.linking_url +
         "?payment_id=" +
         ctx.query.payment_id +
         "&status=" +
-        ctx.query.status
+        ctx.query.status +
+        "&total_amount=" +
+        mercadoPagoresponse.body.transaction_amount
       }>Volver a ugo</p>`
     );
   },
