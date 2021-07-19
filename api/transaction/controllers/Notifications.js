@@ -30,7 +30,7 @@ module.exports = {
             });
             if (entity._id) {
               try {
-                paseo = await strapi.query("feed").model.updateOne(
+                paseo = await strapi.query("feed").model.update(
                   {
                     bundleID: pago.body.metadata.bundle_id,
                   },
