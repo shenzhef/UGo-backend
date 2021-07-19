@@ -118,7 +118,7 @@ module.exports = {
       `<p><a style="color:red;" href=${
         ctx.query.linking_url +
         "?payment_id=" +
-        ctx.query.id +
+        ctx.query.payment_id +
         "&status=" +
         ctx.query.status
       }>Volver a ugo</p>`
