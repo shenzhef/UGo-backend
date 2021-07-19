@@ -119,6 +119,7 @@ module.exports = {
       mercadoPagoresponse = mercadopago.payment
         .get(ctx.query.payment_id)
         .then((pago) => {
+          console.log(pago);
           return pago;
         });
     }
@@ -129,8 +130,8 @@ module.exports = {
         ctx.query.payment_id +
         "&status=" +
         ctx.query.status +
-        "&total_amount=" +
-        mercadoPagoresponse.body.transaction_amount
+        "&total_amount=500"
+        // mercadoPagoresponse.body.transaction_amount
       }>Volver a ugo</p>`
     );
   },
