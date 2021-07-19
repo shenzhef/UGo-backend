@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_questions_questions",
+  "info": {
+    "name": "questions",
+    "icon": "angle-double-up"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

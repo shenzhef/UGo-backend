@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "faqs",
+  "info": {
+    "name": "FAQ",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "questions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "questions.questions"
+    },
+    "categories": {
+      "type": "component",
+      "repeatable": true,
+      "component": "categories.categories"
+    }
+  }
+}
