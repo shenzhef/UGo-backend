@@ -8,7 +8,7 @@ mercadopago.configurations.setAccessToken(
 );
 module.exports = {
   async webhook(ctx) {
-    console.log("aca", ctx.query);
+    // console.log("aca", ctx.query);
     let entity;
     let paseo;
     let responseMP;
@@ -16,7 +16,7 @@ module.exports = {
       responseMP = mercadopago.payment
         .get(ctx.query["data.id"])
         .then(async (pago) => {
-          console.log(pago.body);
+          // console.log(pago.body);
           try {
             entity = await strapi.services.transaction.create({
               payment_id: pago.body.id,
@@ -28,10 +28,9 @@ module.exports = {
               date: pago.body.date_created,
               payment_type: "mp",
             });
-            console.log("entity", entity);
             if (entity._id) {
               try {
-                paseo = await strapi.services.paseo.update(
+                paseo = await strapi.query("paseo").model.updateOne(
                   {
                     bundleID: pago.body.metadata.bundle_id,
                   },
@@ -40,19 +39,20 @@ module.exports = {
                   }
                 );
               } catch (error) {
+                console.log(error);
                 return { error: error };
               }
 
-              console.log("paseo", paseo);
+              return {
+                entity: entity,
+                paseo: paseo,
+              };
             } else {
               return { error: "error" };
             }
           } catch (error) {
             return { error: error };
           }
-
-          // return sanitizeEntity(entity, { model: strapi.models.restaurant });
-          // },
         })
         .catch((e) => {
           console.log("error", e);
@@ -60,9 +60,11 @@ module.exports = {
           // response.redirect(request.query.linking_url);
         });
     } else {
+      return { error: true };
       // response.redirect(request.query.linking_url);
     }
-    console.log("responseMP", responseMP);
-    return sanitizeEntity(entity, { model: strapi.models.transaction });
+    // console.log("responseMP", responseMP);
+    return responseMP;
+    // return sanitizeEntity(entity, { model: strapi.models.transaction });
   },
 };
