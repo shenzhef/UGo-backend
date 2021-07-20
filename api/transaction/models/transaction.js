@@ -1,4 +1,5 @@
 "use strict";
+const { sanitizeEntity } = require("strapi-utils");
 
 const {
   send_notification,
@@ -11,15 +12,14 @@ const {
 
 module.exports = {
   lifecycles: {
-    afterCreate(result) {
-      const r = send_notification(
-        [result.user.notification_token, result.paseador.notification_token],
-        {
+    async afterCreate(result) {
+      if (result.user?.notification_token) {
+        const r = send_notification([result.user.notification_token], {
           title: "Pago " + result.payment_id + " ha sido exitoso",
-          body: "Pago exitoso en Ugo",
-        }
-      );
-      console.log(r);
+          body: "Pago exitoso en Ugo del paquete " + result.bundleID,
+        });
+        console.log(r);
+      }
     },
   },
 };

@@ -11,13 +11,18 @@ const {
 
 module.exports = {
   lifecycles: {
-    afterCreate(result) {
-      console.log("result", result);
-      const r = send_notification([result.user.notification_token], {
-        title: "Hey " + result.paseadaor.name + " han aceptado tu solicitud",
-        body: "Tienes un nuevo paseo agendado",
+    async afterCreate(result) {
+      let bundle_count = await strapi.services.paseo.count({
+        bundleID: result.bundleID,
       });
-      console.log(r);
+
+      if (bundle_count === 0 && result?.paseador?.notification_token) {
+        const r = send_notification([result.user.notification_token], {
+          title: "Hey " + result.paseadaor.name + " han aceptado tu solicitud",
+          body: "Tienes un nuevo paseo agendado",
+        });
+        console.log(r);
+      }
     },
   },
 };
