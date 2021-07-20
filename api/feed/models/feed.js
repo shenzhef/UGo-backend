@@ -14,7 +14,7 @@ module.exports = {
     afterCreate(result) {
       console.log("result", result);
       const r = send_notification([result.paseador.notification_token], {
-        title: "Hey " + result.paseadaor.name + " tienes una nueva solicitud",
+        title: "Hey " + result.paseador.name + " tienes una nueva solicitud",
         body: "Nueva solicitud de paseo pendiente",
       });
       console.log(r);
