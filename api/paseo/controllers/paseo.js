@@ -1,4 +1,5 @@
 const { sanitizeEntity } = require("strapi-utils");
+const { getDistance } = require("geolib");
 
 module.exports = {
   async find(ctx) {
@@ -18,30 +19,26 @@ module.exports = {
     );
   },
   async updateTrip(ctx) {
-    const { id } = ctx.params;
+    // const { id } = ctx.params;
+    const paseos_id = ctx.request.body.paseos_id;
 
     let entity;
-    if (ctx.is("multipart")) {
-      const { data, files } = parseMultipartData(ctx);
-      entity = await strapi.services.paseo.update({ id }, data, {
-        files,
-      });
-    } else {
-      entity = strapi.query("paseo").model.updateOne(
-        {
-          _id: id,
+
+    entity = strapi.query("paseo").model.update(
+      {
+        _id: { $in: paseos_id },
+      },
+      {
+        $push: { ...ctx.request.body },
+      },
+      {
+        upsert: true,
+        multi: true,
+        projection: {
+          bundleID: true,
         },
-        {
-          $push: { ...ctx.request.body },
-        },
-        {
-          upsert: true,
-          projection: {
-            bundleID: true,
-          },
-        }
-      );
-    }
+      }
+    );
 
     // return sanitizeEntity(entity, { model: strapi.models.paseo });
     // console.log(entity.schema);

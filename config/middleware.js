@@ -11,6 +11,10 @@ module.exports = ({ env }) => ({
           model: "reviews",
           singleType: true,
         },
+        {
+          model: "faq",
+          singleType: true,
+        },
       ],
     },
   },

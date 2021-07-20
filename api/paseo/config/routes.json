@@ -41,8 +41,8 @@
       }
     },
     {
-      "method": "PUT",
-      "path": "/paseos/trip/:id",
+      "method": "POST",
+      "path": "/paseos/trip",
       "handler": "paseo.updateTrip",
       "config": {
         "policies": []

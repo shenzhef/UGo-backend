@@ -12,6 +12,7 @@
   "devDependencies": {},
   "dependencies": {
     "expo-server-sdk": "^3.6.0",
+    "geolib": "^3.3.1",
     "mercadopago": "^1.5.8",
     "socket.io": "^4.1.2",
     "strapi": "3.6.0",
