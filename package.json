@@ -11,6 +11,7 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "expo-server-sdk": "^3.6.0",
     "mercadopago": "^1.5.8",
     "socket.io": "^4.1.2",
     "strapi": "3.6.0",

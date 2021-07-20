@@ -1,17 +1,24 @@
 "use strict";
 const mercadopago = require("mercadopago");
 const { sanitizeEntity } = require("strapi-utils");
-
+const {
+  send_notification,
+} = require("../../../extensions/users-permissions/controllers/User");
 //REPLACE WITH YOUR ACCESS TOKEN AVAILABLE IN: https://developers.mercadopago.com/panel/credentials
 mercadopago.configurations.setAccessToken(
   "TEST-2673649138924674-062117-027521d8ee3db857ed96256a55e4dd4f-102188289"
 );
+
 module.exports = {
   async webhook(ctx) {
     // console.log("aca", ctx.query);
+
     let entity;
     let paseo;
     let responseMP;
+    let somePushTokens = ctx.request.body.expo;
+    console.log("expo", somePushTokens);
+    // const tickets = await send_notification(somePushTokens);
     if (ctx.query["data.id"] !== "null" && ctx.query.type == "payment") {
       responseMP = mercadopago.payment
         .get(ctx.query["data.id"])
@@ -41,6 +48,7 @@ module.exports = {
                     multi: true,
                   }
                 );
+                console.log("paseo", paseo);
               } catch (error) {
                 console.log(error);
                 return { error: error };
@@ -68,6 +76,7 @@ module.exports = {
     }
     // console.log("responseMP", responseMP);
     return responseMP;
+    ctx.send({ expo: tickets });
     // return sanitizeEntity(entity, { model: strapi.models.transaction });
   },
 };
