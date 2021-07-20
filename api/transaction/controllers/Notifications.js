@@ -36,6 +36,9 @@ module.exports = {
                   },
                   {
                     transaction: entity._id,
+                  },
+                  {
+                    multi: true,
                   }
                 );
               } catch (error) {
