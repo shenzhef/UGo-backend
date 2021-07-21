@@ -1,5 +1,8 @@
 const { sanitizeEntity } = require("strapi-utils");
 const { getDistance } = require("geolib");
+const {
+  send_notification,
+} = require("../../../extensions/users-permissions/controllers/User");
 
 module.exports = {
   async find(ctx) {
@@ -39,6 +42,17 @@ module.exports = {
         },
       }
     );
+    if (
+      ctx.request.body.notifyTokens &&
+      Array.isArray(ctx.request.body.notifyTokens)
+    ) {
+      if (ctx.request.body.notifyTokens.length > 0) {
+        const r = send_notification(ctx.request.body.notifyTokens, {
+          title: "El paseador esta cerca.",
+          body: "Recorda tener a tu perro listo!.",
+        });
+      }
+    }
 
     // return sanitizeEntity(entity, { model: strapi.models.paseo });
     // console.log(entity.schema);
