@@ -8,11 +8,7 @@ const sanitizeUser = (user) =>
     model: strapi.query("user", "users-permissions").model,
   });
 module.exports = {
-  async send_notification(
-    somePushTokens = ctx.request.body.tokens,
-    message = ctx.request.body.message,
-    data = ctx.request.body.data
-  ) {
+  async send_notification(somePushTokens, message, data) {
     let messages = [];
 
     for (let pushToken of somePushTokens) {
