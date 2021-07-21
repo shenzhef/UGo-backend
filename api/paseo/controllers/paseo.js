@@ -26,8 +26,9 @@ module.exports = {
     const paseos_id = ctx.request.body.paseos_id;
 
     let entity;
+    let log_entity;
 
-    entity = strapi.query("paseo").model.update(
+    entity = strapi.query("paseo").model.updateMany(
       {
         _id: { $in: paseos_id },
       },
@@ -47,15 +48,38 @@ module.exports = {
       Array.isArray(ctx.request.body.notifyTokens)
     ) {
       if (ctx.request.body.notifyTokens.length > 0) {
-        const r = send_notification(ctx.request.body.notifyTokens, {
-          title: "El paseador esta cerca.",
-          body: "Recorda tener a tu perro listo!.",
-        });
+        const r = send_notification(
+          ctx.request.body.notifyTokens.map((t) => t.token),
+          {
+            title: "El paseador esta cerca.",
+            body: "Recorda tener a tu perro listo!.",
+          }
+        );
+        log_entity = strapi.query("paseo").model.updateMany(
+          {
+            _id: { $in: ctx.request.body.notifyTokens.map((t) => t._id) },
+          },
+          {
+            $push: {
+              logs: {
+                type: "coming",
+                timenstamp: new Date().getTime(),
+              },
+            },
+          },
+          {
+            upsert: true,
+            multi: true,
+            projection: {
+              bundleID: true,
+            },
+          }
+        );
       }
     }
 
     // return sanitizeEntity(entity, { model: strapi.models.paseo });
     // console.log(entity.schema);
-    return entity;
+    return { entity, log_entity };
   },
 };
