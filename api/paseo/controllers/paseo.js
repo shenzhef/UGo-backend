@@ -3,6 +3,7 @@ const { getDistance } = require("geolib");
 const {
   send_notification,
 } = require("../../../extensions/users-permissions/controllers/User");
+const { update_bundle } = require("../../feed/controllers/feed");
 
 module.exports = {
   async create_bundle(ctx) {
@@ -32,22 +33,18 @@ module.exports = {
         // });
       }
     }
-    updatedFeeds = await Promise.all(
-      entity.map(async (paseo, index) => {
-        try {
-          const r = await strapi.services.feed.update({
-            ...ctx.request.body,
-            date: day,
-          });
-          return r;
-        } catch (err) {
-          console.log(err);
-        }
-      })
-    );
-    if (entity[0].paseador.notification_token) {
+
+    const update_feed = await strapi
+      .query("feed")
+      .model.updateMany(
+        { bundleID: entity[0].bundleID },
+        { isAccepted: true },
+        { multi: true }
+      );
+    console.log(entity, update_feed);
+    if (entity[0].user.notification_token) {
       const r = send_notification([entity[0].user.notification_token], {
-        title: "Hey " + entity[0].paseadaor.name + " han aceptado tu solicitud",
+        title: "Hey " + entity[0].user.name + " han aceptado tu solicitud",
         body: "Tienes un nuevo paseo agendado",
       });
     }

@@ -54,12 +54,14 @@ module.exports = {
         files,
       });
     } else {
-      entity = await strapi.services.feed.update(
-        { bundleID: id },
-        ctx.request.body
-      );
+      entity = await strapi
+        .query("feed")
+        .model.updateMany({ bundleID: id }, ctx.request.body, { multi: true });
     }
-
-    return sanitizeEntity(entity, { model: strapi.models.feed });
+    if (entity.nModified > 0) {
+      return sanitizeEntity(entity, { model: strapi.models.feed });
+    } else {
+      return { error: true };
+    }
   },
 };
