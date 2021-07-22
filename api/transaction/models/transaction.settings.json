@@ -25,18 +25,17 @@
     },
     "user": {
       "plugin": "users-permissions",
-      "model": "user"
+      "model": "user",
+      "autoPopulate": false
     },
     "paseador": {
       "plugin": "users-permissions",
-      "model": "user"
+      "model": "user",
+      "autoPopulate": false
     },
     "payment_type": {
       "type": "enumeration",
-      "enum": [
-        "cash",
-        "mp"
-      ]
+      "enum": ["cash", "mp"]
     },
     "date": {
       "type": "date"

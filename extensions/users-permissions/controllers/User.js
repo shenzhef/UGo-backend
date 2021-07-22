@@ -95,7 +95,7 @@ module.exports = {
         users.map(async (user) => {
           const count_paseos = await strapi
             .query("paseo")
-            .count({ "paseador._id": user._id });
+            .count({ "paseador._id": user._id, status: { started: 1 } });
           // .filter((prev) => prev.status.started == "done");
           return { ...user, total_paseos: count_paseos };
         })
@@ -106,8 +106,9 @@ module.exports = {
   },
   async activity(ctx) {
     const id = ctx.state.user._id;
-    const entity = await strapi.services.paseo.count({
+    const entity = await strapi.query("paseo").count({
       "user._id": id,
+      status: { started: 1 },
       ...ctx.query,
     });
 

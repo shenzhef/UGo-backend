@@ -122,11 +122,11 @@ module.exports = {
     //     },
     //   }
     // );
-    if (Array.isArray(ctx.request.token)) {
+    if (Array.isArray(ctx.request.body.token)) {
       result = await send_notification(
-        ctx.request.token,
-        ctx.request.message,
-        ctx.request.data
+        ctx.request.body.token,
+        ctx.request.body.message,
+        ctx.request.body.data
       );
     }
     return result;
