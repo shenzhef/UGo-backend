@@ -40,6 +40,15 @@
         "policies": []
       }
     },
+
+    {
+      "method": "POST",
+      "path": "/paseos/bundle",
+      "handler": "paseo.create_bundle",
+      "config": {
+        "policies": []
+      }
+    },
     {
       "method": "POST",
       "path": "/paseos/trip",

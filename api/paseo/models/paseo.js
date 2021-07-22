@@ -15,7 +15,7 @@ module.exports = {
       let bundle_count = await strapi.services.paseo.count({
         bundleID: result.bundleID,
       });
-
+      console.log("bundle", bundle_count);
       if (bundle_count === 0 && result?.paseador?.notification_token) {
         const r = send_notification([result.user.notification_token], {
           title: "Hey " + result.paseadaor.name + " han aceptado tu solicitud",

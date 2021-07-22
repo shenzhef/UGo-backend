@@ -5,6 +5,54 @@ const {
 } = require("../../../extensions/users-permissions/controllers/User");
 
 module.exports = {
+  async create_bundle(ctx) {
+    let entity;
+    let updatedFeeds;
+    if (ctx.is("multipart")) {
+      const { data, files } = parseMultipartData(ctx);
+      entity = await strapi.services.paseo.create(data, { files });
+    } else {
+      if (ctx.request.body.days && Array.isArray(ctx.request.body.days)) {
+        entity = await Promise.all(
+          ctx.request.body.days.map(async (day, index) => {
+            try {
+              const r = await strapi.services.paseo.create({
+                ...ctx.request.body,
+                date: day,
+              });
+              return r;
+            } catch (err) {
+              console.log(err);
+            }
+          })
+        );
+
+        // ctx.request.body.days.forEach((day) => {
+        //   entity =
+        // });
+      }
+    }
+    updatedFeeds = await Promise.all(
+      entity.map(async (paseo, index) => {
+        try {
+          const r = await strapi.services.feed.update({
+            ...ctx.request.body,
+            date: day,
+          });
+          return r;
+        } catch (err) {
+          console.log(err);
+        }
+      })
+    );
+    if (entity[0].paseador.notification_token) {
+      const r = send_notification([entity[0].user.notification_token], {
+        title: "Hey " + entity[0].paseadaor.name + " han aceptado tu solicitud",
+        body: "Tienes un nuevo paseo agendado",
+      });
+    }
+    return entity;
+  },
   async find(ctx) {
     let entities;
     // if (ctx.query["status.started"])
@@ -57,13 +105,15 @@ module.exports = {
         );
         log_entity = strapi.query("paseo").model.updateMany(
           {
-            _id: { $in: ctx.request.body.notifyTokens.map((t) => t._id) },
+            "user._id": {
+              $in: ctx.request.body.notifyTokens.map((t) => t._id),
+            },
           },
           {
             $push: {
               logs: {
                 type: "coming",
-                timenstamp: new Date().getTime(),
+                timestamp: new Date().getTime(),
               },
             },
           },

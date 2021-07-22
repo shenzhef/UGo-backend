@@ -41,6 +41,23 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/feeds/bundle",
+      "handler": "feed.create_bundle",
+      "config": {
+        "policies": []
+      }
+    },
+
+    {
+      "method": "PUT",
+      "path": "/feeds/bundle/:id",
+      "handler": "feed.update_bundle",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "PUT",
       "path": "/feeds/:id",
       "handler": "feed.update",
