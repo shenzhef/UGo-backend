@@ -71,9 +71,8 @@ module.exports = {
     const paseos_id = ctx.request.body.paseos_id;
 
     let entity;
-    let log_entity;
 
-    entity = strapi.query("paseo").model.updateMany(
+    entity = await strapi.query("paseo").model.updateMany(
       {
         _id: { $in: paseos_id },
       },
@@ -88,45 +87,48 @@ module.exports = {
         },
       }
     );
-    if (
-      ctx.request.body.notifyTokens &&
-      Array.isArray(ctx.request.body.notifyTokens)
-    ) {
-      if (ctx.request.body.notifyTokens.length > 0) {
-        const r = send_notification(
-          ctx.request.body.notifyTokens.map((t) => t.token),
-          {
-            title: "El paseador esta cerca.",
-            body: "Recorda tener a tu perro listo!.",
-          }
-        );
-        log_entity = strapi.query("paseo").model.updateMany(
-          {
-            "user._id": {
-              $in: ctx.request.body.notifyTokens.map((t) => t._id),
-            },
-          },
-          {
-            $push: {
-              logs: {
-                type: "coming",
-                timestamp: new Date().getTime(),
-              },
-            },
-          },
-          {
-            upsert: true,
-            multi: true,
-            projection: {
-              bundleID: true,
-            },
-          }
-        );
-      }
+    if (ctx.request.body.notify) {
+      const r = await send_notification(
+        ctx.request.body.notify.token,
+        ctx.request.body.notify.message
+      );
+      console.log("r", r);
     }
-
     // return sanitizeEntity(entity, { model: strapi.models.paseo });
     // console.log(entity.schema);
-    return { entity, log_entity };
+    return entity;
+  },
+  async notify(ctx) {
+    let result;
+    // log_entity = await strapi.query("paseo").model.updateMany(
+    //   {
+    //     _id: {
+    //       $in: ctx.request.body.notifyTokens.map((t) => t.paseos_id),
+    //     },
+    //   },
+    //   {
+    //     $push: {
+    //       logs: {
+    //         type: "coming",
+    //         timestamp: new Date().getTime(),
+    //       },
+    //     },
+    //   },
+    //   {
+    //     upsert: true,
+    //     multi: true,
+    //     projection: {
+    //       bundleID: true,
+    //     },
+    //   }
+    // );
+    if (Array.isArray(ctx.request.token)) {
+      result = await send_notification(
+        ctx.request.token,
+        ctx.request.message,
+        ctx.request.data
+      );
+    }
+    return result;
   },
 };

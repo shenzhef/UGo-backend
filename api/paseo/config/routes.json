@@ -40,7 +40,14 @@
         "policies": []
       }
     },
-
+    {
+      "method": "POST",
+      "path": "/paseos/notify",
+      "handler": "paseo.notify",
+      "config": {
+        "policies": []
+      }
+    },
     {
       "method": "POST",
       "path": "/paseos/bundle",
