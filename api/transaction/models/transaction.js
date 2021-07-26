@@ -14,11 +14,24 @@ module.exports = {
   lifecycles: {
     async afterCreate(result) {
       if (result.user?.notification_token) {
-        const r = send_notification([result.user.notification_token], {
-          title: "Pago " + result.payment_id + " ha sido exitoso",
-          body: "Pago exitoso en Ugo del paquete " + result.bundleID,
-        });
-        console.log(r);
+        const notify_user = send_notification(
+          [result.user.notification_token],
+          {
+            title: "Pago " + result.payment_id + " ha sido exitoso",
+            body: "Pago exitoso en Ugo del paquete " + result.bundleID,
+          }
+        );
+        console.log(notify_user);
+      }
+      if (result.paseador.notification_token) {
+        const notify_paseador = send_notification(
+          [result.paseador.notification_token],
+          {
+            title:
+              "Hey " + result.paseador.name + " tienes una nueva solicitud",
+            body: "Nueva solicitud de paseo pendiente",
+          }
+        );
       }
     },
   },

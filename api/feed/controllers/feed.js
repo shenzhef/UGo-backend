@@ -36,12 +36,12 @@ module.exports = {
         // });
       }
     }
-    if (entity[0].paseador.notification_token) {
-      const r = send_notification([entity[0].paseador.notification_token], {
-        title: "Hey " + entity[0].paseador.name + " tienes una nueva solicitud",
-        body: "Nueva solicitud de paseo pendiente",
-      });
-    }
+    // if (entity[0].paseador.notification_token ) {
+    //   const r = send_notification([entity[0].paseador.notification_token], {
+    //     title: "Hey " + entity[0].paseador.name + " tienes una nueva solicitud",
+    //     body: "Nueva solicitud de paseo pendiente",
+    //   });
+    // }
     return entity;
   },
   async update_bundle(ctx) {
