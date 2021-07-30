@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_payments_bank_accounts",
+  "info": {
+    "name": "bank_account",
+    "icon": "angle-left",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "cbu": {
+      "type": "biginteger"
+    },
+    "alias": {
+      "type": "string"
+    },
+    "bank_name": {
+      "type": "string"
+    },
+    "dni": {
+      "type": "integer"
+    }
+  }
+}

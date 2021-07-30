@@ -102,8 +102,8 @@
       "component": "horarios.horario"
     },
     "dogs": {
-      "via": "owner",
-      "collection": "dog"
+      "collection": "dog",
+      "via": "owner"
     },
     "verified": {
       "type": "boolean"
@@ -112,6 +112,11 @@
       "type": "component",
       "repeatable": false,
       "component": "review.nps"
+    },
+    "bank_account": {
+      "type": "component",
+      "repeatable": false,
+      "component": "payments.bank-account"
     }
   }
 }

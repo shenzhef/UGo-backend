@@ -19,6 +19,9 @@
         "text",
         "boolean"
       ]
+    },
+    "value": {
+      "type": "boolean"
     }
   }
 }
