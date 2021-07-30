@@ -16,7 +16,12 @@ module.exports = {
       const { data, files } = parseMultipartData(ctx);
       entity = await strapi.services.feed.create(data, { files });
     } else {
-      if (ctx.request.body.days && Array.isArray(ctx.request.body.days)) {
+      console.log(ctx.request.body);
+      if (
+        ctx.request.body.days &&
+        Array.isArray(ctx.request.body.days) &&
+        ctx.request.body.days.length > 0
+      ) {
         entity = await Promise.all(
           ctx.request.body.days.map(async (day, index) => {
             try {
@@ -34,6 +39,8 @@ module.exports = {
         // ctx.request.body.days.forEach((day) => {
         //   entity =
         // });
+      } else {
+        return { error: true };
       }
     }
     // if (entity[0].paseador.notification_token ) {

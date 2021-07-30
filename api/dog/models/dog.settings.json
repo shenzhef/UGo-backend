@@ -47,9 +47,9 @@
       "type": "string"
     },
     "owner": {
-      "via": "dogs",
       "plugin": "users-permissions",
-      "model": "user"
+      "model": "user",
+      "via": "dogs"
     },
     "size": {
       "type": "string"
@@ -65,6 +65,11 @@
         "Hembra",
         "Macho"
       ]
+    },
+    "questions_values": {
+      "type": "component",
+      "repeatable": true,
+      "component": "config-dogs.questions"
     }
   }
 }
