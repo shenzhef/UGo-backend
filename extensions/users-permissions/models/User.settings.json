@@ -118,7 +118,10 @@
       "repeatable": false,
       "component": "payments.bank-account"
     },
-    "availability": {
+    "direccion": {
+      "type": "string"
+    },
+    "days_available": {
       "type": "json"
     }
   }
