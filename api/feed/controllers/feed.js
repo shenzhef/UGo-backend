@@ -12,6 +12,7 @@ const {
 module.exports = {
   async create_bundle(ctx) {
     let entity;
+    let dogs;
     if (ctx.is("multipart")) {
       const { data, files } = parseMultipartData(ctx);
       entity = await strapi.services.feed.create(data, { files });
@@ -24,15 +25,20 @@ module.exports = {
       ) {
         entity = await Promise.all(
           ctx.request.body.days.map(async (day, index) => {
-            try {
-              const r = await strapi.services.feed.create({
-                ...ctx.request.body,
-                date: day,
-              });
-              return r;
-            } catch (err) {
-              console.log(err);
-            }
+            dogs = await Promise.all(
+              ctx.request.body.dogs.map(async (dog, index) => {
+                try {
+                  const dogs_fetch = await strapi.services.feed.create({
+                    ...ctx.request.body,
+                    date: day,
+                    dog: dog._id,
+                  });
+                  return dogs_fetch;
+                } catch (err) {
+                  console.log(err);
+                }
+              })
+            );
           })
         );
 
@@ -49,7 +55,8 @@ module.exports = {
     //     body: "Nueva solicitud de paseo pendiente",
     //   });
     // }
-    return entity;
+    // console.log("aca", { entity, dogs });
+    return dogs;
   },
   async update_bundle(ctx) {
     const { id } = ctx.params;
