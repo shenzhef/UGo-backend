@@ -8,6 +8,7 @@ const { update_bundle } = require("../../feed/controllers/feed");
 module.exports = {
   async create_bundle(ctx) {
     let entity;
+    let dogs;
     let updatedFeeds;
     if (ctx.is("multipart")) {
       const { data, files } = parseMultipartData(ctx);
@@ -16,15 +17,20 @@ module.exports = {
       if (ctx.request.body.days && Array.isArray(ctx.request.body.days)) {
         entity = await Promise.all(
           ctx.request.body.days.map(async (day, index) => {
-            try {
-              const r = await strapi.services.paseo.create({
-                ...ctx.request.body,
-                date: day,
-              });
-              return r;
-            } catch (err) {
-              console.log(err);
-            }
+            dogs = await Promise.all(
+              ctx.request.body.dogs.map(async (dog, index) => {
+                try {
+                  const dogs_fetch = await strapi.services.paseo.create({
+                    ...ctx.request.body,
+                    date: day,
+                    dog: dog._id,
+                  });
+                  return dogs_fetch;
+                } catch (err) {
+                  console.log(err);
+                }
+              })
+            );
           })
         );
 
@@ -37,18 +43,18 @@ module.exports = {
     const update_feed = await strapi
       .query("feed")
       .model.updateMany(
-        { bundleID: entity[0].bundleID },
+        { bundleID: dogs[0].bundleID },
         { isAccepted: true },
         { multi: true }
       );
-    console.log(entity, update_feed);
-    if (entity[0].user.notification_token) {
-      const r = send_notification([entity[0].user.notification_token], {
-        title: "Hey " + entity[0].user.name + " han aceptado tu solicitud",
+    console.log(dogs, update_feed);
+    if (dogs[0].user.notification_token) {
+      const r = send_notification([dogs[0].user.notification_token], {
+        title: "Hey " + dogs[0].user.name + " han aceptado tu solicitud",
         body: "Tienes un nuevo paseo agendado",
       });
     }
-    return entity;
+    return dogs;
   },
   async find(ctx) {
     let entities;
