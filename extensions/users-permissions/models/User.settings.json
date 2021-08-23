@@ -65,10 +65,7 @@
     "phone": {
       "type": "integer"
     },
-    "age": {
-      "type": "integer"
-    },
-    "name": {
+    "first_name": {
       "type": "string",
       "required": true
     },
@@ -123,6 +120,9 @@
     },
     "days_available": {
       "type": "json"
+    },
+    "last_name": {
+      "type": "string"
     }
   }
 }
