@@ -7,10 +7,6 @@ const mercadopago = require("mercadopago");
 mercadopago.configurations.setAccessToken(
   "TEST-2673649138924674-062117-027521d8ee3db857ed96256a55e4dd4f-102188289"
 );
-/**
- * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
- * to customize this controller
- */
 
 module.exports = {
   async findOne(ctx) {
@@ -37,10 +33,12 @@ module.exports = {
   async createpreference(ctx) {
     const { body } = ctx.request;
     //process.env
+    console.log(body);
     let preference = {
       items: [
         {
           title: body.title,
+          description: body.description,
           unit_price: Number(body.price),
           quantity: Number(body.quantity),
           currency_id: "ARS",
@@ -59,8 +57,8 @@ module.exports = {
           strapi.config.server.url +
           "/transactions/feedback?linking_url=" +
           body.linking_url,
-        failure: "http://localhost:8080/transactions/feedback",
-        pending: "http://localhost:8080/transactions/feedback",
+        failure: strapi.config.server.url + "/transactions/feedback",
+        pending: strapi.config.server.url + "/transactions/feedback",
       },
       payment_methods: {
         installments: 1,
@@ -73,21 +71,22 @@ module.exports = {
       email: body.payer.email,
     };
     // mercadopago.customers
-    //   .get(body.mp_id)
+    //   .search(filters)
     //   .then(function (customer) {
-    // if (customer.response.results.length == 0) {
-    //   mercadopago.customers
-    //     .create(ctx.body.payer)
-    //     .then((customer_created) => {
-    //       console.log('customer created', customer_created);
-    //       return customer_created;
-    //     })
-    //     .catch((e) => {
-    //       console.log('error', e);
-    //     });
-    // } else {
-    // console.log('customer', customer.response);
-    // let responseObj = {};
+    //     // if (customer.response.results.length == 0) {
+    //     // mercadopago.customers
+    //     //   .create(ctx.body.payer)
+    //     //   .then((customer_created) => {
+    //     //     console.log('customer created', customer_created);
+    //     //     return customer_created;
+    //     //   })
+    //     //   .catch((e) => {
+    //     //     console.log('error', e);
+    //     // });
+    //     console.log("customer", customer.response.results);
+
+    //   })
+    //   .catch((err) => console.log("err", err));
     const result = mercadopago.preferences
       .create(preference)
       .then(function (response) {
@@ -100,16 +99,6 @@ module.exports = {
         };
       });
     return result;
-    // }
-    // })
-
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
   },
   async feedback(ctx) {
     console.log("ACA");
