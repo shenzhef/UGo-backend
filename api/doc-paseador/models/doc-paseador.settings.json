@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "doc_paseadors",
+  "info": {
+    "name": "doc_paseador",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "front_doc": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "back_doc": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "paseador": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "verified": {
+      "type": "boolean"
+    }
+  }
+}

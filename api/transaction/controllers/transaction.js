@@ -4,10 +4,13 @@ const mercadopago = require("mercadopago");
 // const fetch = require("node-fetch");
 
 //REPLACE WITH YOUR ACCESS TOKEN AVAILABLE IN: https://developers.mercadopago.com/panel/credentials
-mercadopago.configurations.setAccessToken(
-  "TEST-2673649138924674-062117-027521d8ee3db857ed96256a55e4dd4f-102188289"
-);
-
+// mercadopago.configurations.setAccessToken(
+//   "TEST-2673649138924674-062117-027521d8ee3db857ed96256a55e4dd4f-102188289"
+// );
+mercadopago.configure({
+  access_token:
+    "TEST-2673649138924674-062117-027521d8ee3db857ed96256a55e4dd4f-102188289",
+});
 module.exports = {
   async findOne(ctx) {
     const { id } = ctx.params;
@@ -39,8 +42,9 @@ module.exports = {
         {
           title: body.title,
           description: body.description,
-          unit_price: Number(body.price),
-          quantity: Number(body.quantity),
+          unit_price: body.price,
+          quantity: body.quantity,
+          category_id: "home",
           currency_id: "ARS",
         },
       ],
@@ -49,9 +53,10 @@ module.exports = {
         paseador_id: body.external_reference,
         bundle_id: body.bundleID,
       },
-      capture: false,
+      // capture: false,
       payer: body.payer,
       external_reference: body.external_reference,
+      statement_descriptor: "Ugo App",
       back_urls: {
         success:
           strapi.config.server.url +

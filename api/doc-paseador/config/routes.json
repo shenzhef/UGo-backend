@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/doc-paseadors",
+      "handler": "doc-paseador.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/doc-paseadors/count",
+      "handler": "doc-paseador.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/doc-paseadors/:id",
+      "handler": "doc-paseador.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/doc-paseadors",
+      "handler": "doc-paseador.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/doc-paseadors/:id",
+      "handler": "doc-paseador.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/doc-paseadors/:id",
+      "handler": "doc-paseador.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

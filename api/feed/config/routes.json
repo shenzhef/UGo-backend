@@ -33,6 +33,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/feeds/cancelled",
+      "handler": "feed.find_cancelled",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/feeds",
       "handler": "feed.create",

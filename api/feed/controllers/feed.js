@@ -78,4 +78,37 @@ module.exports = {
       return { error: true };
     }
   },
+  async update(ctx) {
+    const { id } = ctx.params;
+
+    let entity;
+    if (ctx.is("multipart")) {
+      const { data, files } = parseMultipartData(ctx);
+      entity = await strapi.services.feed.update({ id }, data, {
+        files,
+      });
+    } else {
+      entity = await strapi.services.feed.update({ id }, ctx.request.body);
+      if (ctx.request.body.cancelled) {
+        const notify_user = send_notification(
+          [ctx.request.body.user_notification],
+          {
+            title: "Hey",
+            body: "Han cancelado tu solicitud de paseo",
+          }
+        );
+      }
+    }
+
+    return sanitizeEntity(entity, { model: strapi.models.feed });
+  },
+  async find_cancelled(ctx) {
+    // const { id } = ctx.request.body;
+    console.log(ctx.query);
+    // const entity = await strapi.services.feed.findOne({
+    //   "user._id": id,
+    // });
+    // console.log("entity", entity);
+    // return sanitizeEntity(entity, { model: strapi.models.feed });
+  },
 };
