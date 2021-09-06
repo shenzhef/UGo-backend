@@ -35,21 +35,12 @@
     "direccion": {
       "type": "json"
     },
-    "review": {
-      "model": "resenas",
-      "via": "paseo"
-    },
     "bundleID": {
       "type": "string",
       "unique": false
     },
     "dog": {
       "model": "dog"
-    },
-    "cancelled": {
-      "type": "component",
-      "repeatable": false,
-      "component": "cancelation.cancelled"
     },
     "data_trip": {
       "type": "component",
@@ -67,6 +58,13 @@
     },
     "transaction": {
       "model": "transaction"
+    },
+    "review": {
+      "model": "resenas",
+      "via": "paseo"
+    },
+    "cancelled": {
+      "type": "json"
     }
   }
 }

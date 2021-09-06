@@ -34,8 +34,8 @@
     },
     {
       "method": "GET",
-      "path": "/feeds/cancelled",
-      "handler": "feed.find_cancelled",
+      "path": "/feeds/cancel/:id",
+      "handler": "feed.cancel_feed",
       "config": {
         "policies": []
       }

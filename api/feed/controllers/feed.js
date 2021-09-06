@@ -78,6 +78,17 @@ module.exports = {
       return { error: true };
     }
   },
+  async cancel_feed(ctx) {
+    // return ctx.params;
+    const entity = await strapi.query("feed").model.find({
+      // "cancelled.watched": false,
+      ...ctx.request.body,
+    });
+    // console.log("entity", entity);
+    const fields = entity.map((entry) => entry.toObject());
+    return fields;
+    // return sanitizeEntity(entity, { model: strapi.models.feed });
+  },
   async update(ctx) {
     const { id } = ctx.params;
 
@@ -101,14 +112,5 @@ module.exports = {
     }
 
     return sanitizeEntity(entity, { model: strapi.models.feed });
-  },
-  async find_cancelled(ctx) {
-    // const { id } = ctx.request.body;
-    console.log(ctx.query);
-    // const entity = await strapi.services.feed.findOne({
-    //   "user._id": id,
-    // });
-    // console.log("entity", entity);
-    // return sanitizeEntity(entity, { model: strapi.models.feed });
   },
 };

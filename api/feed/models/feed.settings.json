@@ -25,11 +25,7 @@
     },
     "type": {
       "type": "enumeration",
-      "enum": [
-        "solicitud",
-        "mensaje",
-        "alerta"
-      ]
+      "enum": ["solicitud", "mensaje", "alerta"]
     },
     "start": {
       "type": "time"
@@ -50,16 +46,14 @@
     "isAccepted": {
       "type": "boolean"
     },
-    "cancelled": {
-      "type": "component",
-      "repeatable": false,
-      "component": "cancelation.cancelled"
-    },
     "comments": {
       "type": "string"
     },
     "transaction": {
       "model": "transaction"
+    },
+    "cancelled": {
+      "type": "json"
     }
   }
 }

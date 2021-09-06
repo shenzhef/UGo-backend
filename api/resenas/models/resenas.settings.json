@@ -26,14 +26,14 @@
       "plugin": "users-permissions",
       "model": "user"
     },
-    "paseo": {
-      "via": "review",
-      "model": "paseo"
-    },
     "nps": {
       "type": "component",
       "repeatable": true,
       "component": "review.nps"
+    },
+    "paseo": {
+      "via": "review",
+      "model": "paseo"
     }
   }
 }
