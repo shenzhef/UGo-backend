@@ -80,12 +80,20 @@ module.exports = {
   },
   async cancel_feed(ctx) {
     // return ctx.params;
-    const entity = await strapi.query("feed").model.find({
-      // "cancelled.watched": false,
-      ...ctx.request.body,
-    });
-    // console.log("entity", entity);
-    const fields = entity.map((entry) => entry.toObject());
+    const { id } = ctx.params;
+    console.log(id);
+    // const {"canc} = ctx.query
+    // let canceled = parseInt(ctx.query["cancelled.code"]);
+    // console.log(canceled);
+    const entity = await strapi
+      .query("feed")
+      .model.find({ user: id, ...ctx.query })
+      .lean()
+      .populate("paseador", "first_name");
+
+    const fields = entity.map((entry) =>
+      sanitizeEntity(entry, { model: strapi.models.feed })
+    );
     return fields;
     // return sanitizeEntity(entity, { model: strapi.models.feed });
   },
