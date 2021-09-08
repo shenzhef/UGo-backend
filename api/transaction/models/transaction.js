@@ -28,7 +28,9 @@ module.exports = {
           [result.paseador.notification_token],
           {
             title:
-              "Hey " + result.paseador.name + " tienes una nueva solicitud",
+              "Hey " +
+              result.paseador.first_name +
+              " tienes una nueva solicitud",
             body: "Nueva solicitud de paseo pendiente",
           }
         );

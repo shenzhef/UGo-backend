@@ -18,7 +18,8 @@ module.exports = {
       console.log("bundle", bundle_count);
       if (bundle_count === 0 && result?.paseador?.notification_token) {
         const r = send_notification([result.user.notification_token], {
-          title: "Hey " + result.paseadaor.name + " han aceptado tu solicitud",
+          title:
+            "Hey " + result.paseadaor.first_name + " han aceptado tu solicitud",
           body: "Tienes un nuevo paseo agendado",
         });
         console.log(r);

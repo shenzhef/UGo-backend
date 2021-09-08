@@ -25,23 +25,17 @@ module.exports = {
       ) {
         entity = await Promise.all(
           ctx.request.body.days.map(async (day, index) => {
-            dogs = await Promise.all(
-              ctx.request.body.dogs.map(async (dog, index) => {
-                try {
-                  const dogs_fetch = await strapi.services.feed.create({
-                    ...ctx.request.body,
-                    date: day,
-                    dog: dog._id,
-                  });
-                  return dogs_fetch;
-                } catch (err) {
-                  console.log(err);
-                }
-              })
-            );
+            try {
+              const r = await strapi.services.feed.create({
+                ...ctx.request.body,
+                date: day,
+              });
+              return r;
+            } catch (err) {
+              console.log(err);
+            }
           })
         );
-
         // ctx.request.body.days.forEach((day) => {
         //   entity =
         // });
@@ -56,7 +50,7 @@ module.exports = {
     //   });
     // }
     // console.log("aca", { entity, dogs });
-    return dogs;
+    return entity.map((e) => sanitizeEntity(e, { model: strapi.models.feed }));
   },
   async update_bundle(ctx) {
     const { id } = ctx.params;

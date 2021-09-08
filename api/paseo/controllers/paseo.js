@@ -17,20 +17,15 @@ module.exports = {
       if (ctx.request.body.days && Array.isArray(ctx.request.body.days)) {
         entity = await Promise.all(
           ctx.request.body.days.map(async (day, index) => {
-            dogs = await Promise.all(
-              ctx.request.body.dogs.map(async (dog, index) => {
-                try {
-                  const dogs_fetch = await strapi.services.paseo.create({
-                    ...ctx.request.body,
-                    date: day,
-                    dog: dog._id,
-                  });
-                  return dogs_fetch;
-                } catch (err) {
-                  console.log(err);
-                }
-              })
-            );
+            try {
+              const r = await strapi.services.paseo.create({
+                ...ctx.request.body,
+                date: day,
+              });
+              return r;
+            } catch (err) {
+              console.log(err);
+            }
           })
         );
 
@@ -43,18 +38,17 @@ module.exports = {
     const update_feed = await strapi
       .query("feed")
       .model.updateMany(
-        { bundleID: dogs[0].bundleID },
+        { bundleID: entity[0].bundleID },
         { isAccepted: true },
         { multi: true }
       );
-    console.log(dogs, update_feed);
-    if (dogs[0].user.notification_token) {
-      const r = send_notification([dogs[0].user.notification_token], {
-        title: "Hey " + dogs[0].user.name + " han aceptado tu solicitud",
+    if (entity[0].user.notification_token) {
+      const r = send_notification([entity[0].user.notification_token], {
+        title: "Hey " + entity[0].user.name + " han aceptado tu solicitud",
         body: "Tienes un nuevo paseo agendado",
       });
     }
-    return dogs;
+    return entity.map((e) => sanitizeEntity(e, { model: strapi.models.paseo }));
   },
   async find(ctx) {
     let entities;
