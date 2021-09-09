@@ -29,9 +29,6 @@
     "end": {
       "type": "time"
     },
-    "status": {
-      "type": "json"
-    },
     "direccion": {
       "type": "json"
     },
@@ -41,11 +38,6 @@
     },
     "dog": {
       "model": "dog"
-    },
-    "data_trip": {
-      "type": "component",
-      "repeatable": false,
-      "component": "in-trip.trip"
     },
     "comments": {
       "type": "string"
@@ -65,6 +57,16 @@
     },
     "cancelled": {
       "type": "json"
+    },
+    "status": {
+      "type": "integer",
+      "default": 0
+    },
+    "startedAt": {
+      "type": "datetime"
+    },
+    "endedAt": {
+      "type": "datetime"
     }
   }
 }

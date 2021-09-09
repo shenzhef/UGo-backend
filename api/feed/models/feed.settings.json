@@ -23,10 +23,6 @@
     "date": {
       "type": "datetime"
     },
-    "type": {
-      "type": "enumeration",
-      "enum": ["solicitud", "mensaje", "alerta"]
-    },
     "start": {
       "type": "time"
     },
