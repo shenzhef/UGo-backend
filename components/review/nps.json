@@ -7,12 +7,12 @@
   },
   "options": {},
   "attributes": {
-    "reviews_total": {
-      "type": "integer"
-    },
-    "stars": {
+    "value": {
       "type": "integer",
       "max": 5
+    },
+    "title": {
+      "type": "string"
     }
   }
 }

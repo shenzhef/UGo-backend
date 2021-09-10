@@ -44,7 +44,8 @@ module.exports = {
       );
     if (entity[0].user.notification_token) {
       const r = send_notification([entity[0].user.notification_token], {
-        title: "Hey " + entity[0].user.name + " han aceptado tu solicitud",
+        title:
+          "Hey " + entity[0].user.first_name + " han aceptado tu solicitud",
         body: "Tienes un nuevo paseo agendado",
       });
     }
