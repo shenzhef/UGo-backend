@@ -67,6 +67,9 @@
     },
     "endedAt": {
       "type": "datetime"
+    },
+    "paseador_lastPosition": {
+      "type": "json"
     }
   }
 }

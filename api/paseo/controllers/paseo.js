@@ -78,7 +78,10 @@ module.exports = {
         _id: { $in: paseos_id },
       },
       {
-        $push: { ...ctx.request.body },
+        $push: { ...ctx.request.body.waypoints_history },
+        $set: {
+          paseador_lastPosition: ctx.request.body.paseador_lastPosition,
+        },
       },
       {
         upsert: true,
