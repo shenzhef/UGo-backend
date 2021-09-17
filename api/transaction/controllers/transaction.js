@@ -44,7 +44,7 @@ module.exports = {
           description: body.description,
           unit_price: body.price,
           quantity: body.quantity,
-          category_id: "home",
+
           currency_id: "ARS",
         },
       ],
