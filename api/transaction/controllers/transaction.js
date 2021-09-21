@@ -106,8 +106,8 @@ module.exports = {
     return result;
   },
   async feedback(ctx) {
-    console.log("ACA");
-    console.log(ctx.query);
+    console.log(ctx);
+    // console.log(ctx.query);
     let mercadoPagoresponse;
     if (ctx.query.payment_id !== "null") {
       mercadoPagoresponse = mercadopago.payment
@@ -117,16 +117,16 @@ module.exports = {
           return pago;
         });
     }
-    ctx.send(
-      `<p><a style="color:red;" href=${
-        ctx.query.linking_url +
-        "?payment_id=" +
-        ctx.query.payment_id +
-        "&status=" +
-        ctx.query.status +
-        "&total_amount=500"
-        // mercadoPagoresponse.body.transaction_amount
-      }>Volver a ugo</p>`
-    );
+    ctx.redirect("https://lovesweatfitness.com/thank-you");
+    // ctx.sendFile(__dirname + "/transactions.html");
+    // `<p><a style="color:red;" href=${
+    //   ctx.query.linking_url +
+    //   "?payment_id=" +
+    //   ctx.query.payment_id +
+    //   "&status=" +
+    //   ctx.query.status +
+    //   "&total_amount=500"
+    //   // mercadoPagoresponse.body.transaction_amount
+    // }>Volver a ugo</p>`
   },
 };

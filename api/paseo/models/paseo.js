@@ -25,5 +25,18 @@ module.exports = {
         console.log(r);
       }
     },
+    async afterUpdate(result, params, data) {
+      if (data.status == 2) {
+        const r = send_notification([result.user.notification_token], {
+          title: "Hey " + result.user.first_name,
+          body: "Han finalizado el paseo de " + result.dog.name,
+        });
+      } else if (data.status == 1) {
+        const r = send_notification([result.user.notification_token], {
+          title: "Hey " + result.user.first_name,
+          body: "Han empezado el paseo de " + result.dog.name,
+        });
+      }
+    },
   },
 };
