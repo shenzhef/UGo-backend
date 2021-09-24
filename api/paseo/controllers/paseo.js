@@ -103,36 +103,37 @@ module.exports = {
     return entity;
   },
   async notify(ctx) {
-    let result;
-    // log_entity = await strapi.query("paseo").model.updateMany(
-    //   {
-    //     _id: {
-    //       $in: ctx.request.body.notifyTokens.map((t) => t.paseos_id),
-    //     },
-    //   },
-    //   {
-    //     $push: {
-    //       logs: {
-    //         type: "coming",
-    //         timestamp: new Date().getTime(),
-    //       },
-    //     },
-    //   },
-    //   {
-    //     upsert: true,
-    //     multi: true,
-    //     projection: {
-    //       bundleID: true,
-    //     },
-    //   }
-    // );
+    let log_entity;
+    log_entity = await strapi.query("paseo").model.update(
+      {
+        _id: ctx.request.body.paseo,
+      },
+      {
+        $push: {
+          logs: {
+            type: ctx.request.body.message.id,
+            timestamp: new Date().getTime(),
+          },
+        },
+      },
+      {
+        upsert: true,
+        multi: true,
+        projection: {
+          bundleID: true,
+        },
+      }
+    );
+    console.log("ctx", ctx.request.body);
+
     if (Array.isArray(ctx.request.body.token)) {
       result = await send_notification(
         ctx.request.body.token,
-        ctx.request.body.message,
+        ctx.request.body.message.body,
         ctx.request.body.data
       );
     }
-    return result;
+    console.log(log_entity);
+    return log_entity;
   },
 };
