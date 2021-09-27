@@ -128,11 +128,10 @@ module.exports = {
 
     if (Array.isArray(ctx.request.body.token)) {
       console.log("entra");
-      result = await send_notification(
-        ctx.request.body.token,
-        ctx.request.body.message.body
-        // ctx.request.body.data
-      );
+      result = await send_notification(ctx.request.body.token, {
+        title: ctx.request.body.message.title,
+        body: ctx.request.body.message.body,
+      });
     }
     console.log(log_entity);
     return log_entity;
