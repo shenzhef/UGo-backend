@@ -56,11 +56,11 @@ module.exports = {
       // capture: false,
       payer: body.payer,
       external_reference: body.external_reference,
-      statement_descriptor: "Ugo App",
+      statement_descriptor: "UGo! Argentina",
       back_urls: {
         success:
           strapi.config.server.url +
-          "/transactions/feedback?linking_url=" +
+          "/transactions/feedback    ?linking_url=" +
           body.linking_url,
         failure: strapi.config.server.url + "/transactions/feedback",
         pending: strapi.config.server.url + "/transactions/feedback",
@@ -70,11 +70,12 @@ module.exports = {
       },
       notification_url: strapi.config.server.url + "/transactions/notification",
 
-      auto_return: "approved",
+      // auto_return: "approved",
     };
-    var filters = {
-      email: body.payer.email,
-    };
+    // var filters = {
+    //   email: body.payer.email,
+    // };
+
     // mercadopago.customers
     //   .search(filters)
     //   .then(function (customer) {
@@ -117,7 +118,7 @@ module.exports = {
           return pago;
         });
     }
-    ctx.redirect("https://lovesweatfitness.com/thank-you");
+    ctx.redirect("https://ugo.com.ar/success/");
     // ctx.sendFile(__dirname + "/transactions.html");
     // `<p><a style="color:red;" href=${
     //   ctx.query.linking_url +
