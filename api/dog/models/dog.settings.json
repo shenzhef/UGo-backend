@@ -22,11 +22,7 @@
     "avatar": {
       "model": "file",
       "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
+      "allowedTypes": ["images", "files", "videos"],
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
@@ -34,11 +30,7 @@
     "carousel": {
       "collection": "file",
       "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
+      "allowedTypes": ["images", "files", "videos"],
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
@@ -61,15 +53,16 @@
     },
     "sex": {
       "type": "enumeration",
-      "enum": [
-        "Hembra",
-        "Macho"
-      ]
+      "enum": ["Hembra", "Macho"]
     },
     "questions_values": {
       "type": "component",
       "repeatable": true,
       "component": "config-dogs.questions"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["archive", "draft", "published"]
     }
   }
 }

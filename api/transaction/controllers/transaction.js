@@ -60,7 +60,7 @@ module.exports = {
       back_urls: {
         success:
           strapi.config.server.url +
-          "/transactions/feedback    ?linking_url=" +
+          "/transactions/feedback?linking_url=" +
           body.linking_url,
         failure: strapi.config.server.url + "/transactions/feedback",
         pending: strapi.config.server.url + "/transactions/feedback",
