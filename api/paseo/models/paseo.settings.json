@@ -52,8 +52,8 @@
       "model": "transaction"
     },
     "review": {
-      "model": "resenas",
-      "via": "paseo"
+      "via": "paseo",
+      "model": "resenas"
     },
     "cancelled": {
       "type": "json"

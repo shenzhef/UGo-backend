@@ -2,24 +2,24 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/reviews",
-      "handler": "reviews.find",
+      "path": "/nps-review",
+      "handler": "nps-review.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/reviews",
-      "handler": "reviews.update",
+      "path": "/nps-review",
+      "handler": "nps-review.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/reviews",
-      "handler": "reviews.delete",
+      "path": "/nps-review",
+      "handler": "nps-review.delete",
       "config": {
         "policies": []
       }

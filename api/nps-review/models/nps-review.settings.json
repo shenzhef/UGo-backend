@@ -1,9 +1,8 @@
 {
   "kind": "singleType",
-  "collectionName": "reviews",
+  "collectionName": "nps_reviews",
   "info": {
-    "name": "reviews_nps",
-    "description": ""
+    "name": "nps_review"
   },
   "options": {
     "increments": true,
@@ -12,7 +11,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "nps": {
+    "reviews": {
       "type": "component",
       "repeatable": true,
       "component": "review.nps"

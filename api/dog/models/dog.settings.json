@@ -47,9 +47,9 @@
       "type": "string"
     },
     "owner": {
+      "via": "dogs",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "dogs"
+      "model": "user"
     },
     "size": {
       "type": "string"

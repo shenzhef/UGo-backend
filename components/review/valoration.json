@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_review_valorations",
+  "info": {
+    "name": "valoration",
+    "icon": "align-right"
+  },
+  "options": {},
+  "attributes": {
+    "stars": {
+      "type": "integer"
+    },
+    "reviews_total": {
+      "type": "integer"
+    }
+  }
+}
