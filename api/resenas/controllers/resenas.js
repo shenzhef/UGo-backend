@@ -14,22 +14,23 @@ module.exports = {
       entity = await strapi.services.resenas.create(data, { files });
     } else {
       entity = await strapi.services.resenas.create(ctx.request.body);
-      let previous_reviews = await strapi.services.resenas.count({
+      let previous_reviews = await strapi.services.resenas.find({
         "paseador._id": ctx.request.body.paseador,
       });
-      console.log("prevous", previous_reviews);
+      let newStarValoration =
+        previous_reviews.reduce(function (sum, value) {
+          return sum + value.stars;
+        }, 0) / previous_reviews.length;
+
       const r = await strapi.query("user", "users-permissions").update(
         { _id: ctx.request.body.paseador },
         {
           valoration: {
-            stars: 4,
-            reviews_total: previous_reviews,
+            stars: newStarValoration.toFixed(0),
+            reviews_total: previous_reviews.length,
           },
         }
       );
-      if (entity._id) {
-        //update paseo
-      }
     }
     return sanitizeEntity(entity, { model: strapi.models.resenas });
   },
