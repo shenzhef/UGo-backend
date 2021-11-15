@@ -22,7 +22,11 @@
     "avatar": {
       "model": "file",
       "via": "related",
-      "allowedTypes": ["images", "files", "videos"],
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
@@ -30,7 +34,11 @@
     "carousel": {
       "collection": "file",
       "via": "related",
-      "allowedTypes": ["images", "files", "videos"],
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
@@ -39,9 +47,9 @@
       "type": "string"
     },
     "owner": {
-      "via": "dogs",
       "plugin": "users-permissions",
-      "model": "user"
+      "model": "user",
+      "via": "dogs"
     },
     "size": {
       "type": "string"
@@ -53,7 +61,10 @@
     },
     "sex": {
       "type": "enumeration",
-      "enum": ["Hembra", "Macho"]
+      "enum": [
+        "Hembra",
+        "Macho"
+      ]
     },
     "questions_values": {
       "type": "component",
@@ -62,7 +73,12 @@
     },
     "status": {
       "type": "enumeration",
-      "enum": ["archive", "draft", "published"]
+      "enum": [
+        "archive",
+        "draft",
+        "published"
+      ],
+      "default": "published"
     }
   }
 }

@@ -33,4 +33,21 @@ module.exports = {
     }
     return sanitizeEntity(entity, { model: strapi.models.resenas });
   },
+  async find(ctx) {
+    let entities;
+    if (ctx.query._q) {
+      entities = await strapi.services.resenas.search(ctx.query);
+    } else {
+      entities = await strapi.query("resenas").find(
+        {
+          ...ctx.query,
+          comment: { $ne: "" },
+        },
+        ["user"]
+      );
+    }
+    return entities.map((entity) =>
+      sanitizeEntity(entity, { model: strapi.models.resenas })
+    );
+  },
 };

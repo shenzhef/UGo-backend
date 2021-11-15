@@ -21,17 +21,17 @@
       "type": "string"
     },
     "total_amount": {
-      "type": "integer"
+      "type": "decimal"
     },
     "user": {
+      "autoPopulate": false,
       "plugin": "users-permissions",
-      "model": "user",
-      "autoPopulate": false
+      "model": "user"
     },
     "paseador": {
+      "autoPopulate": false,
       "plugin": "users-permissions",
-      "model": "user",
-      "autoPopulate": false
+      "model": "user"
     },
     "payment_type": {
       "type": "enumeration",

@@ -99,8 +99,8 @@
       "component": "horarios.horario"
     },
     "dogs": {
-      "collection": "dog",
-      "via": "owner"
+      "via": "owner",
+      "collection": "dog"
     },
     "verified": {
       "type": "boolean"
