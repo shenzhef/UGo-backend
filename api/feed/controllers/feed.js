@@ -106,8 +106,8 @@ module.exports = {
         const notify_user = send_notification(
           [ctx.request.body.user_notification],
           {
-            title: "¡Se canceló el paseo!",
-            body: `Lo sentimos! ha cancelado el paseo`,
+            title: "¡Se canceló el paseo!🥺",
+            body: `Lo sentimos! ${ctx.request.body.paseador.first_name} ha cancelado el paseo`,
           }
         );
       }

@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * Cron config that gives you an opportunity
@@ -18,4 +18,11 @@ module.exports = {
   // '0 1 * * 1': () => {
   //
   // }
+  //  '0 1 * * * ': () => {
+  //   const entity = await strapi
+  //       .query("feed")
+  //       .model.update({ isAccepted:null,date:  },{
+  //         cancelled:true
+  //       })
+  //   }
 };

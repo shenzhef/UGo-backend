@@ -20,7 +20,7 @@ module.exports = {
             title: "Pago confirmado!😎",
             body:
               result.user.first_name +
-              " ,tu pago se ha realizado exitosamente,",
+              ", tu pago se ha realizado exitosamente.",
           }
         );
         console.log(notify_user);
@@ -29,8 +29,8 @@ module.exports = {
         const notify_paseador = send_notification(
           [result.paseador.notification_token],
           {
-            title: "¡Nueva solicitud!",
-            body: `${result.paseador.first_name} recibiste una solicitud para pasear a un ! Tenes 30 minutos para aceptarla. ¡Chequela!`,
+            title: "¡Nueva solicitud!😁",
+            body: `${result.paseador.first_name}, recibiste una solicitud para pasear a un 🐶! Tenes 30 minutos para aceptarla. ¡Chequela!`,
           }
         );
       }

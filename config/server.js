@@ -8,6 +8,9 @@ module.exports = ({ env }) => ({
     auth: {
       secret: env("ADMIN_JWT_SECRET", "7dbf9c8ef079c063c02f2accf363f0ca"),
     },
+    cron: {
+      enabled: true,
+    },
     forgotPassword: {
       from: "martin.miauro@gmail.com",
       replyTo: "martin.miauro@gmail.com",
