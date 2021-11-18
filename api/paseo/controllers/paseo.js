@@ -44,9 +44,10 @@ module.exports = {
       );
     if (entity[0].user.notification_token) {
       const r = send_notification([entity[0].user.notification_token], {
-        title:
-          "Hey " + entity[0].user.first_name + " han aceptado tu solicitud",
-        body: "Tienes un nuevo paseo agendado",
+        title: "¡Paseos confirmados!",
+        body:
+          entity[0].user.first_name +
+          ", tu paseador ha aceptadu tu solicitud de paseos.",
       });
     }
     return entity.map((e) => sanitizeEntity(e, { model: strapi.models.paseo }));
