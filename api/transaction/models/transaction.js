@@ -30,7 +30,7 @@ module.exports = {
           [result.paseador.notification_token],
           {
             title: "¡Nueva solicitud!😁",
-            body: `${result.paseador.first_name}, recibiste una solicitud para pasear a un 🐶! Tenes 30 minutos para aceptarla. ¡Chequela!`,
+            body: `${result.paseador.first_name}, recibiste una solicitud para pasear a un 🐶! Tenés 30 minutos para aceptarla. ¡Chequeala!`,
           }
         );
       }

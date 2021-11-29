@@ -56,18 +56,27 @@ module.exports = {
     let entities;
     // if (ctx.query["status.started"])
     //   ctx.query["status.started"] = parseInt(ctx.query["status.started"]);
+    let populate = ctx.query["paseador.id"] ? "user" : "paseador";
 
     if (ctx.query._q) {
       entities = await strapi.services.paseo.search(ctx.query);
     } else {
-      entities = await strapi.services.paseo.find(ctx.query);
-      //   entities = await strapi.query("paseo").model.find(ctx.query);
+      entities = await strapi.query("paseo").find(
+        {
+          ...ctx.query,
+        },
+        ["dog", "transaction", populate]
+      ); //   entities = await strapi.query("paseo").model.find(ctx.query);
     }
 
-    return entities.map((entity) =>
-      sanitizeEntity(entity, { model: strapi.models.paseo })
-    );
+    return entities.map((entity) => {
+      delete entity.paseador.bank_account;
+      delete entity.paseador.paseador_zone;
+      delete entity.paseador.days_available;
+      return sanitizeEntity(entity, { model: strapi.models.paseo });
+    });
   },
+
   async updateTrip(ctx) {
     // const { id } = ctx.params;
     const paseos_id = ctx.request.body.paseos_id;
@@ -97,7 +106,6 @@ module.exports = {
         ctx.request.body.notify.token,
         ctx.request.body.notify.message
       );
-      console.log("r", r);
     }
     // return sanitizeEntity(entity, { model: strapi.models.paseo });
     // console.log(entity.schema);
@@ -125,16 +133,32 @@ module.exports = {
         },
       }
     );
-    console.log("ctx", ctx.request.body);
 
     if (Array.isArray(ctx.request.body.token)) {
-      console.log("entra");
       result = await send_notification(ctx.request.body.token, {
         title: ctx.request.body.message.title,
         body: ctx.request.body.message.body,
       });
     }
-    console.log(log_entity);
     return log_entity;
+  },
+  async historyPaseos(ctx) {
+    let entities;
+    // if (ctx.query["status.started"])
+    //   ctx.query["status.started"] = parseInt(ctx.query["status.started"]);
+    if (ctx.query._q) {
+      entities = await strapi.services.paseo.search(ctx.query);
+    } else {
+      entities = await strapi.query("paseo").find(
+        {
+          ...ctx.query,
+        },
+        ["dog", "paseador"]
+      ); //   entities = await strapi.query("paseo").model.find(ctx.query);
+    }
+
+    return entities.map((entity) => {
+      return sanitizeEntity(entity, { model: strapi.models.paseo });
+    });
   },
 };

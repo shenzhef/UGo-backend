@@ -10,6 +10,14 @@
     },
     {
       "method": "GET",
+      "path": "/paseos/history",
+      "handler": "paseo.historyPaseos",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/paseos/count",
       "handler": "paseo.count",
       "config": {

@@ -115,4 +115,24 @@ module.exports = {
 
     return sanitizeEntity(entity, { model: strapi.models.feed });
   },
+  async find(ctx) {
+    let entities;
+    let populate = ctx.query["paseador.id"] ? "user" : "paseador";
+    if (ctx.query._q) {
+      entities = await strapi.services.feed.search(ctx.query);
+    } else {
+      entities = await strapi.query("feed").find(
+        {
+          ...ctx.query,
+        },
+        ["dog", "transaction", populate]
+      );
+    }
+    return entities.map((entity) => {
+      delete entity.paseador.bank_account;
+      delete entity.paseador.paseador_zone;
+      delete entity.paseador.days_available;
+      return sanitizeEntity(entity, { model: strapi.models.feed });
+    });
+  },
 };
