@@ -6,7 +6,7 @@ const {
 } = require("../../../extensions/users-permissions/controllers/User");
 //REPLACE WITH YOUR ACCESS TOKEN AVAILABLE IN: https://developers.mercadopago.com/panel/credentials
 mercadopago.configurations.setAccessToken(
-  "TEST-2673649138924674-062117-027521d8ee3db857ed96256a55e4dd4f-102188289"
+  "TEST-7917744806992209-032021-ae7dd7888dc62c96df4bbdac4fa12d19-227590603"
 );
 
 module.exports = {

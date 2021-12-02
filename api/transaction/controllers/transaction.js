@@ -9,7 +9,7 @@ const mercadopago = require("mercadopago");
 // );
 mercadopago.configure({
   access_token:
-    "TEST-2673649138924674-062117-027521d8ee3db857ed96256a55e4dd4f-102188289",
+    "TEST-7917744806992209-032021-ae7dd7888dc62c96df4bbdac4fa12d19-227590603",
 });
 module.exports = {
   async findOne(ctx) {
@@ -44,7 +44,6 @@ module.exports = {
           description: body.description,
           unit_price: body.price,
           quantity: body.quantity,
-
           currency_id: "ARS",
         },
       ],
@@ -58,10 +57,7 @@ module.exports = {
       external_reference: body.external_reference,
       statement_descriptor: "UGo! Argentina",
       back_urls: {
-        success:
-          strapi.config.server.url +
-          "/transactions/feedback?linking_url=" +
-          body.linking_url,
+        success: strapi.config.server.url + "/transactions/feedback",
         failure: strapi.config.server.url + "/transactions/feedback",
         pending: strapi.config.server.url + "/transactions/feedback",
       },
@@ -118,7 +114,12 @@ module.exports = {
           return pago;
         });
     }
-    ctx.redirect("https://ugo.com.ar/success/");
+    ctx.redirect(
+      "https://ugo.com.ar/success/?linking_url=" +
+        ctx.query.linking_url +
+        "&payment_id=" +
+        ctx.query.payment_id
+    );
     // ctx.sendFile(__dirname + "/transactions.html");
     // `<p><a style="color:red;" href=${
     //   ctx.query.linking_url +
