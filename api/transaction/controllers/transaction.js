@@ -42,8 +42,8 @@ module.exports = {
         {
           title: body.title,
           description: body.description,
-          unit_price: body.price,
-          quantity: body.quantity,
+          unit_price: Number(body.price),
+          quantity: Number(body.quantity),
           currency_id: "ARS",
         },
       ],
@@ -51,11 +51,12 @@ module.exports = {
         user_id: body.user_id,
         paseador_id: body.external_reference,
         bundle_id: body.bundleID,
+        linking_url: body.linking_url,
       },
       // capture: false,
-      payer: body.payer,
+      // payer: body.payer,
       external_reference: body.external_reference,
-      statement_descriptor: "UGo! Argentina",
+      statement_descriptor: "UGo Argentina",
       back_urls: {
         success: strapi.config.server.url + "/transactions/feedback",
         failure: strapi.config.server.url + "/transactions/feedback",
@@ -66,7 +67,7 @@ module.exports = {
       },
       notification_url: strapi.config.server.url + "/transactions/notification",
 
-      // auto_return: "approved",
+      auto_return: "approved",
     };
     // var filters = {
     //   email: body.payer.email,
@@ -103,27 +104,17 @@ module.exports = {
     return result;
   },
   async feedback(ctx) {
-    console.log(ctx);
+    console.log(ctx.query);
     // console.log(ctx.query);
     let mercadoPagoresponse;
     if (ctx.query.payment_id !== "null") {
-      mercadoPagoresponse = mercadopago.payment
-        .get(ctx.query.payment_id)
-        .then((pago) => {
-          console.log(pago);
-          return pago;
-        });
+      mercadoPagoresponse = await mercadopago.payment.get(ctx.query.payment_id);
+      console.log("response?", mercadoPagoresponse);
+      ctx.redirect(
+        `https://ugo.com.ar/success/?payment_id=${ctx.query.payment_id}&status=${ctx.query.status}&total_amount=${mercadoPagoresponse.total_amount}&linking_url=${mercadoPagoresponse.metadata.linking_url}`
+      );
     }
-    ctx.redirect(
-      "https://ugo.com.ar/success/?linking_url=" +
-        ctx.query.linking_url +
-        "&payment_id=" +
-        ctx.query.payment_id +
-        "&status=" +
-        ctx.query.status +
-        "&total_amount=" +
-        mercadoPagoresponse.body.transaction_amount
-    );
+
     // ctx.sendFile(__dirname + "/transactions.html");
     // `<p><a style="color:red;" href=${
     //   ctx.query.linking_url +

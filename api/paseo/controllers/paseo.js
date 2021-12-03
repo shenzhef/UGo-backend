@@ -57,7 +57,7 @@ module.exports = {
     // if (ctx.query["status.started"])
     //   ctx.query["status.started"] = parseInt(ctx.query["status.started"]);
     let populate = ctx.query["paseador.id"] ? "user" : "paseador";
-
+    console.log(populate);
     if (ctx.query._q) {
       entities = await strapi.services.paseo.search(ctx.query);
     } else {
@@ -68,7 +68,7 @@ module.exports = {
         ["dog", "transaction", populate]
       ); //   entities = await strapi.query("paseo").model.find(ctx.query);
     }
-
+    console.log("entities", entities);
     return entities.map((entity) => {
       delete entity.paseador.bank_account;
       delete entity.paseador.paseador_zone;
