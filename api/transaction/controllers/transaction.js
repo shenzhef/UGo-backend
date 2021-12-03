@@ -118,7 +118,11 @@ module.exports = {
       "https://ugo.com.ar/success/?linking_url=" +
         ctx.query.linking_url +
         "&payment_id=" +
-        ctx.query.payment_id
+        ctx.query.payment_id +
+        "&status=" +
+        ctx.query.status +
+        "&total_amount=" +
+        mercadoPagoresponse.body.transaction_amount
     );
     // ctx.sendFile(__dirname + "/transactions.html");
     // `<p><a style="color:red;" href=${
