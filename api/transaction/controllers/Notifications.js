@@ -16,9 +16,7 @@ module.exports = {
     let entity;
     let paseo;
     let responseMP;
-    let somePushTokens = ctx.request.body.expo;
-    console.log("expo", somePushTokens);
-    // const tickets = await send_notification(somePushTokens);
+
     if (ctx.query["data.id"] !== "null" && ctx.query.type == "payment") {
       responseMP = mercadopago.payment
         .get(ctx.query["data.id"])
