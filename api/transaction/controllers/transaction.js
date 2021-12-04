@@ -98,7 +98,6 @@ module.exports = {
           id: response.body.id,
           init_point: response.body.init_point,
           sandbox_init_point: response.body.sandbox_init_point,
-          // customer: customer,
         };
       });
     return result;
