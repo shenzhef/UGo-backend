@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
-    "develop": "strapi develop --watch-admin",
+    "develop": "strapi develop NODE_ENV=production --watch-admin ",
     "start": "strapi start NODE_ENV=production",
     "build": "strapi build",
     "strapi": "strapi"
