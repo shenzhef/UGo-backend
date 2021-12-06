@@ -1,10 +1,8 @@
 "use strict";
 const { sanitizeEntity } = require("strapi-utils");
 const mercadopago = require("mercadopago");
-
 mercadopago.configure({
-  access_token:
-    "TEST-2673649138924674-062117-027521d8ee3db857ed96256a55e4dd4f-102188289",
+  access_token: process.env.MP_ACCESS_TOKEN,
 });
 const URL = strapi.config.server.url;
 
@@ -105,9 +103,11 @@ module.exports = {
     let mercadoPagoresponse;
     if (ctx.query.payment_id !== "null") {
       mercadoPagoresponse = await mercadopago.payment.get(ctx.query.payment_id);
-      console.log("response?", mercadoPagoresponse.metadata);
+      // console.log('typeof linking',typeof ctx.query.status);
+      console.log("body", mercadoPagoresponse.body);
       ctx.redirect(
-        `https://ugo.com.ar/success/?payment_id=${ctx.query.payment_id}&status=${ctx.query.status}&total_amount=${mercadoPagoresponse.total_amount}&linking_url=exp://127.0.0.1:19000/--/`
+        `https://ugo.com.ar/success/?payment_id=${ctx.query.payment_id}
+        &status=${ctx.query.status}&total_amount=${mercadoPagoresponse.body.transaction_amount}&linking_url=${mercadoPagoresponse.body.metadata.linking_url}`
       );
     }
 
