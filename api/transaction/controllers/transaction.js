@@ -60,9 +60,9 @@ module.exports = {
       payment_methods: {
         installments: 1,
       },
-      notification_url: URL + "/transactions/notification",
+      // notification_url: URL + "/transactions/notification",
 
-      auto_return: "approved",
+      // auto_return: "approved",
     };
     // var filters = {
     //   email: body.payer.email,
