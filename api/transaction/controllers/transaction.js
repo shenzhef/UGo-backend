@@ -60,7 +60,7 @@ module.exports = {
       payment_methods: {
         installments: 1,
       },
-      // notification_url: URL + "/transactions/notification",
+      notification_url: URL + "/transactions/notification",
 
       // auto_return: "approved",
     };
@@ -82,7 +82,6 @@ module.exports = {
     //     //     console.log('error', e);
     //     // });
     //     console.log("customer", customer.response.results);
-
     //   })
     //   .catch((err) => console.log("err", err));
     const result = mercadopago.preferences
@@ -104,27 +103,13 @@ module.exports = {
     if (ctx.query.payment_id !== "null") {
       mercadoPagoresponse = await mercadopago.payment.get(ctx.query.payment_id);
       // console.log('typeof linking',typeof ctx.query.status);
-      console.log("body", mercadoPagoresponse.body);
       ctx.redirect(
         `https://ugo.com.ar/success/?payment_id=${ctx.query.payment_id}
         &status=${ctx.query.status}&total_amount=${mercadoPagoresponse.body.transaction_amount}&linking_url=${mercadoPagoresponse.body.metadata.linking_url}`
       );
     }
-
-    // ctx.sendFile(__dirname + "/transactions.html");
-    // `<p><a style="color:red;" href=${
-    //   ctx.query.linking_url +
-    //   "?payment_id=" +
-    //   ctx.query.payment_id +
-    //   "&status=" +
-    //   ctx.query.status +
-    //   "&total_amount=500"
-    //   // mercadoPagoresponse.body.transaction_amount
-    // }>Volver a ugo</p>`
   },
   async webhook(ctx) {
-    console.log("aca", ctx.query);
-    // ctx.send("oka!");
     let entity;
     let paseo;
     let responseMP;
