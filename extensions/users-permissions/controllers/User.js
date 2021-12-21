@@ -86,13 +86,24 @@ module.exports = {
       //   ctx.query,
       //   populate
       // );
-
-      users = await await strapi
-        .query("user", "users-permissions")
-        .find({ paseador: true, ...ctx.query }, populate);
-
+      // await strapi.query("paseo").model
+      users = await strapi.query("user", "users-permissions").model.find(
+        {
+          paseador: true,
+          confirmed: true,
+          blocked: false,
+          // days_available: { days: ["1", "2"] }, Este funca
+          // turnos: { $elemMatch: { ref: { _id: "61af531717698b001b4e0fdc" } } }, // este tengo q buscar start
+          ...ctx.query,
+        },
+        []
+      );
       user_paseos = await Promise.all(
         users.map(async (user) => {
+          delete user.bank_account;
+          delete user.passowrd;
+          delete user.email;
+          delete user.confirmationToken;
           const count_paseos = await strapi
             .query("paseo")
             .count({ "paseador._id": user._id, status: { started: 1 } });
@@ -102,7 +113,11 @@ module.exports = {
       );
     }
 
-    ctx.body = user_paseos.map(sanitizeUser);
+    return user_paseos.map((user) =>
+      sanitizeEntity(user, {
+        model: strapi.query("user", "users-permissions").model,
+      })
+    );
   },
   async activity(ctx) {
     const id = ctx.state.user._id;

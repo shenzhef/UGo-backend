@@ -128,10 +128,14 @@ module.exports = {
         ["dog", "transaction", populate]
       );
     }
+
     return entities.map((entity) => {
-      delete entity.paseador.bank_account;
-      delete entity.paseador.paseador_zone;
-      delete entity.paseador.days_available;
+      if (entity.paseador) {
+        delete entity.paseador.bank_account;
+        delete entity.paseador.paseador_zone;
+        delete entity.paseador.days_available;
+      }
+
       return sanitizeEntity(entity, { model: strapi.models.feed });
     });
   },
