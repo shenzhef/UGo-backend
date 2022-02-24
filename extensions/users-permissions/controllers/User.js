@@ -100,21 +100,18 @@ module.exports = {
       );
       user_paseos = await Promise.all(
         users.map(async (user) => {
-          let updated = {
-            ...user._doc,
-          };
-
-          delete updated.bank_account;
-          delete updated.passowrd;
-          delete updated.email;
-          delete updated.confirmationToken;
+          delete user.bank_account;
+          delete user.passowrd;
+          delete user.email;
+          delete user.confirmationToken;
           const count_paseos = await strapi.query("paseo").count({
-            "paseador._id": updated._id,
+            "paseador._id": user._id,
             status: { started: 1 },
           });
+          user.total_paseos = count_paseos;
           // console.log("1", updated);
           // .filter((prev) => prev.status.started == "done");
-          return { ...updated, total_paseos: count_paseos };
+          return user;
         })
       );
     }
