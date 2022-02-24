@@ -44,11 +44,12 @@ module.exports = {
           ...ctx.query,
           comment: { $ne: "" },
         },
-        ["user"]
+        ["user", "dog"]
       );
     }
-    return entities.map((entity) =>
-      sanitizeEntity(entity, { model: strapi.models.resenas })
-    );
+    return entities.map((entity) => {
+      delete entity.dog.questions_values;
+      return sanitizeEntity(entity, { model: strapi.models.resenas });
+    });
   },
 };
