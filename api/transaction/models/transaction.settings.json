@@ -45,6 +45,10 @@
     },
     "bundleID": {
       "type": "string"
+    },
+    "payments": {
+      "via": "transactions",
+      "collection": "payments"
     }
   }
 }

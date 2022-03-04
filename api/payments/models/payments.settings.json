@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payments",
+  "info": {
+    "name": "payments"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "recipient": {
+      "type": "string"
+    },
+    "transactions": {
+      "collection": "transaction",
+      "via": "payments",
+      "dominant": true
+    },
+    "total_amount": {
+      "type": "decimal"
+    },
+    "paseador": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "pagado",
+        "vencido"
+      ]
+    },
+    "date": {
+      "type": "date"
+    },
+    "expiration": {
+      "type": "date"
+    },
+    "operation_id": {
+      "type": "integer"
+    }
+  }
+}

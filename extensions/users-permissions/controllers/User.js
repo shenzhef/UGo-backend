@@ -109,7 +109,8 @@ module.exports = {
             status: { started: 1 },
           });
           user.total_paseos = count_paseos;
-          // console.log("1", updated);
+
+          console.log("1", user);
           // .filter((prev) => prev.status.started == "done");
           return user;
         })

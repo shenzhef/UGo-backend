@@ -88,7 +88,7 @@ module.exports = {
         _id: { $in: paseos_id },
       },
       {
-        $push: { ...ctx.request.body.waypoints_history },
+        $push: { waypoints_history: ctx.request.body.waypoints_history },
         $set: {
           paseador_lastPosition: ctx.request.body.paseador_lastPosition,
         },
@@ -96,9 +96,6 @@ module.exports = {
       {
         upsert: true,
         multi: true,
-        projection: {
-          bundleID: true,
-        },
       }
     );
     if (ctx.request.body.notify) {
