@@ -46,9 +46,9 @@
     "bundleID": {
       "type": "string"
     },
-    "payments": {
-      "via": "transactions",
-      "collection": "payments"
+    "payment": {
+      "via": "transaction",
+      "model": "payments"
     }
   }
 }

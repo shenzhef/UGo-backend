@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "payments",
   "info": {
-    "name": "payments"
+    "name": "payments",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -14,10 +15,9 @@
     "recipient": {
       "type": "string"
     },
-    "transactions": {
-      "collection": "transaction",
-      "via": "payments",
-      "dominant": true
+    "transaction": {
+      "model": "transaction",
+      "via": "payment"
     },
     "total_amount": {
       "type": "decimal"
@@ -29,8 +29,11 @@
     "status": {
       "type": "enumeration",
       "enum": [
-        "pagado",
-        "vencido"
+        "pending",
+        "approved",
+        "refund",
+        "cancelled",
+        "expirated"
       ]
     },
     "date": {

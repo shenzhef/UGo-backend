@@ -137,7 +137,7 @@ module.exports = {
     }
 
     try {
-      //   if (!settings.email_confirmation) {
+      //   if (!settings.email_confirmation) {f
       //     params.confirmed = true;
       //   }
 
@@ -154,6 +154,13 @@ module.exports = {
           await strapi.plugins[
             "users-permissions"
           ].services.user.sendConfirmationEmail(user);
+          // await strapi.plugins["email"].services.email.send({
+          //   to: params.email,
+          //   template_id: "d-f0c3bb03e9ac46708396083f1bb7c84d",
+          //   dynamic_template_data: {
+          //     name: params.first_name,
+          //   },
+          // });
         } catch (err) {
           return ctx.badRequest(null, err);
         }

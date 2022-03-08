@@ -7,6 +7,9 @@ module.exports = {
     await strapi.plugins["email"].services.email.send({
       to: "martin.miauro@gmail.com",
       template_id: "d-f0c3bb03e9ac46708396083f1bb7c84d",
+      dynamic_template_data: {
+        name: "tincho",
+      },
     });
   },
 };
