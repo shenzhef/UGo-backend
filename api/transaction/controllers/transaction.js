@@ -173,4 +173,75 @@ module.exports = {
     return responseMP;
     // return sanitizeEntity(entity, { model: strapi.models.transaction });
   },
+  async createpayment(ctx) {
+    const { body } = ctx.request;
+    //process.env
+    console.log(body);
+    let preference = {
+      items: [
+        {
+          title: body.title,
+          description: body.description,
+          unit_price: Number(body.price),
+          quantity: Number(body.quantity),
+          currency_id: "ARS",
+        },
+      ],
+
+      // capture: false,
+      // payer: body.payer,
+
+      statement_descriptor: "UGo Argentina",
+      back_urls: {
+        success: "localhost:3000/payments",
+        failure: URL + "/transactions/feedback",
+        pending: URL + "/transactions/feedback",
+      },
+      payment_methods: {
+        installments: 1,
+      },
+      notification_url: URL + "/transactions/notification",
+
+      // auto_return: "approved",
+    };
+    // var filters = {
+    //   email: body.payer.email,
+    // };
+
+    // mercadopago.customers
+    //   .search(filters)
+    //   .then(function (customer) {
+    //     // if (customer.response.results.length == 0) {
+    //     // mercadopago.customers
+    //     //   .create(ctx.body.payer)
+    //     //   .then((customer_created) => {
+    //     //     console.log('customer created', customer_created);
+    //     //     return customer_created;
+    //     //   })
+    //     //   .catch((e) => {
+    //     //     console.log('error', e);
+    //     // });
+    //     console.log("customer", customer.response.results);
+    //   })
+    //   .catch((err) => console.log("err", err));
+    const result = mercadopago.preferences
+      .create(preference)
+      .then(function (response) {
+        console.log(response);
+        return {
+          id: response.body.id,
+          init_point: response.body.init_point,
+          sandbox_init_point: response.body.sandbox_init_point,
+        };
+      });
+    return result;
+  },
+  async authGoogle(ctx) {
+    console.log("aca", ctx.params);
+
+    return ctx;
+  },
+  async auth_post(ctx) {
+    console.log("aca", ctx);
+  },
 };

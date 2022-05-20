@@ -65,7 +65,7 @@ module.exports = {
         {
           ...ctx.query,
         },
-        ["dog", "transaction", populate]
+        ["dog", "transaction","user","paseador" ] //populate
       ); //   entities = await strapi.query("paseo").model.find(ctx.query);
     }
     console.log("entities", entities);

@@ -17,9 +17,33 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/auth/google/callback",
+      "handler": "transaction.authGoogle",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/auth/google/callback",
+      "handler": "transaction.auth_post",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/transactions/createpreference",
       "handler": "transaction.createpreference",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/transactions/payment",
+      "handler": "transaction.createpayment",
       "config": {
         "policies": []
       }
