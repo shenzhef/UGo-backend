@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_inputs_questions",
+  "info": {
+    "name": "question",
+    "icon": "baseball-ball"
+  },
+  "options": {},
+  "attributes": {
+    "questions": {
+      "type": "string"
+    },
+    "options": {
+      "type": "component",
+      "repeatable": true,
+      "component": "inputs.select-options"
+    }
+  }
+}

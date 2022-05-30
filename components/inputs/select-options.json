@@ -2,11 +2,12 @@
   "collectionName": "components_inputs_select_options",
   "info": {
     "name": "selectOptions",
-    "icon": "air-freshener"
+    "icon": "air-freshener",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "nombre": {
+    "title": {
       "type": "string"
     },
     "value": {

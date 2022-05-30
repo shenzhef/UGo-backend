@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_inputs_socials",
+  "info": {
+    "name": "social",
+    "icon": "angry"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "integer"
+    },
+    "desc": {
+      "type": "string"
+    }
+  }
+}

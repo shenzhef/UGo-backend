@@ -21,6 +21,16 @@
       "type": "component",
       "repeatable": true,
       "component": "inputs.health-dogs"
+    },
+    "social": {
+      "type": "component",
+      "repeatable": true,
+      "component": "inputs.social"
+    },
+    "social_comportamiento": {
+      "type": "component",
+      "repeatable": true,
+      "component": "inputs.question"
     }
   }
 }
