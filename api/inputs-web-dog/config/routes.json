@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/inputs-web-dog",
+      "handler": "inputs-web-dog.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/inputs-web-dog",
+      "handler": "inputs-web-dog.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/inputs-web-dog",
+      "handler": "inputs-web-dog.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

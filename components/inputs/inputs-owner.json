@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_inputs_inputs_owners",
+  "info": {
+    "name": "inputsOwner",
+    "icon": "band-aid"
+  },
+  "options": {},
+  "attributes": {
+    "placeholder": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "text",
+        "number",
+        "mail"
+      ]
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/inputs-web-owner",
+      "handler": "inputs-web-owner.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/inputs-web-owner",
+      "handler": "inputs-web-owner.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/inputs-web-owner",
+      "handler": "inputs-web-owner.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

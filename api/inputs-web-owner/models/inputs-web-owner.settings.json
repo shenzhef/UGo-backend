@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "inputs_web_owners",
+  "info": {
+    "name": "inputsWebOwner"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "inputsOwner": {
+      "type": "component",
+      "repeatable": true,
+      "component": "inputs.inputs-owner"
+    }
+  }
+}

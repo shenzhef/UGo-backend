@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_inputs_input_dogs",
+  "info": {
+    "name": "inputDogs",
+    "icon": "assistive-listening-systems",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "placeholder": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "text",
+        "number",
+        "select",
+        "raza"
+      ]
+    },
+    "selectOptions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "inputs.select-options"
+    }
+  }
+}

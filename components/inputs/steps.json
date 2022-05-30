@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_inputs_steps",
+  "info": {
+    "name": "steps",
+    "icon": "arrows-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "step": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

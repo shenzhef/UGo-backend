@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "input_mains",
+  "info": {
+    "name": "inputMain",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "breadcrumb": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "steps": {
+      "type": "component",
+      "repeatable": true,
+      "component": "inputs.steps"
+    }
+  }
+}

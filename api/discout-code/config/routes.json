@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/discout-codes",
+      "handler": "discout-code.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/discout-codes/count",
+      "handler": "discout-code.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/discout-codes/:id",
+      "handler": "discout-code.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/discout-codes",
+      "handler": "discout-code.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/discout-codes/:id",
+      "handler": "discout-code.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/discout-codes/:id",
+      "handler": "discout-code.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

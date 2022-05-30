@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_inputs_health_dogs",
+  "info": {
+    "name": "healthDogs",
+    "icon": "arrow-up"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "string"
+    },
+    "value": {
+      "type": "boolean"
+    }
+  }
+}

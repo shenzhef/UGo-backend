@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "inputs_web_dogs",
+  "info": {
+    "name": "inputsWebDog",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "inputDogs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "inputs.input-dogs"
+    },
+    "healthDogs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "inputs.health-dogs"
+    }
+  }
+}
