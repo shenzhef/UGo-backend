@@ -25,7 +25,6 @@ module.exports = {
     const entity = await strapi.services.transaction.findOne({
       payment_id: id,
     });
-    console.log("entity", entity);
     return sanitizeEntity(entity, { model: strapi.models.transaction });
   },
   async createpreference(ctx) {

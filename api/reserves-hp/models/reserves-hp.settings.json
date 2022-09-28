@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reserves_hps",
+  "info": {
+    "name": "reserves_hp",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "owner_name": {
+      "type": "string"
+    },
+    "owner_surname": {
+      "type": "string"
+    },
+    "owner_phone": {
+      "type": "string"
+    },
+    "owner_email": {
+      "type": "string"
+    },
+    "owner_dni": {
+      "type": "string"
+    },
+    "dog_genre": {
+      "type": "string"
+    },
+    "dog_raza": {
+      "type": "string"
+    },
+    "dog_social": {
+      "type": "string"
+    },
+    "dog_age": {
+      "type": "integer",
+      "max": 30
+    },
+    "dog_name": {
+      "type": "string"
+    },
+    "dog_castrado": {
+      "type": "string"
+    },
+    "dog_behaviour": {
+      "type": "string"
+    },
+    "dog_vaccine": {
+      "type": "string"
+    },
+    "dog_deworming": {
+      "type": "string"
+    },
+    "aob_date_start": {
+      "type": "date"
+    },
+    "aob_date_end": {
+      "type": "date"
+    },
+    "aob_price": {
+      "type": "float"
+    }
+  }
+}

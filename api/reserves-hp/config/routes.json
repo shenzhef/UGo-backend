@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/reserves-hps",
+      "handler": "reserves-hp.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/reserves-hps/count",
+      "handler": "reserves-hp.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/reserves-hps/:id",
+      "handler": "reserves-hp.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/reserves-hps",
+      "handler": "reserves-hp.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/reserves-hps/:id",
+      "handler": "reserves-hp.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/reserves-hps/:id",
+      "handler": "reserves-hp.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
