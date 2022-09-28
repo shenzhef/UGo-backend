@@ -49,12 +49,6 @@
     "dog_behaviour": {
       "type": "string"
     },
-    "dog_vaccine": {
-      "type": "string"
-    },
-    "dog_deworming": {
-      "type": "string"
-    },
     "aob_date_start": {
       "type": "date"
     },
@@ -63,6 +57,12 @@
     },
     "aob_price": {
       "type": "float"
+    },
+    "dog_vaccine": {
+      "type": "boolean"
+    },
+    "dog_deworming": {
+      "type": "boolean"
     }
   }
 }
