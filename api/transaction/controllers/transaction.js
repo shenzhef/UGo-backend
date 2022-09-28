@@ -203,26 +203,7 @@ module.exports = {
 
       // auto_return: "approved",
     };
-    // var filters = {
-    //   email: body.payer.email,
-    // };
 
-    // mercadopago.customers
-    //   .search(filters)
-    //   .then(function (customer) {
-    //     // if (customer.response.results.length == 0) {
-    //     // mercadopago.customers
-    //     //   .create(ctx.body.payer)
-    //     //   .then((customer_created) => {
-    //     //     console.log('customer created', customer_created);
-    //     //     return customer_created;
-    //     //   })
-    //     //   .catch((e) => {
-    //     //     console.log('error', e);
-    //     // });
-    //     console.log("customer", customer.response.results);
-    //   })
-    //   .catch((err) => console.log("err", err));
     const result = mercadopago.preferences
       .create(preference)
       .then(function (response) {

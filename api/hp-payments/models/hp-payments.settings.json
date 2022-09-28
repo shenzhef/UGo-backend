@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hp_payments",
+  "info": {
+    "name": "hp_payments"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "total_amount": {
+      "type": "float"
+    },
+    "payment_id": {
+      "type": "integer"
+    },
+    "status": {
+      "type": "string"
+    },
+    "payment_type": {
+      "type": "enumeration",
+      "enum": [
+        "mp",
+        "cash"
+      ]
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/hp-payments",
+      "handler": "hp-payments.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/hp-payments/count",
+      "handler": "hp-payments.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/hp-payments/notification",
+      "handler": "hp-payments.webhook",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/hp-payments/:id",
+      "handler": "hp-payments.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/hp-payments",
+      "handler": "hp-payments.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/hp-payments/createpreference",
+      "handler": "hp-payments.createpreference",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/hp-payments/feedback",
+      "handler": "hp-payments.feedback",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/hp-payments/:id",
+      "handler": "hp-payments.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/hp-payments/:id",
+      "handler": "hp-payments.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
