@@ -10,12 +10,11 @@ module.exports = {
     let entity;
     let reserve;
     let responseMP;
-    console.log("ctx", ctx.query);
+    console.log("ctx.query", ctx.query);
     if (ctx.query["data.id"] !== "null" && ctx.query.type == "payment") {
       responseMP = mercadopago.payment
         .get(ctx.query["data.id"])
         .then(async (pago) => {
-          console.log("test body", pago.body);
           try {
             entity = await strapi.services["hp-payments"].create({
               payment_id: pago.body.id,
@@ -26,9 +25,7 @@ module.exports = {
               owner_surname: pago.body.additional_info.payer.last_name,
               owner_email: pago.body.payer.email,
               reserves_hp: pago.body.metadata.reserve,
-              // owner_surname:
             });
-            console.log("entity", entity);
             if (entity._id) {
               try {
                 reserve = await strapi.query("reserves-hp").model.update(
@@ -40,31 +37,19 @@ module.exports = {
                     payment_status: pago.body.status,
                   }
                 );
-                console.log("reserve", reserve);
               } catch (error) {
                 console.log("error reserve", error);
                 return { error: error };
               }
             }
-            //   return {
-            //     entity: entity,
-            //     paseo: paseo,
-            //   };
-            // } else {
-            //   return { error: "error" };
-            // }
           } catch (error) {
             console.log("error", error);
             return { error: error };
           }
         })
-        // })
         .catch((e) => {
           console.log("error", e);
           return { error: e };
-          //     });
-          // } else {
-          //   return { error: true };
         });
     }
     return responseMP;
@@ -76,9 +61,11 @@ module.exports = {
     let mercadoPagoresponse;
     if (ctx.query.payment_id !== "null") {
       mercadoPagoresponse = await mercadopago.payment.get(ctx.query.payment_id);
+      console.log(`https://ugo.com.ar?payment_id=${ctx.query.payment_id}
+      &status=${ctx.query.status}&total_amount=${mercadoPagoresponse.body.transaction_amount}&reserve=${mercadoPagoresponse.body.metadata.reserve}`);
       ctx.redirect(
-        `https://ugo.com.ar/success/?payment_id=${ctx.query.payment_id}
-        &status=${ctx.query.status}&total_amount=${mercadoPagoresponse.body.transaction_amount}&linking_url=${mercadoPagoresponse.body.metadata.linking_url}`
+        `https://ugo.com.ar?payment_id=${ctx.query.payment_id}
+        &status=${ctx.query.status}&total_amount=${mercadoPagoresponse.body.transaction_amount}&reserve=${mercadoPagoresponse.body.metadata.reserve}`
       );
     }
   },
