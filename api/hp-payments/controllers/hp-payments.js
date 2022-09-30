@@ -9,12 +9,12 @@ module.exports = {
   async webhook(ctx) {
     let entity;
     let responseMP;
-    console.log("ctx", ctx);
+    console.log("ctx", ctx.query);
     if (ctx.query["data.id"] !== "null" && ctx.query.type == "payment") {
       responseMP = mercadopago.payment
         .get(ctx.query["data.id"])
         .then(async (pago) => {
-          console.log(pago.body);
+          console.log("body", pago.body);
           try {
             entity = await strapi.services.hp_payments.create({
               payment_id: pago.body.id,
@@ -70,7 +70,7 @@ module.exports = {
   },
   async backmp(ctx) {
     // console.log("entra?");
-    console.log(ctx.query);
+    console.log("backmp", ctx.query);
 
     let mercadoPagoresponse;
     if (ctx.query.payment_id !== "null") {
