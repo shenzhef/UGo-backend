@@ -14,15 +14,15 @@ module.exports = {
       responseMP = mercadopago.payment
         .get(ctx.query["data.id"])
         .then(async (pago) => {
-          console.log("body", pago.body);
+          console.log("test body", pago.body);
           try {
             entity = await strapi.services["hp-payments"].create({
               payment_id: pago.body.id,
               status: pago.body.status,
               total_amount: pago.body.transaction_amount,
               payment_type: "mp",
-              owner_name: pago.body.payer.additional_info.first_name,
-              owner_surname: pago.body.payer.additional_info.last_name,
+              owner_name: pago.body.additional_info.first_name,
+              owner_surname: pago.body.additional_info.last_name,
               owner_email: pago.body.payer.email,
               // owner_surname:
             });
@@ -54,6 +54,7 @@ module.exports = {
             //   return { error: "error" };
             // }
           } catch (error) {
+            console.log("error", error);
             return { error: error };
           }
         })
