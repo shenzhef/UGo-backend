@@ -8,6 +8,7 @@ const URL = strapi.config.server.url;
 module.exports = {
   async webhook(ctx) {
     let entity;
+    let reserve;
     let responseMP;
     console.log("ctx", ctx.query);
     if (ctx.query["data.id"] !== "null" && ctx.query.type == "payment") {
@@ -21,31 +22,30 @@ module.exports = {
               status: pago.body.status,
               total_amount: pago.body.transaction_amount,
               payment_type: "mp",
-              owner_name: pago.body.additional_info.first_name,
-              owner_surname: pago.body.additional_info.last_name,
+              owner_name: pago.body.additional_info.payer.first_name,
+              owner_surname: pago.body.additional_info.payer.last_name,
               owner_email: pago.body.payer.email,
+              reserves_hp: pago.body.metadata.reserve,
               // owner_surname:
             });
             console.log("entity", entity);
-            // if (entity._id) {
-            //   try {
-            //     paseo = await strapi.query("reserves-hp").model.update(
-            //       {
-            //         bundleID: pago.body.metadata.bundle_id,
-            //       },
-            //       {
-            //         transaction: entity._id,
-            //       },
-            //       {
-            //         multi: true,
-            //       }
-            //     );
-            //     console.log("paseo", paseo);
-            //   } catch (error) {
-            //     console.log(error);
-            //     return { error: error };
-            //   }
-
+            if (entity._id) {
+              try {
+                reserve = await strapi.query("reserves-hp").model.update(
+                  {
+                    _id: pago.body.metadata.reserve,
+                  },
+                  {
+                    payment_id: pago.body.id,
+                    payment_status: pago.body.status,
+                  }
+                );
+                console.log("reserve", reserve);
+              } catch (error) {
+                console.log("error reserve", error);
+                return { error: error };
+              }
+            }
             //   return {
             //     entity: entity,
             //     paseo: paseo,
@@ -104,6 +104,9 @@ module.exports = {
       payment_methods: {
         installments: 1,
       },
+      metadata: {
+        reserve: body.reserve,
+      },
       payer: {
         name: body.owner_name,
         email: body.owner_email,
@@ -111,7 +114,7 @@ module.exports = {
       },
       notification_url: URL + "/hp-payments/notification",
 
-      // auto_return: "approved",
+      auto_return: "approved",
     };
     const result = mercadopago.preferences
       .create(preference)
