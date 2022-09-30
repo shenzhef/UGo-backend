@@ -16,13 +16,13 @@ module.exports = {
         .then(async (pago) => {
           console.log("body", pago.body);
           try {
-            entity = await strapi.services.hp_payments.create({
+            entity = await strapi.services["hp-payments"].create({
               payment_id: pago.body.id,
               status: pago.body.status,
               total_amount: pago.body.transaction_amount,
               payment_type: "mp",
-              owner_name: pago.body.payer.name,
-              owner_surname: pago.body.payer.surname,
+              owner_name: pago.body.payer.additional_info.first_name,
+              owner_surname: pago.body.payer.additional_info.last_name,
               owner_email: pago.body.payer.email,
               // owner_surname:
             });
@@ -83,7 +83,7 @@ module.exports = {
   },
   async createpreference(ctx) {
     const { body } = ctx.request;
-    //process.env
+
     let preference = {
       items: [
         {
