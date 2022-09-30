@@ -63,6 +63,19 @@
     },
     "dog_deworming": {
       "type": "boolean"
+    },
+    "payment_type": {
+      "type": "string"
+    },
+    "payment_status": {
+      "type": "string"
+    },
+    "payment_id": {
+      "type": "integer"
+    },
+    "hp_payment": {
+      "via": "reserves_hp",
+      "model": "hp-payments"
     }
   }
 }

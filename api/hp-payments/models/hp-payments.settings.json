@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "hp_payments",
   "info": {
-    "name": "hp_payments"
+    "name": "hp_payments",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -26,6 +27,22 @@
         "mp",
         "cash"
       ]
+    },
+    "owner_name": {
+      "type": "string"
+    },
+    "owner_email": {
+      "type": "string"
+    },
+    "owner_dni": {
+      "type": "string"
+    },
+    "owner_surname": {
+      "type": "string"
+    },
+    "reserves_hp": {
+      "model": "reserves-hp",
+      "via": "hp_payment"
     }
   }
 }

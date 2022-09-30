@@ -10,6 +10,14 @@
     },
     {
       "method": "GET",
+      "path": "/hp-payments/backmp",
+      "handler": "hp-payments.backmp",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/hp-payments/count",
       "handler": "hp-payments.count",
       "config": {
@@ -48,14 +56,7 @@
         "policies": []
       }
     },
-    {
-      "method": "GET",
-      "path": "/hp-payments/feedback",
-      "handler": "hp-payments.feedback",
-      "config": {
-        "policies": []
-      }
-    },
+
     {
       "method": "PUT",
       "path": "/hp-payments/:id",
