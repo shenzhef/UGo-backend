@@ -66,7 +66,7 @@ module.exports = {
           //   return { error: true };
         });
     }
-    // return responseMP;
+    return responseMP;
   },
   async backmp(ctx) {
     // console.log("entra?");
