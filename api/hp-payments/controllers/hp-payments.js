@@ -42,8 +42,8 @@ module.exports = {
                   await strapi.plugins["email"].services.email.send({
                     to: pago.body.payer.email,
                     from: "ugo@marcopolo.agency",
-                    replyTo: settings.response_email,
-                    subject: settings.object,
+                    replyTo: "ugo@marcopolo.agency",
+                    subject: "Tu estadia en House paradise fue confirmada!",
                     template_id: "d-34e858ea123b44b38e1a5682774c95e4",
                     dynamic_template_data: {
                       total_amount: pago.body.transaction_amount,
@@ -111,7 +111,6 @@ module.exports = {
         surname: body.owner_surname,
       },
       notification_url: URL + "/hp-payments/notification",
-
       auto_return: "approved",
     };
     const result = mercadopago.preferences
