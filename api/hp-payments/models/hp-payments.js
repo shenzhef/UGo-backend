@@ -44,7 +44,7 @@ module.exports = {
           dynamic_template_data: {
             total_amount: total_amount,
             owner_first_name: owner_name,
-            owner_email,
+            owner_email: owner_surname,
           },
         });
       }
