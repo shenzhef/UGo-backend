@@ -17,7 +17,6 @@ module.exports = {
         owner_email,
         reserves_hp,
       } = result;
-      console.log("result", result);
 
       let entity;
       if (total_amount && payment_id) {
@@ -40,7 +39,7 @@ module.exports = {
       if (status == "approved") {
         try {
           await strapi.plugins["email"].services.email.send({
-            to: "martin.miauro@gmail.com", //pago.body.payer.email
+            to: owner_email,
             from: "ugo@marcopolo.agency",
             replyTo: "ugo@marcopolo.agency",
             subject: "Tu estadia en House paradise fue confirmada!",
@@ -48,7 +47,14 @@ module.exports = {
             dynamic_template_data: {
               total_amount: total_amount,
               owner_first_name: owner_name,
-              owner_email: owner_surname,
+              owner_surname: owner_surname,
+              owner_phone: result.reserves_hp.owner_phone,
+              aob_date_start: result.reserves_hp.aob_date_start,
+              aob_date_end: result.reserves_hp.aob_date_end,
+              dog_age: result.reserves_hp.dog_age,
+              dog_name: result.reserves_hp.dog_name,
+              dog_raza: result.reserves_hp.dog_raza,
+              owner_dni: result.reserves_hp.dni,
             },
           });
         } catch (error) {
