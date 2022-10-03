@@ -38,21 +38,21 @@ module.exports = {
                   }
                 );
 
-                if (pago.body.status == "approved") {
-                  await strapi.plugins["email"].services.email.send({
-                    to: pago.body.payer.email,
-                    from: "ugo@marcopolo.agency",
-                    replyTo: "ugo@marcopolo.agency",
-                    subject: "Tu estadia en House paradise fue confirmada!",
-                    template_id: "d-34e858ea123b44b38e1a5682774c95e4",
-                    dynamic_template_data: {
-                      total_amount: pago.body.transaction_amount,
-                      owner_first_name:
-                        pago.body.additional_info.payer.first_name,
-                      owner_surname: pago.body.additional_info.payer.last_name,
-                    },
-                  });
-                }
+                // if (pago.body.status == "approved") {
+                //   await strapi.plugins["email"].services.email.send({
+                //     to: pago.body.payer.email,
+                //     from: "ugo@marcopolo.agency",
+                //     replyTo: "ugo@marcopolo.agency",
+                //     subject: "Tu estadia en House paradise fue confirmada!",
+                //     template_id: "d-34e858ea123b44b38e1a5682774c95e4",
+                //     dynamic_template_data: {
+                //       total_amount: pago.body.transaction_amount,
+                //       owner_first_name:
+                //         pago.body.additional_info.payer.first_name,
+                //       owner_surname: pago.body.additional_info.payer.last_name,
+                //     },
+                //   });
+                // }
               } catch (error) {
                 console.log("error reserve", error);
                 return { error: error };
