@@ -16,48 +16,39 @@ module.exports = {
         .get(ctx.query["data.id"])
         .then(async (pago) => {
           try {
-            entity = await strapi.services["hp-payments"].create({
-              payment_id: pago.body.id,
-              status: pago.body.status,
-              total_amount: pago.body.transaction_amount,
-              payment_type: "mp",
-              owner_name: pago.body.additional_info.payer.first_name,
-              owner_surname: pago.body.additional_info.payer.last_name,
-              owner_email: pago.body.payer.email,
-              reserves_hp: pago.body.metadata.reserve,
-            });
-            if (entity._id) {
-              try {
-                reserve = await strapi.query("reserves-hp").model.updateOne(
-                  {
-                    _id: pago.body.metadata.reserve,
-                  },
-                  {
-                    payment_id: pago.body.id,
-                    payment_status: pago.body.status,
-                  }
-                );
-                console.log("reserve", reserve);
-                if (pago.body.status == "approved") {
-                  await strapi.plugins["email"].services.email.send({
-                    to: "martin.miauro@gmail.com", //pago.body.payer.email
-                    from: "ugo@marcopolo.agency",
-                    replyTo: "ugo@marcopolo.agency",
-                    subject: "Tu estadia en House paradise fue confirmada!",
-                    template_id: "d-34e858ea123b44b38e1a5682774c95e4",
-                    dynamic_template_data: {
-                      total_amount: pago.body.transaction_amount,
-                      owner_first_name:
-                        pago.body.additional_info.payer.first_name,
-                      owner_surname: pago.body.additional_info.payer.last_name,
-                    },
-                  });
-                }
-              } catch (error) {
-                console.log("error reserve", error);
-                return { error: error };
+            entity = await strapi.services["hp-payments"].updateOne(
+              { payment_id: pago.body.id },
+              {
+                status: pago.body.status,
+                total_amount: pago.body.transaction_amount,
+                payment_type: "mp",
+                owner_name: pago.body.additional_info.payer.first_name,
+                owner_surname: pago.body.additional_info.payer.last_name,
+                owner_email: pago.body.payer.email,
+                reserves_hp: pago.body.metadata.reserve,
+              },
+              {
+                upsert: true,
               }
-            }
+            );
+            console.log("entity", entity);
+            // if (entity._id) {
+            //   try {
+            //     reserve = await strapi.query("reserves-hp").model.updateOne(
+            //       {
+            //         _id: pago.body.metadata.reserve,
+            //       },
+            //       {
+            //         payment_id: pago.body.id,
+            //         payment_status: pago.body.status,
+            //       }
+            //     );
+
+            //   } catch (error) {
+            //     console.log("error reserve", error);
+            //     return { error: error };
+            //   }
+            // }
           } catch (error) {
             console.log("error", error);
             return { error: error };
