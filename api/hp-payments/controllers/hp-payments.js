@@ -16,7 +16,7 @@ module.exports = {
         .get(ctx.query["data.id"])
         .then(async (pago) => {
           try {
-            entity = await strapi.services["hp-payments"].update(
+            entity = await strapi.query("hp-payments").model.updateOne(
               { payment_id: pago.body.id },
               {
                 status: pago.body.status,
