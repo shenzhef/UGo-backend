@@ -38,18 +38,22 @@ module.exports = {
       console.log("entity", entity);
 
       if (status == "approved") {
-        await strapi.plugins["email"].services.email.send({
-          to: "martin.miauro@gmail.com", //pago.body.payer.email
-          from: "ugo@marcopolo.agency",
-          replyTo: "ugo@marcopolo.agency",
-          subject: "Tu estadia en House paradise fue confirmada!",
-          template_id: "d-34e858ea123b44b38e1a5682774c95e4",
-          dynamic_template_data: {
-            total_amount: total_amount,
-            owner_first_name: owner_name,
-            owner_email: owner_surname,
-          },
-        });
+        try {
+          await strapi.plugins["email"].services.email.send({
+            to: "martin.miauro@gmail.com", //pago.body.payer.email
+            from: "ugo@marcopolo.agency",
+            replyTo: "ugo@marcopolo.agency",
+            subject: "Tu estadia en House paradise fue confirmada!",
+            template_id: "d-34e858ea123b44b38e1a5682774c95e4",
+            dynamic_template_data: {
+              total_amount: total_amount,
+              owner_first_name: owner_name,
+              owner_email: owner_surname,
+            },
+          });
+        } catch (error) {
+          console.log("error emaik", error);
+        }
       }
     },
   },
