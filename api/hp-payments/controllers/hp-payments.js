@@ -37,6 +37,31 @@ module.exports = {
                     payment_status: pago.body.status,
                   }
                 );
+
+                if (pago.body.status == "accepted") {
+                  const settings = await pluginStore
+                    .get({ key: "email" })
+                    .then(
+                      (storeEmail) => storeEmail["email_confirmation"].options
+                    );
+                  console.log("settings", settings);
+                  await strapi.plugins["email"].services.email.send({
+                    to: pago.body.payer.email,
+                    from:
+                      settings.from.email && settings.from.name
+                        ? `${settings.from.name} <${settings.from.email}>`
+                        : undefined,
+                    replyTo: settings.response_email,
+                    subject: settings.object,
+                    template_id: "d-34e858ea123b44b38e1a5682774c95e4",
+                    dynamic_template_data: {
+                      total_amount: pago.body.transaction_amount,
+                      owner_first_name:
+                        pago.body.additional_info.payer.first_name,
+                      owner_surname: pago.body.additional_info.payer.last_name,
+                    },
+                  });
+                }
               } catch (error) {
                 console.log("error reserve", error);
                 return { error: error };
@@ -55,14 +80,9 @@ module.exports = {
     return responseMP;
   },
   async backmp(ctx) {
-    // console.log("entra?");
-    console.log("backmp", ctx.query);
-
     let mercadoPagoresponse;
     if (ctx.query.payment_id !== "null") {
       mercadoPagoresponse = await mercadopago.payment.get(ctx.query.payment_id);
-      console.log(`https://ugo.com.ar?payment_id=${ctx.query.payment_id}
-      &status=${ctx.query.status}&total_amount=${mercadoPagoresponse.body.transaction_amount}&reserve=${mercadoPagoresponse.body.metadata.reserve}`);
       ctx.redirect(
         `https://ugo.com.ar?payment_id=${ctx.query.payment_id}
         &status=${ctx.query.status}&total_amount=${mercadoPagoresponse.body.transaction_amount}&reserve=${mercadoPagoresponse.body.metadata.reserve}`
