@@ -28,7 +28,7 @@ module.exports = {
             });
             if (entity._id) {
               try {
-                reserve = await strapi.query("reserves-hp").model.update(
+                reserve = await strapi.query("reserves-hp").model.updateOne(
                   {
                     _id: pago.body.metadata.reserve,
                   },
@@ -37,22 +37,22 @@ module.exports = {
                     payment_status: pago.body.status,
                   }
                 );
-
-                // if (pago.body.status == "approved") {
-                //   await strapi.plugins["email"].services.email.send({
-                //     to: pago.body.payer.email,
-                //     from: "ugo@marcopolo.agency",
-                //     replyTo: "ugo@marcopolo.agency",
-                //     subject: "Tu estadia en House paradise fue confirmada!",
-                //     template_id: "d-34e858ea123b44b38e1a5682774c95e4",
-                //     dynamic_template_data: {
-                //       total_amount: pago.body.transaction_amount,
-                //       owner_first_name:
-                //         pago.body.additional_info.payer.first_name,
-                //       owner_surname: pago.body.additional_info.payer.last_name,
-                //     },
-                //   });
-                // }
+                console.log("reserve", reserve);
+                if (pago.body.status == "approved") {
+                  await strapi.plugins["email"].services.email.send({
+                    to: "martin.miauro@gmail.com", //pago.body.payer.email
+                    from: "ugo@marcopolo.agency",
+                    replyTo: "ugo@marcopolo.agency",
+                    subject: "Tu estadia en House paradise fue confirmada!",
+                    template_id: "d-34e858ea123b44b38e1a5682774c95e4",
+                    dynamic_template_data: {
+                      total_amount: pago.body.transaction_amount,
+                      owner_first_name:
+                        pago.body.additional_info.payer.first_name,
+                      owner_surname: pago.body.additional_info.payer.last_name,
+                    },
+                  });
+                }
               } catch (error) {
                 console.log("error reserve", error);
                 return { error: error };
