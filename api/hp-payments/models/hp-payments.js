@@ -17,6 +17,7 @@ module.exports = {
         owner_email,
         reserves_hp,
       } = result;
+      console.log("result", result);
 
       let entity;
       if (total_amount && payment_id) {
@@ -28,6 +29,8 @@ module.exports = {
             {
               payment_id: payment_id,
               payment_status: status,
+              hp_payment: result._id,
+              payment_type: "mp",
             }
           );
         }
