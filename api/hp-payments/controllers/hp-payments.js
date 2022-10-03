@@ -39,18 +39,9 @@ module.exports = {
                 );
 
                 if (pago.body.status == "approved") {
-                  const settings = await pluginStore
-                    .get({ key: "email" })
-                    .then(
-                      (storeEmail) => storeEmail["email_confirmation"].options
-                    );
-                  console.log("settings", settings);
                   await strapi.plugins["email"].services.email.send({
                     to: pago.body.payer.email,
-                    from:
-                      settings.from.email && settings.from.name
-                        ? `${settings.from.name} <${settings.from.email}>`
-                        : undefined,
+                    from: "ugo@marcopolo.agency",
                     replyTo: settings.response_email,
                     subject: settings.object,
                     template_id: "d-34e858ea123b44b38e1a5682774c95e4",
