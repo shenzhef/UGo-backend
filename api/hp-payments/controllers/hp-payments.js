@@ -38,7 +38,7 @@ module.exports = {
                   }
                 );
 
-                if (pago.body.status == "accepted") {
+                if (pago.body.status == "approved") {
                   const settings = await pluginStore
                     .get({ key: "email" })
                     .then(
