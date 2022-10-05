@@ -8,6 +8,7 @@
 module.exports = {
   lifecycles: {
     async afterCreate(result) {
+      console.log("ENTRA???????");
       const {
         total_amount,
         payment_id,
@@ -19,6 +20,7 @@ module.exports = {
       } = result;
 
       let entity;
+
       if (total_amount && payment_id) {
         if (status == "approved") {
           entity = await strapi.query("reserves-hp").model.updateOne(
@@ -35,7 +37,6 @@ module.exports = {
           );
         }
       }
-      console.log("entity reserve", result);
 
       if (status == "approved") {
         try {

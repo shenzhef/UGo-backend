@@ -14,12 +14,10 @@ module.exports = {
       responseMP = mercadopago.payment
         .get(ctx.query["data.id"])
         .then(async (pago) => {
-          console.log("log", pago.body);
           try {
             let findExist = await strapi
               .query("hp-payments")
               .model.findOne({ payment_id: pago.body.id });
-            console.log("findExist", findExist);
             if (findExist) {
               return responseMP;
             } else {
@@ -36,7 +34,7 @@ module.exports = {
                   // owner_dni:,
                   reserves_hp: pago.body.metadata.reserve,
                 });
-              console.log("createPayment", createPayment);
+              console.log("createdPayment");
             }
           } catch (error) {
             console.log("error", error);
