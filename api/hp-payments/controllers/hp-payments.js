@@ -20,7 +20,7 @@ module.exports = {
               .query("hp-payments")
               .model.findOne({ payment_id: pago.body.id });
             console.log("findExist", findExist);
-            if (findExist._id) {
+            if (findExist) {
               return responseMP;
             } else {
               let createPayment = await strapi
