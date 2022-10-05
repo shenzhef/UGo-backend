@@ -15,6 +15,7 @@ module.exports = {
       responseMP = mercadopago.payment
         .get(ctx.query["data.id"])
         .then(async (pago) => {
+          console.log("log", pago.body);
           try {
             entity = await strapi.query("hp-payments").model.updateOne(
               { payment_id: pago.body.id },
@@ -25,13 +26,13 @@ module.exports = {
                 owner_name: pago.body.additional_info.payer.first_name,
                 owner_surname: pago.body.additional_info.payer.last_name,
                 owner_email: pago.body.payer.email,
+                // owner_dni:,
                 reserves_hp: pago.body.metadata.reserve,
               },
               {
                 upsert: true,
               }
             );
-            console.log("entity", entity);
             // if (entity._id) {
             //   try {
             //     reserve = await strapi.query("reserves-hp").model.updateOne(

@@ -74,8 +74,16 @@
       "type": "integer"
     },
     "hp_payment": {
-      "via": "reserves_hp",
-      "model": "hp-payments"
+      "model": "hp-payments",
+      "via": "reserves_hp"
+    },
+    "aob_purchased": {
+      "type": "enumeration",
+      "enum": [
+        "full",
+        "anticipo",
+        "consulta"
+      ]
     }
   }
 }

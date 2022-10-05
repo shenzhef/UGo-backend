@@ -30,14 +30,17 @@ module.exports = {
               payment_status: status,
               hp_payment: result._id,
               payment_type: "mp",
+              aob_purchased: "full",
             }
           );
         }
       }
-      console.log("entity reserve", entity);
+      console.log("entity reserve", result);
 
       if (status == "approved") {
         try {
+          console.log("ENVIA EMAIL");
+
           await strapi.plugins["email"].services.email.send({
             to: owner_email,
             from: "ugo@marcopolo.agency",
@@ -49,12 +52,13 @@ module.exports = {
               owner_first_name: owner_name,
               owner_surname: owner_surname,
               owner_phone: result.reserves_hp.owner_phone,
+              owner_email: result.reserves_hp.owner_email,
+              owner_dni: result.reserves_hp.dni,
               aob_date_start: result.reserves_hp.aob_date_start,
               aob_date_end: result.reserves_hp.aob_date_end,
               dog_age: result.reserves_hp.dog_age,
               dog_name: result.reserves_hp.dog_name,
               dog_raza: result.reserves_hp.dog_raza,
-              owner_dni: result.reserves_hp.dni,
             },
           });
         } catch (error) {
