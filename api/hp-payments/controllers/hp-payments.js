@@ -7,7 +7,6 @@ const URL = strapi.config.server.url;
 
 module.exports = {
   async webhook(ctx) {
-    let entity;
     let reserve;
     let responseMP;
     console.log("ctx.query", ctx.query);
@@ -17,39 +16,28 @@ module.exports = {
         .then(async (pago) => {
           console.log("log", pago.body);
           try {
-            entity = await strapi.query("hp-payments").model.updateOne(
-              { payment_id: pago.body.id },
-              {
-                status: pago.body.status,
-                total_amount: pago.body.transaction_amount,
-                payment_type: "mp",
-                owner_name: pago.body.additional_info.payer.first_name,
-                owner_surname: pago.body.additional_info.payer.last_name,
-                owner_email: pago.body.payer.email,
-                // owner_dni:,
-                reserves_hp: pago.body.metadata.reserve,
-              },
-              {
-                upsert: true,
-              }
-            );
-            // if (entity._id) {
-            //   try {
-            //     reserve = await strapi.query("reserves-hp").model.updateOne(
-            //       {
-            //         _id: pago.body.metadata.reserve,
-            //       },
-            //       {
-            //         payment_id: pago.body.id,
-            //         payment_status: pago.body.status,
-            //       }
-            //     );
-
-            //   } catch (error) {
-            //     console.log("error reserve", error);
-            //     return { error: error };
-            //   }
-            // }
+            let findExist = await strapi
+              .query("hp-payments")
+              .model.findOne({ payment_id: pago.body.id });
+            console.log("findExist", findExist);
+            if (findExist._id) {
+              return responseMP;
+            } else {
+              let createPayment = await strapi
+                .query("hp-payments")
+                .model.create({
+                  payment_id: pago.body.id,
+                  status: pago.body.status,
+                  total_amount: pago.body.transaction_amount,
+                  payment_type: "mp",
+                  owner_name: pago.body.additional_info.payer.first_name,
+                  owner_surname: pago.body.additional_info.payer.last_name,
+                  owner_email: pago.body.payer.email,
+                  // owner_dni:,
+                  reserves_hp: pago.body.metadata.reserve,
+                });
+              console.log("createPayment", createPayment);
+            }
           } catch (error) {
             console.log("error", error);
             return { error: error };
