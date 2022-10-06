@@ -43,7 +43,7 @@ module.exports = {
           console.log("ENVIA EMAIL");
 
           await strapi.plugins["email"].services.email.send({
-            to: owner_email,
+            to: result.reserves_hp.owner_email,
             from: "ugo@marcopolo.agency",
             replyTo: "ugo@marcopolo.agency",
             subject: "Tu estadia en House paradise fue confirmada!",

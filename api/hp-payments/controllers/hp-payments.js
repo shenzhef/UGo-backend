@@ -14,6 +14,7 @@ module.exports = {
       responseMP = mercadopago.payment
         .get(ctx.query["data.id"])
         .then(async (pago) => {
+          console.log("pago", pago.body);
           try {
             let findExist = await strapi
               .query("hp-payments")
