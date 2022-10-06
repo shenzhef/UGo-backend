@@ -14,7 +14,6 @@ module.exports = {
       responseMP = mercadopago.payment
         .get(ctx.query["data.id"])
         .then(async (pago) => {
-          console.log("pago", pago.body);
           try {
             let findExist = await strapi
               .query("hp-payments")
@@ -39,6 +38,7 @@ module.exports = {
             console.log("error", error);
             return { error: error };
           }
+          return pago;
         })
         .catch((e) => {
           console.log("error", e);

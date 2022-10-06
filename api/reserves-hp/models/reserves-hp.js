@@ -1,4 +1,5 @@
 "use strict";
+const moment = require("moment");
 
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#lifecycle-hooks)
@@ -39,8 +40,8 @@ module.exports = {
               owner_phone: owner_phone,
               owner_email: owner_email,
               owner_dni: owner_dni,
-              aob_date_start: aob_date_start,
-              aob_date_end: aob_date_end,
+              aob_date_start: moment(aob_date_start).format("DD/MM/YYYY"),
+              aob_date_end: moment(aob_date_end).format("DD/MM/YYYY"),
               dog_age: dog_age,
               dog_name: dog_name,
               dog_raza: dog_raza,
