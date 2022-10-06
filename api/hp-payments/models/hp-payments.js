@@ -45,8 +45,8 @@ module.exports = {
 
           await strapi.plugins["email"].services.email.send({
             to: result.reserves_hp.owner_email,
-            from: "ugo@marcopolo.agency",
-            replyTo: "ugo@marcopolo.agency",
+            from: "houseparadise@ugo.com.ar",
+            replyTo: "houseparadise@ugo.com.ar",
             subject: "Tu estadia en House paradise fue confirmada!",
             template_id: "d-34e858ea123b44b38e1a5682774c95e4",
             dynamic_template_data: {

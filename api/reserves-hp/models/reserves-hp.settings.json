@@ -79,7 +79,14 @@
     },
     "aob_purchased": {
       "type": "enumeration",
-      "enum": ["full", "anticipo", "consulta"]
+      "enum": [
+        "full",
+        "anticipo",
+        "consulta"
+      ]
+    },
+    "status": {
+      "type": "string"
     }
   }
 }

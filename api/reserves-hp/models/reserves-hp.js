@@ -30,8 +30,8 @@ module.exports = {
 
           await strapi.plugins["email"].services.email.send({
             to: owner_email,
-            from: "ugo@marcopolo.agency",
-            replyTo: "ugo@marcopolo.agency",
+            from: "houseparadise@ugo.com.ar",
+            replyTo: "houseparadise@ugo.com.ar",
             template_id: "d-b1b607136aa842a986da67323054bd05",
             dynamic_template_data: {
               total_amount: aob_price,

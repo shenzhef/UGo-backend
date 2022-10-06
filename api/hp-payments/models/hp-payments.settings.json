@@ -23,7 +23,10 @@
     },
     "payment_type": {
       "type": "enumeration",
-      "enum": ["mp", "cash"]
+      "enum": [
+        "mp",
+        "cash"
+      ]
     },
     "owner_name": {
       "type": "string"
