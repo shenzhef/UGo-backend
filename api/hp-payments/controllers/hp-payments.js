@@ -21,19 +21,17 @@ module.exports = {
             if (findExist) {
               return responseMP;
             } else {
-              let createPayment = await strapi
-                .query("hp-payments")
-                .model.create({
-                  payment_id: pago.body.id,
-                  status: pago.body.status,
-                  total_amount: pago.body.transaction_amount,
-                  payment_type: "mp",
-                  owner_name: pago.body.additional_info.payer.first_name,
-                  owner_surname: pago.body.additional_info.payer.last_name,
-                  owner_email: pago.body.payer.email,
-                  // owner_dni:,
-                  reserves_hp: pago.body.metadata.reserve,
-                });
+              let createPayment = await strapi.services["hp-payments"].create({
+                payment_id: pago.body.id,
+                status: pago.body.status,
+                total_amount: pago.body.transaction_amount,
+                payment_type: "mp",
+                owner_name: pago.body.additional_info.payer.first_name,
+                owner_surname: pago.body.additional_info.payer.last_name,
+                owner_email: pago.body.payer.email,
+                // owner_dni:,
+                reserves_hp: pago.body.metadata.reserve,
+              });
               console.log("createdPayment");
             }
           } catch (error) {
