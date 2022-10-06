@@ -8,7 +8,7 @@
 module.exports = {
   lifecycles: {
     async afterCreate(result) {
-      console.log("ENTRA???????");
+      console.log("ENTRA???????", result);
       const {
         total_amount,
         payment_id,

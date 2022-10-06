@@ -31,8 +31,7 @@ module.exports = {
             to: owner_email,
             from: "ugo@marcopolo.agency",
             replyTo: "ugo@marcopolo.agency",
-            subject: "Tu presupuesto para House paradise fue enviado!",
-            template_id: "d-34e858ea123b44b38e1a5682774c95e4",
+            template_id: "d-b1b607136aa842a986da67323054bd05",
             dynamic_template_data: {
               total_amount: aob_price,
               owner_first_name: owner_name,

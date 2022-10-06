@@ -8,7 +8,7 @@
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
@@ -79,11 +79,7 @@
     },
     "aob_purchased": {
       "type": "enumeration",
-      "enum": [
-        "full",
-        "anticipo",
-        "consulta"
-      ]
+      "enum": ["full", "anticipo", "consulta"]
     }
   }
 }
