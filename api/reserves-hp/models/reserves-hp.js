@@ -26,8 +26,6 @@ module.exports = {
       } = result;
       if (aob_purchased == "consulta") {
         try {
-          console.log("ENVIA EMAIL");
-
           await strapi.plugins["email"].services.email.send({
             to: owner_email,
             from: "houseparadise@ugo.com.ar",
