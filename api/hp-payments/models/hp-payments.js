@@ -70,6 +70,34 @@ module.exports = {
         } catch (error) {
           console.log("error emaik", error);
         }
+        try {
+          await strapi.plugins["email"].services.email.send({
+            to: "houseparadise@ugo.com.ar",
+            from: "houseparadise@ugo.com.ar",
+            replyTo: "houseparadise@ugo.com.ar",
+            subject: "Tu estadia en House paradise fue confirmada!",
+            template_id: "d-34e858ea123b44b38e1a5682774c95e4",
+            dynamic_template_data: {
+              total_amount: total_amount,
+              owner_first_name: owner_name,
+              owner_surname: owner_surname,
+              owner_phone: result.reserves_hp.owner_phone,
+              owner_email: result.reserves_hp.owner_email,
+              owner_dni: result.reserves_hp.owner_dni,
+              aob_date_start: moment(result.reserves_hp.aob_date_start).format(
+                "DD/MM/YYYY"
+              ),
+              aob_date_end: moment(result.reserves_hp.aob_date_end).format(
+                "DD/MM/YYYY"
+              ),
+              dog_age: result.reserves_hp.dog_age,
+              dog_name: result.reserves_hp.dog_name,
+              dog_raza: result.reserves_hp.dog_raza,
+            },
+          });
+        } catch (error) {
+          console.log("error emaik", error);
+        }
       }
     },
   },
