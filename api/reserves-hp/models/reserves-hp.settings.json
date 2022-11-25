@@ -36,10 +36,6 @@
     "dog_social": {
       "type": "string"
     },
-    "dog_age": {
-      "type": "integer",
-      "max": 30
-    },
     "dog_name": {
       "type": "string"
     },
@@ -86,6 +82,15 @@
       ]
     },
     "status": {
+      "type": "string"
+    },
+    "dog_age": {
+      "type": "string"
+    },
+    "date_celo": {
+      "type": "date"
+    },
+    "bite_dogs": {
       "type": "string"
     }
   }
