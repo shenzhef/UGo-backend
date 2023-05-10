@@ -90,7 +90,22 @@
     "date_celo": {
       "type": "date"
     },
-    "bite_dogs": {
+    "dog_swim": {
+      "type": "boolean"
+    },
+    "dog_food": {
+      "type": "string"
+    },
+    "dog_cirugia": {
+      "type": "string"
+    },
+    "dog_alergia": {
+      "type": "string"
+    },
+    "comments": {
+      "type": "string"
+    },
+    "dog_bite": {
       "type": "string"
     }
   }
