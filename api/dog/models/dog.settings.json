@@ -47,9 +47,9 @@
       "type": "string"
     },
     "owner": {
-      "via": "dogs",
       "plugin": "users-permissions",
-      "model": "user"
+      "model": "user",
+      "via": "dogs"
     },
     "size": {
       "type": "string"
@@ -79,6 +79,15 @@
         "published"
       ],
       "default": "published"
+    },
+    "reserves_hps": {
+      "collection": "reserves-hp",
+      "via": "dog"
+    },
+    "hp_questions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "config-dogs.questions"
     }
   }
 }

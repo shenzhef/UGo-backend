@@ -31,12 +31,6 @@
       "type": "component",
       "repeatable": true,
       "component": "inputs.question"
-    },
-    "Comentarios": {
-      "type": "string"
-    },
-    "Comida": {
-      "type": "string"
     }
   }
 }

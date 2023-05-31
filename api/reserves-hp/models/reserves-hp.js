@@ -48,29 +48,6 @@ module.exports = {
         } catch (error) {
           console.log("error emaik", error);
         }
-        try {
-          await strapi.plugins["email"].services.email.send({
-            to: "houseparadise@ugo.com.ar",
-            from: "houseparadise@ugo.com.ar",
-            replyTo: "houseparadise@ugo.com.ar",
-            template_id: "d-b1b607136aa842a986da67323054bd05",
-            dynamic_template_data: {
-              total_amount: aob_price,
-              owner_first_name: owner_name,
-              owner_surname: owner_surname,
-              owner_phone: owner_phone,
-              owner_email: owner_email,
-              owner_dni: owner_dni,
-              aob_date_start: moment(aob_date_start).format("DD/MM/YYYY"),
-              aob_date_end: moment(aob_date_end).format("DD/MM/YYYY"),
-              dog_age: dog_age,
-              dog_name: dog_name,
-              dog_raza: dog_raza,
-            },
-          });
-        } catch (error) {
-          console.log("error emaik", error);
-        }
       }
     },
   },
