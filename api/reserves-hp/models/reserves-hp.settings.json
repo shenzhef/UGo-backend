@@ -36,10 +36,6 @@
     "dog_social": {
       "type": "string"
     },
-    "dog_age": {
-      "type": "integer",
-      "max": 30
-    },
     "dog_name": {
       "type": "string"
     },
@@ -74,8 +70,8 @@
       "type": "integer"
     },
     "hp_payment": {
-      "via": "reserves_hp",
-      "model": "hp-payments"
+      "model": "hp-payments",
+      "via": "reserves_hp"
     },
     "aob_purchased": {
       "type": "enumeration",
@@ -88,14 +84,29 @@
     "status": {
       "type": "string"
     },
-    "owner": {
-      "via": "reserves_hps",
-      "plugin": "users-permissions",
-      "model": "user"
+    "dog_age": {
+      "type": "string"
     },
-    "dog": {
-      "via": "reserves_hps",
-      "model": "dog"
+    "date_celo": {
+      "type": "date"
+    },
+    "dog_swim": {
+      "type": "string"
+    },
+    "dog_food": {
+      "type": "string"
+    },
+    "dog_cirugia": {
+      "type": "string"
+    },
+    "dog_alergia": {
+      "type": "string"
+    },
+    "comments": {
+      "type": "string"
+    },
+    "dog_bite": {
+      "type": "string"
     }
   }
 }
