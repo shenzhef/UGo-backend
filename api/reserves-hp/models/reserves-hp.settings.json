@@ -91,7 +91,7 @@
       "type": "date"
     },
     "dog_swim": {
-      "type": "string"
+      "type": "boolean"
     },
     "dog_food": {
       "type": "string"
