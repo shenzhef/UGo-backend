@@ -74,8 +74,8 @@
       "type": "integer"
     },
     "hp_payment": {
-      "model": "hp-payments",
-      "via": "reserves_hp"
+      "via": "reserves_hp",
+      "model": "hp-payments"
     },
     "aob_purchased": {
       "type": "enumeration",
@@ -87,6 +87,15 @@
     },
     "status": {
       "type": "string"
+    },
+    "owner": {
+      "via": "reserves_hps",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "dog": {
+      "via": "reserves_hps",
+      "model": "dog"
     }
   }
 }

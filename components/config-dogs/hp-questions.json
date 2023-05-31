@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_config_dogs_hp_questions",
+  "info": {
+    "name": "HPQuestions",
+    "icon": "address-card"
+  },
+  "options": {},
+  "attributes": {
+    "HPQuestions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "config-dogs.questions"
+    }
+  }
+}

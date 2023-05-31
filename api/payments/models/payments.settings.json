@@ -16,8 +16,8 @@
       "type": "string"
     },
     "transaction": {
-      "model": "transaction",
-      "via": "payment"
+      "via": "payment",
+      "model": "transaction"
     },
     "total_amount": {
       "type": "decimal"

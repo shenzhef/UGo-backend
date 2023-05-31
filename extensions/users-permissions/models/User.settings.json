@@ -99,8 +99,8 @@
       "component": "horarios.horario"
     },
     "dogs": {
-      "collection": "dog",
-      "via": "owner"
+      "via": "owner",
+      "collection": "dog"
     },
     "verified": {
       "type": "boolean"
@@ -123,6 +123,10 @@
     },
     "last_name": {
       "type": "string"
+    },
+    "reserves_hps": {
+      "collection": "reserves-hp",
+      "via": "owner"
     }
   }
 }

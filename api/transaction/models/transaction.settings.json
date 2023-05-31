@@ -47,8 +47,11 @@
       "type": "string"
     },
     "payment": {
-      "via": "transaction",
-      "model": "payments"
+      "model": "payments",
+      "via": "transaction"
+    },
+    "reserves_hp": {
+      "model": "reserves-hp"
     }
   }
 }

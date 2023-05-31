@@ -28,21 +28,13 @@
         "cash"
       ]
     },
-    "owner_name": {
-      "type": "string"
-    },
-    "owner_email": {
-      "type": "string"
-    },
-    "owner_dni": {
-      "type": "string"
-    },
-    "owner_surname": {
-      "type": "string"
-    },
     "reserves_hp": {
-      "via": "hp_payment",
-      "model": "reserves-hp"
+      "model": "reserves-hp",
+      "via": "hp_payment"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }
