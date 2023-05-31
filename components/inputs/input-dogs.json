@@ -16,7 +16,8 @@
         "text",
         "number",
         "select",
-        "raza"
+        "raza",
+        "date"
       ]
     },
     "selectOptions": {

@@ -2,7 +2,8 @@
   "collectionName": "components_inputs_health_dogs",
   "info": {
     "name": "healthDogs",
-    "icon": "arrow-up"
+    "icon": "arrow-up",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,6 +12,9 @@
     },
     "value": {
       "type": "boolean"
+    },
+    "value_string": {
+      "type": "string"
     }
   }
 }
