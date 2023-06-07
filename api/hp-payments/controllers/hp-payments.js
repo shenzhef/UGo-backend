@@ -91,7 +91,7 @@ module.exports = {
         email: body.owner_email,
         surname: body.owner_surname,
       },
-      notification_url: URL + "/hp-payments/webook",
+      notification_url: URL + "/hp-payments/webhook",
       auto_return: "approved",
     };
     const result = mercadopago.preferences
