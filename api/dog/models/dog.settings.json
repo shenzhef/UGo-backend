@@ -81,8 +81,8 @@
       "default": "published"
     },
     "reserves_hps": {
-      "collection": "reserves-hp",
-      "via": "dog"
+      "via": "dog",
+      "collection": "reserves-hp"
     },
     "hp_questions": {
       "type": "component",

@@ -31,7 +31,7 @@ module.exports = {
             {
               payment_id: payment_id,
               payment_status: status,
-              hp_payment: result._id,
+              hp_payment: [result._id], //aca ahora es hp_payments y es un array
               payment_type: "mp",
               aob_purchased: "full",
             }

@@ -73,9 +73,9 @@
     "payment_id": {
       "type": "integer"
     },
-    "hp_payment": {
-      "via": "reserves_hp",
-      "model": "hp-payments"
+    "hp_payments": {
+      "collection": "hp-payments",
+      "via": "reserves_hp"
     },
     "aob_purchased": {
       "type": "enumeration",
@@ -89,13 +89,13 @@
       "type": "string"
     },
     "owner": {
-      "via": "reserves_hps",
       "plugin": "users-permissions",
-      "model": "user"
+      "model": "user",
+      "via": "reserves_hps"
     },
     "dog": {
-      "via": "reserves_hps",
-      "model": "dog"
+      "model": "dog",
+      "via": "reserves_hps"
     }
   }
 }

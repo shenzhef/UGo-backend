@@ -26,9 +26,11 @@ module.exports = {
                 status: pago.body.status,
                 total_amount: pago.body.transaction_amount,
                 payment_type: "mp",
-                owner_name: pago.body.additional_info.payer.first_name,
-                owner_surname: pago.body.additional_info.payer.last_name,
-                owner_email: pago.body.payer.email,
+                user: pago.body.metadata.user_id,
+                //aca deeberia de pasarme el user_id asi lo linkeo
+                // owner_name: pago.body.additional_info.payer.first_name,
+                // owner_surname: pago.body.additional_info.payer.last_name,
+                // owner_email: pago.body.payer.email,
                 // owner_dni:,
                 reserves_hp: pago.body.metadata.reserve,
               });
@@ -58,6 +60,7 @@ module.exports = {
     }
   },
   async createpreference(ctx) {
+    console.log("ctx", ctx);
     const { body } = ctx.request;
 
     let preference = {
@@ -81,6 +84,7 @@ module.exports = {
       },
       metadata: {
         reserve: body.reserve,
+        user_id: body.user_id,
       },
       payer: {
         name: body.owner_name,

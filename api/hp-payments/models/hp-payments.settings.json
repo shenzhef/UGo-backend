@@ -28,13 +28,13 @@
         "cash"
       ]
     },
-    "reserves_hp": {
-      "model": "reserves-hp",
-      "via": "hp_payment"
-    },
     "user": {
       "plugin": "users-permissions",
       "model": "user"
+    },
+    "reserves_hp": {
+      "via": "hp_payments",
+      "model": "reserves-hp"
     }
   }
 }

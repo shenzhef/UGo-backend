@@ -26,7 +26,6 @@ module.exports = {
         owner_phone,
         owner_email,
         owner_dni,
-
       } = result;
       if (aob_purchased == "consulta") {
         try {
@@ -47,9 +46,9 @@ module.exports = {
               dog_age: dog_age,
               dog_name: dog_name,
               dog_raza: dog_raza,
-              comments : dog_comments,
-              dog_aleria : dog_alergia,
-              dog_food : dog_food,
+              comments: dog_comments,
+              dog_aleria: dog_alergia,
+              dog_food: dog_food,
             },
           });
         } catch (error) {

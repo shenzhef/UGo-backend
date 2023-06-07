@@ -125,8 +125,8 @@
       "type": "string"
     },
     "reserves_hps": {
-      "collection": "reserves-hp",
-      "via": "owner"
+      "via": "owner",
+      "collection": "reserves-hp"
     }
   }
 }
