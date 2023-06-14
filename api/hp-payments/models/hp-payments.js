@@ -9,7 +9,6 @@ const moment = require("moment");
 module.exports = {
   lifecycles: {
     async afterCreate(result) {
-      console.log("ENTRA???????", result);
       const {
         total_amount,
         payment_id,
@@ -19,6 +18,7 @@ module.exports = {
         owner_email,
         reserves_hp,
       } = result;
+      console.log("after create HP", result);
 
       let entity;
 
@@ -44,7 +44,7 @@ module.exports = {
           console.log("ENVIA EMAIL");
 
           await strapi.plugins["email"].services.email.send({
-            to: result.reserves_hp.owner_email,
+            to: owner_email,
             from: "houseparadise@ugo.com.ar",
             replyTo: "houseparadise@ugo.com.ar",
             subject: "Tu estadia en House paradise fue confirmada!",
@@ -54,7 +54,7 @@ module.exports = {
               owner_first_name: owner_name,
               owner_surname: owner_surname,
               owner_phone: result.reserves_hp.owner_phone,
-              owner_email: result.reserves_hp.owner_email,
+              owner_email: owner_email,
               owner_dni: result.reserves_hp.owner_dni,
               aob_date_start: moment(result.reserves_hp.aob_date_start).format(
                 "DD/MM/YYYY"

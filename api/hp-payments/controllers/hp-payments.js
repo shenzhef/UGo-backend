@@ -28,10 +28,6 @@ module.exports = {
                 payment_type: "mp",
                 user: pago.body.metadata.user_id,
                 //aca deeberia de pasarme el user_id asi lo linkeo
-                // owner_name: pago.body.additional_info.payer.first_name,
-                // owner_surname: pago.body.additional_info.payer.last_name,
-                // owner_email: pago.body.payer.email,
-                // owner_dni:,
                 reserves_hp: pago.body.metadata.reserve,
               });
               console.log("createdPayment");
