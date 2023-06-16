@@ -96,6 +96,9 @@
     "dog": {
       "model": "dog",
       "via": "reserves_hps"
+    },
+    "owner_address": {
+      "type": "string"
     }
   }
 }
