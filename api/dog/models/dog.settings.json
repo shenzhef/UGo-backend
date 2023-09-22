@@ -17,7 +17,7 @@
       "required": true
     },
     "age": {
-      "type": "integer"
+      "type": "string"
     },
     "avatar": {
       "model": "file",
