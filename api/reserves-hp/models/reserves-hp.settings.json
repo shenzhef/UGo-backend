@@ -37,8 +37,7 @@
       "type": "string"
     },
     "dog_age": {
-      "type": "integer",
-      "max": 30
+      "type": "string"
     },
     "dog_name": {
       "type": "string"
@@ -98,6 +97,12 @@
       "via": "reserves_hps"
     },
     "owner_address": {
+      "type": "string"
+    },
+    "dog_food": {
+      "type": "string"
+    },
+    "dog_comments": {
       "type": "string"
     }
   }
