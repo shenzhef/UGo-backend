@@ -104,6 +104,18 @@
     },
     "dog_comments": {
       "type": "string"
+    },
+    "dog_bite": {
+      "type": "string"
+    },
+    "dog_swim": {
+      "type": "string"
+    },
+    "dog_alergia": {
+      "type": "string"
+    },
+    "dog_cirugia": {
+      "type": "string"
     }
   }
 }
