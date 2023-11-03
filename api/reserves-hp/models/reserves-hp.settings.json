@@ -86,6 +86,34 @@
     },
     "status": {
       "type": "string"
+    },
+    "dog": {
+      "model": "dog"
+    },
+    "owner": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "dog_bite": {
+      "type": "string"
+    },
+    "dog_swim": {
+      "type": "string"
+    },
+    "owner_address": {
+      "type": "string"
+    },
+    "dog_comments": {
+      "type": "string"
+    },
+    "dog_alergia": {
+      "type": "string"
+    },
+    "dog_cirugia": {
+      "type": "string"
+    },
+    "dog_food": {
+      "type": "string"
     }
   }
 }
