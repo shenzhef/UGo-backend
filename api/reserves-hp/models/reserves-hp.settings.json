@@ -99,6 +99,9 @@
     "owner_address": {
       "type": "string"
     },
+    "provincia": {
+      "type": "string"
+    },
     "dog_food": {
       "type": "string"
     },
