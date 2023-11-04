@@ -88,9 +88,9 @@
       "type": "string"
     },
     "owner": {
+      "via": "reserves_hps",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "reserves_hps"
+      "model": "user"
     },
     "dog": {
       "model": "dog",
