@@ -88,9 +88,9 @@
       "type": "string"
     },
     "owner": {
-      "via": "reserves_hps",
       "plugin": "users-permissions",
-      "model": "user"
+      "model": "user",
+      "via": "reserves_hps"
     },
     "dog": {
       "model": "dog",
@@ -119,6 +119,12 @@
     },
     "dog_cirugia": {
       "type": "string"
+    },
+    "discount_cupon": {
+      "type": "string"
+    },
+    "discount_amount": {
+      "type": "integer"
     }
   }
 }
