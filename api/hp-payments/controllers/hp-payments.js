@@ -1,10 +1,9 @@
 const { sanitizeEntity } = require("strapi-utils");
 const mercadopago = require("mercadopago");
 mercadopago.configure({
-   access_token: process.env.MP_ACCESS_TOKEN_HP,
+  access_token: process.env.MP_ACCESS_TOKEN_HP,
 });
 
-console.log(process.env.MP_ACCESS_TOKEN_HP);
 const URL = strapi.config.server.url;
 
 module.exports = {
