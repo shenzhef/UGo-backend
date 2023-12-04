@@ -1,7 +1,8 @@
 const { sanitizeEntity } = require("strapi-utils");
 const mercadopago = require("mercadopago");
 mercadopago.configure({
-  access_token: process.env.MP_ACCESS_TOKEN_HP,
+  access_token:
+    "APP_USR-6638539951842195-092815-6f9a0c5347040040cbfbdbde15590126-102188289",
 });
 const URL = strapi.config.server.url;
 
@@ -93,6 +94,7 @@ module.exports = {
     const result = mercadopago.preferences
       .create(preference)
       .then(function (response) {
+        console.log("res", response);
         return {
           id: response.body.id,
           init_point: response.body.init_point,

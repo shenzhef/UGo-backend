@@ -2853,7 +2853,7 @@ bl@^4.0.3:
 bluebird@3.4.7:
   version "3.4.7"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.4.7.tgz#f72d760be09b7f76d08ed8fae98b289a8d05fab3"
-  integrity sha1-9y12C+Cbf3bQjtj66Ysomo0F+rM=
+  integrity sha512-iD3898SR7sWVRHbiQv+sHUtHnMvC1o3nW5rAcqnq3uOn07DSAppZYUkIGslDz6gXC7HfunPe7YVBgoEJASPcHA==
 
 bluebird@3.5.1:
   version "3.5.1"
@@ -4025,6 +4025,11 @@ date-fns@^2.19.0:
   version "2.28.0"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.28.0.tgz#9570d656f5fc13143e50c975a3b6bbeb46cd08b2"
   integrity sha512-8d35hViGYx/QH0icHYCeLmsLmMUheMmTyV9Fcm6gvNwdw31yXXH+O85sOBJ+OLnLQMKZowvpKb6FgMIQjcpvQw==
+
+dayjs@^1.11.7:
+  version "1.11.10"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.10.tgz#68acea85317a6e164457d6d6947564029a6a16a0"
+  integrity sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==
 
 debug@*, debug@4, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.2, debug@~4.3.1, debug@~4.3.2:
   version "4.3.3"
@@ -7191,12 +7196,12 @@ lodash-es@^4.17.11, lodash-es@^4.17.21:
 lodash.assign@^4.0.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/lodash.assign/-/lodash.assign-4.2.0.tgz#0d99f3ccd7a6d261d19bdaeb9245005d285808e7"
-  integrity sha1-DZnzzNem0mHRm9rrkkUAXShYCOc=
+  integrity sha512-hFuH8TY+Yji7Eja3mGiuAxBqLagejScbG8GbG0j6o9vzn0YL14My+ktnqtZgFTosKymC9/44wP6s7xyuLfnClw==
 
 lodash.clonedeep@^4.0.1:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
-  integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
+  integrity sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==
 
 lodash.debounce@^4.0.8:
   version "4.0.8"
@@ -7521,14 +7526,14 @@ memory-pager@^1.0.2:
   resolved "https://registry.yarnpkg.com/memory-pager/-/memory-pager-1.5.0.tgz#d8751655d22d384682741c972f2c3d6dfa3e66b5"
   integrity sha512-ZS4Bp4r/Zoeq6+NLJpP+0Zzm0pR8whtGPf1XExKLJBAczGMnSi3It14OiNCStjQjM6NU1okjQGSxgEZN8eBYKg==
 
-mercadopago@^1.5.8:
-  version "1.5.12"
-  resolved "https://registry.yarnpkg.com/mercadopago/-/mercadopago-1.5.12.tgz#9c89507d083c82b230532ff3f6b82299af88c762"
-  integrity sha512-B0sUPjw9JiW2WJI3mUJFPO0d9Jrx1tkbeMhRHbgICC4gIAYN53yz5qkBP4BffBDUX73HchjSct9IbfaFSU130A==
+mercadopago@1.5.17:
+  version "1.5.17"
+  resolved "https://registry.yarnpkg.com/mercadopago/-/mercadopago-1.5.17.tgz#a73a0c2b4e92a561c5d20caa6608c02816155500"
+  integrity sha512-ghi5JS3MzblhuqgMZC5ge0q/FcjNnJjiZDWe33K29wrVb0E+rNeTU0ta/EODnXbD8zFVu2la0Hr0OMx38/PrWA==
   dependencies:
     ajv "^6.12.3"
     bluebird "3.4.7"
-    moment "^2.24.0"
+    dayjs "^1.11.7"
     request "^2.88.0"
     request-etag "2.0.3"
     uuid "3.0.1"
@@ -8920,7 +8925,7 @@ prr@~1.0.1:
 pseudomap@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/pseudomap/-/pseudomap-1.0.2.tgz#f052a28da70e618917ef0a8ac34c1ae5a68286b3"
-  integrity sha1-8FKijacOYYkX7wqKw0wa5aaChrM=
+  integrity sha512-b/YwNhb8lk1Zz2+bXXpS/LK9OisiZZ1SNsSLxN1x2OXVEhW2Ckr/7mWE5vrC1ZTiJlD9g19jWszTmJsB+oEpFQ==
 
 psl@^1.1.28:
   version "1.8.0"
@@ -9779,7 +9784,7 @@ request-compose@^2.1.4:
 request-etag@2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/request-etag/-/request-etag-2.0.3.tgz#13c9237617d6c589eb7185f6f450b8313068bc17"
-  integrity sha1-E8kjdhfWxYnrcYX29FC4MTBovBc=
+  integrity sha512-JC0yMkWzIKs25JgMcBL8p95RugnIo/fB0t+8XTaKNWDok5rt8/Tm7tbfQF5jCbEgxYdXF8ljK8UcFIfvUS0Q4A==
   dependencies:
     lodash.assign "^4.0.0"
     lodash.clonedeep "^4.0.1"
@@ -11977,7 +11982,7 @@ utils-merge@1.0.1:
 uuid@3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.0.1.tgz#6544bba2dfda8c1cf17e629a3a305e2bb1fee6c1"
-  integrity sha1-ZUS7ot/ajBzxfmKaOjBeK7H+5sE=
+  integrity sha512-tyhM7iisckwwmyHVFcjTzISz/R1ss/bRudNgHFYsgeu7j4JbhRvjE+Hbcpr9y5xh+b+HxeFjuToDT4i9kQNrtA==
 
 uuid@^3.1.0, uuid@^3.2.1, uuid@^3.3.2:
   version "3.4.0"
@@ -12402,7 +12407,7 @@ yallist@4.0.0, yallist@^4.0.0:
 yallist@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
-  integrity sha1-HBH5IY8HYImkfdUS+TxmmaaoHVI=
+  integrity sha512-ncTzHV7NvsQZkYe1DW7cbDLm0YpzHmZF5r/iyP3ZnQtMiJ+pjzisCiMNI+Sj+xQF5pXhSHxSB3uDbsBTzY/c2A==
 
 yallist@^3.0.2:
   version "3.1.1"
