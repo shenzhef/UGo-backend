@@ -45,6 +45,9 @@
     "dog_castrado": {
       "type": "string"
     },
+    "read_date": {
+      "type": "date"
+    },
     "date_celo": {
       "type": "string"
     },
