@@ -87,6 +87,8 @@
       "enum": [
         "full",
         "anticipo",
+        "retirar",
+        "enhp",
         "consulta"
       ]
     },
@@ -130,6 +132,12 @@
       "type": "string"
     },
     "discount_amount": {
+      "type": "integer"
+    },
+    "precio_noche": {
+      "type": "integer"
+    },
+    "tarifa_traslado": {
       "type": "integer"
     }
   }
